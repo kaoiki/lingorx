@@ -1,31 +1,23 @@
 <template>
   <header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md flex justify-between items-center px-gutter py-xs shadow-sm">
     <div class="flex items-center gap-xl">
-      <span class="flex items-center gap-sm font-headline-lg font-extrabold text-primary cursor-pointer text-[24px]">
+      <router-link to="/" class="flex items-center gap-sm font-headline-lg font-extrabold text-primary cursor-pointer text-[24px]">
         <span class="material-symbols-outlined text-primary translate-y-[1px]" style="font-size: 28px; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 28;">auto_stories</span>
         LingoRx
-      </span>
-      <nav class="hidden md:flex items-center gap-lg">
+      </router-link>
+      <nav ref="navRef" class="relative hidden md:flex items-center gap-lg">
         <router-link
-          to="/"
-          class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200 pb-1"
-          exact-active-class="text-primary font-bold border-b-2 border-primary"
-        >Dashboard</router-link>
-        <router-link
-          to="/courses"
-          class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200 pb-1"
-          active-class="text-primary font-bold border-b-2 border-primary"
-        >Courses</router-link>
-        <router-link
-          to="/achievements"
-          class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200 pb-1"
-          active-class="text-primary font-bold border-b-2 border-primary"
-        >Achievements</router-link>
-        <router-link
-          to="/community"
-          class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200 pb-1"
-          active-class="text-primary font-bold border-b-2 border-primary"
-        >Community</router-link>
+          v-for="item in navItems"
+          :key="item.to"
+          :ref="(el) => setLinkRef(item.to, el)"
+          :to="item.to"
+          class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200 pb-1 px-0"
+          @click="updateIndicator"
+        >{{ item.label }}</router-link>
+        <span
+          class="absolute bottom-0 left-0 h-[2px] bg-primary rounded-full transition-all duration-300 ease-in-out"
+          :style="indicatorStyle"
+        />
       </nav>
     </div>
     <div class="flex items-center gap-md">
@@ -43,7 +35,6 @@
           v-show="dropdownOpen"
           class="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-outline-variant py-2 z-50"
         >
-          <!-- Logged in state -->
           <div class="px-4 py-3 border-b border-outline-variant">
             <p class="font-headline-md text-sm font-bold text-on-surface">Alex Chen</p>
             <p class="text-on-surface-variant text-xs">alex@example.com</p>
@@ -86,7 +77,63 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, nextTick, watch } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+const navItems = [
+  { to: '/', label: 'Dashboard' },
+  { to: '/courses', label: 'Courses' },
+  { to: '/achievements', label: 'Achievements' },
+  { to: '/community', label: 'Community' },
+]
+
+const navRef = ref<HTMLElement | null>(null)
+const linkRefs = ref<Record<string, HTMLElement | null>>({})
+const indicatorLeft = ref(0)
+const indicatorWidth = ref(0)
+
+function setLinkRef(to: string, el: any) {
+  if (el) {
+    linkRefs.value[to] = el.$el || el
+  }
+}
+
+function updateIndicator() {
+  nextTick(() => {
+    const activeItem = navItems.find((item) => {
+      if (item.to === '/') return route.path === '/'
+      return route.path.startsWith(item.to)
+    })
+    if (!activeItem || !navRef.value) return
+
+    const linkEl = linkRefs.value[activeItem.to]
+    if (!linkEl) return
+
+    const navRect = navRef.value.getBoundingClientRect()
+    const linkRect = linkEl.getBoundingClientRect()
+
+    indicatorLeft.value = linkRect.left - navRect.left
+    indicatorWidth.value = linkRect.width
+  })
+}
+
+const indicatorStyle = computed(() => ({
+  transform: `translateX(${indicatorLeft.value}px)`,
+  width: `${indicatorWidth.value}px`,
+}))
+
+watch(() => route.path, updateIndicator)
+
+onMounted(() => {
+  updateIndicator()
+  document.addEventListener('click', closeDropdown)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', closeDropdown)
+})
 
 const dropdownOpen = ref(false)
 
@@ -100,12 +147,4 @@ function closeDropdown(e: MouseEvent) {
     dropdownOpen.value = false
   }
 }
-
-onMounted(() => {
-  document.addEventListener('click', closeDropdown)
-})
-
-onUnmounted(() => {
-  document.removeEventListener('click', closeDropdown)
-})
 </script>
