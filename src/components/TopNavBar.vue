@@ -6,22 +6,26 @@
         LingoRx
       </span>
       <nav class="hidden md:flex items-center gap-lg">
-        <a
-          class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md"
-          href="#"
-        >Dashboard</a>
-        <a
-          class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200"
-          href="#"
-        >Courses</a>
-        <a
-          class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200"
-          href="#"
-        >Achievements</a>
-        <a
-          class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200"
-          href="#"
-        >Community</a>
+        <router-link
+          to="/"
+          class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200 pb-1"
+          exact-active-class="text-primary font-bold border-b-2 border-primary"
+        >Dashboard</router-link>
+        <router-link
+          to="/courses"
+          class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200 pb-1"
+          active-class="text-primary font-bold border-b-2 border-primary"
+        >Courses</router-link>
+        <router-link
+          to="/achievements"
+          class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200 pb-1"
+          active-class="text-primary font-bold border-b-2 border-primary"
+        >Achievements</router-link>
+        <router-link
+          to="/community"
+          class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200 pb-1"
+          active-class="text-primary font-bold border-b-2 border-primary"
+        >Community</router-link>
       </nav>
     </div>
     <div class="flex items-center gap-md">

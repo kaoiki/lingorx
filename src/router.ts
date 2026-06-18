@@ -7,7 +7,10 @@ const router = createRouter({
       path: '/',
       component: () => import('./layouts/default.vue'),
       children: [
-        { path: '', name: 'dashboard', component: () => import('./pages/index.vue') }
+        { path: '', name: 'dashboard', component: () => import('./pages/index.vue') },
+        { path: 'courses', name: 'courses', component: () => import('./pages/courses.vue') },
+        { path: 'achievements', name: 'achievements', component: () => import('./pages/achievements.vue') },
+        { path: 'community', name: 'community', component: () => import('./pages/community.vue') }
       ]
     },
     {
