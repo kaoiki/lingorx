@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LingoRx | Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: #10b981;
+            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.1);
+        }
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .hex-frame {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        body {
+            background-color: #f7f9fb;
+            color: #1e293b;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "surface-container": "#ffffff",
+                        "on-error-container": "#410002",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#ffffff",
+                        "outline-variant": "#cbd5e1",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "on-primary-container": "#ffffff",
+                        "tertiary-fixed": "#e9ddff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#0f172a",
+                        "inverse-primary": "#4edea3",
+                        "on-primary-fixed-variant": "#005236",
+                        "secondary-fixed": "#acedff",
+                        "surface-dim": "#d8dadc",
+                        "surface-variant": "#f1f5f9",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e2e8f0",
+                        "on-primary-fixed": "#002113",
+                        "inverse-on-surface": "#f1f5f9",
+                        "secondary-container": "#03b5d3",
+                        "surface-container-low": "#f8fafc",
+                        "primary-fixed-dim": "#10b981",
+                        "on-secondary-container": "#ffffff",
+                        "tertiary-container": "#7c3aed",
+                        "on-secondary-fixed": "#001f26",
+                        "background": "#f7f9fb",
+                        "secondary": "#0ea5e9",
+                        "primary-fixed": "#d1fae5",
+                        "on-surface": "#0f172a",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "surface-tint": "#10b981",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#f1f5f9",
+                        "on-surface-variant": "#64748b",
+                        "on-tertiary-container": "#ffffff",
+                        "primary-container": "#10b981",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#d0bcff",
+                        "outline": "#94a3b8",
+                        "primary": "#10b981",
+                        "on-tertiary-fixed-variant": "#5516be",
+                        "inverse-surface": "#1e293b",
+                        "tertiary": "#8b5cf6",
+                        "on-tertiary-fixed": "#23005c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "1.5rem",
+                        "base": "4px",
+                        "lg": "2rem",
+                        "xs": "0.5rem",
+                        "gutter": "24px",
+                        "xl": "3rem",
+                        "sm": "1rem",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "label-sm": ["JetBrains Mono"],
+                        "label-md": ["JetBrains Mono"],
+                        "body-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="overflow-x-hidden bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md flex justify-between items-center px-gutter py-xs shadow-sm">
+<div class="flex items-center gap-xl">
+<span class="font-headline-md text-headline-md font-extrabold text-primary">LingoRx</span>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">Dashboard</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">Courses</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">Achievements</a>
+<a class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200" href="#">Community</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+
+    <!-- Avatar dropdown -->
+    <div class="relative" id="avatarContainer">
+      <button id="avatarBtn" class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden flex items-center justify-center bg-primary/10 hover:bg-primary/20 transition-colors cursor-pointer" aria-label="User menu">
+        <span class="material-symbols-outlined text-[24px] text-primary">account_circle</span>
+      </button>
+      <!-- Dropdown -->
+      <div id="avatarDropdown" class="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-outline-variant py-2 hidden z-50">
+        <!-- Logged in state -->
+        <div class="px-4 py-3 border-b border-outline-variant" id="userInfo">
+          <p class="font-headline-md text-sm font-bold text-on-surface">Alex Chen</p>
+          <p class="text-on-surface-variant text-xs">alex@example.com</p>
+        </div>
+        <div class="py-1">
+          <a class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm" href="#">
+            <span class="material-symbols-outlined text-[20px] text-on-surface-variant">person</span>
+            <span>Profile</span>
+          </a>
+          <a class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm" href="#">
+            <span class="material-symbols-outlined text-[20px] text-on-surface-variant">settings</span>
+            <span>Settings</span>
+          </a>
+          <a class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm" href="#">
+            <span class="material-symbols-outlined text-[20px] text-on-surface-variant">bar_chart</span>
+            <span>Statistics</span>
+          </a>
+        </div>
+        <div class="border-t border-outline-variant py-1">
+          <button class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-error text-sm" id="logoutBtn">
+            <span class="material-symbols-outlined text-[20px]">logout</span>
+            <span>Log Out</span>
+          </button>
+        </div>
+        <!-- Logged out state (hidden by default) -->
+        <div class="hidden border-t border-outline-variant py-1" id="loggedOutSection">
+          <a class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm" href="#">
+            <span class="material-symbols-outlined text-[20px] text-on-surface-variant">login</span>
+            <span>Sign In</span>
+          </a>
+          <a class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm" href="#">
+            <span class="material-symbols-outlined text-[20px] text-on-surface-variant">person_add</span>
+            <span>Create Account</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="flex pt-16 min-h-screen">
+
+<!-- Main Content -->
+<main class="flex-1 p-gutter w-full pb-32 lg:pb-16 px-4 md:px-gutter"><!-- Section 1: Hero -->
+<section class="mb-xl relative overflow-hidden rounded-2xl bg-white border border-outline-variant shadow-sm">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 pointer-events-none"></div>
+<div class="relative p-xl flex flex-col md:flex-row gap-lg items-center">
+<div class="flex-1">
+<div class="flex items-center gap-xs text-primary font-bold font-label-md mb-xs">
+<span class="material-symbols-outlined text-[16px]">swords</span>
+<span class="">CURRENT QUEST</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">English Beginner</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-md">Lesson 03 · Daily Objects</p>
+<div class="w-full h-3 bg-surface-variant rounded-full mb-base overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-secondary w-[60%] relative">
+<div class="absolute inset-0 shimmer opacity-50"></div>
+</div>
+</div>
+<div class="flex justify-between text-label-sm font-bold font-label-sm text-on-surface-variant mb-lg">
+<span class="text-primary">60% Complete</span>
+<span class="">12/20 XP earned</span>
+</div>
+<div class="flex flex-wrap gap-md">
+<button class="bg-primary hover:bg-primary/90 text-on-primary font-bold px-lg py-sm rounded-xl transition-all active:scale-95 shadow-md shadow-primary/20">
+                        Continue Challenge
+                    </button>
+<button class="bg-white border border-outline-variant hover:bg-surface-variant text-on-surface font-bold px-lg py-sm rounded-xl transition-all">
+                        View Course
+                    </button>
+</div>
+</div>
+<div class="w-full md:w-72">
+<div class="bg-surface-container-low p-md rounded-2xl border border-primary/20">
+<div class="flex items-center gap-xs text-secondary font-bold font-label-sm mb-xs">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+<span class="">AI MATCHER</span>
+</div>
+<p class="text-label-md text-on-surface-variant leading-relaxed mb-md">
+                        Not sure what to learn next? Answer a few questions and LingoRx will recommend a course for you.
+                    </p>
+<button class="w-full py-xs bg-white text-secondary font-bold rounded-lg border border-secondary/20 hover:bg-secondary/5 transition-colors shadow-sm">
+                        Get Recommendation
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-lg">
+<!-- Section 2: Today's Mission -->
+<div class="xl:col-span-8 flex flex-col gap-lg">
+<section class="glass-card p-lg rounded-2xl">
+<div class="flex justify-between items-center mb-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface">Today's Mission</h2>
+<span class="bg-secondary/10 text-secondary px-sm py-xs rounded-full font-bold text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">monetization_on</span>
+                        +20 Coins
+                    </span>
+</div>
+<div class="flex items-center gap-lg mb-lg">
+<div class="relative w-20 h-20">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-variant" cx="40" cy="40" fill="transparent" r="36" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-secondary" cx="40" cy="40" fill="transparent" r="36" stroke="currentColor" stroke-dasharray="226" stroke-dashoffset="158" stroke-width="6"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-bold text-on-surface leading-none">3/10</span>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold">min</span>
+</div>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-on-surface mb-xs">Daily Training</h4>
+<p class="text-on-surface-variant font-body-md text-body-md">Play for 10 minutes today to maintain your mental agility.</p>
+</div>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center gap-md p-sm rounded-xl bg-primary/5 border border-primary/10">
+<div class="w-6 h-6 bg-primary rounded-md flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<span class="text-on-surface-variant font-medium">Complete one battle</span>
+<span class="ml-auto text-primary font-bold text-label-sm">DONE</span>
+</div>
+<div class="flex items-center gap-md p-sm rounded-xl hover:bg-surface-variant transition-colors">
+<div class="w-6 h-6 border-2 border-outline-variant rounded-md"></div>
+<span class="text-on-surface">Practice 20 words</span>
+<span class="ml-auto text-on-surface-variant font-bold text-label-sm">8/20</span>
+</div>
+<div class="flex items-center gap-md p-sm rounded-xl hover:bg-surface-variant transition-colors">
+<div class="w-6 h-6 border-2 border-outline-variant rounded-md"></div>
+<span class="text-on-surface">Keep your streak</span>
+<span class="ml-auto text-on-surface-variant font-bold text-label-sm">PENDING</span>
+</div>
+</div>
+</section>
+<!-- Section 3: Your Progress Stats -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-md">
+<div class="glass-card p-md rounded-2xl text-center border-b-4 border-b-primary/40">
+<div class="text-primary mb-xs"><span class="material-symbols-outlined text-[28px]">local_fire_department</span></div>
+<div class="font-headline-md text-headline-md text-on-surface">7 Days</div>
+<div class="text-label-sm font-bold text-on-surface-variant">Streak</div>
+</div>
+<div class="glass-card p-md rounded-2xl text-center border-b-4 border-b-secondary/40">
+<div class="text-secondary mb-xs"><span class="material-symbols-outlined text-[28px]">keyboard</span></div>
+<div class="font-headline-md text-headline-md text-on-surface">128</div>
+<div class="text-label-sm font-bold text-on-surface-variant">Words Typed</div>
+</div>
+<div class="glass-card p-md rounded-2xl text-center border-b-4 border-b-error/40">
+<div class="text-error mb-xs"><span class="material-symbols-outlined text-[28px]">skull</span></div>
+<div class="font-headline-md text-headline-md text-on-surface">36</div>
+<div class="text-label-sm font-bold text-on-surface-variant">Defeated</div>
+</div>
+<div class="glass-card p-md rounded-2xl text-center border-b-4 border-b-tertiary/40">
+<div class="text-tertiary mb-xs"><span class="material-symbols-outlined text-[28px]">bolt</span></div>
+<div class="font-headline-md text-headline-md text-on-surface">420</div>
+<div class="text-label-sm font-bold text-on-surface-variant">XP</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar Sections -->
+<div class="xl:col-span-4 flex flex-col gap-lg">
+<!-- Section 4: Latest Achievement -->
+<section class="glass-card p-lg rounded-2xl border-tertiary/20">
+<h3 class="text-label-sm font-bold text-tertiary mb-lg tracking-widest uppercase">Latest Achievement</h3>
+<div class="flex flex-col items-center text-center">
+<div class="w-20 h-20 hex-frame bg-gradient-to-br from-tertiary to-tertiary/70 flex items-center justify-center mb-md shadow-lg shadow-tertiary/20">
+<span class="material-symbols-outlined text-white text-[40px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<h4 class="font-headline-md text-on-surface mb-xs">First Victory</h4>
+<p class="text-on-surface-variant font-body-md text-body-md mb-lg">Completed your first Typing Battle with 100% accuracy.</p>
+<a class="text-tertiary font-bold hover:translate-x-1 transition-transform flex items-center gap-xs" href="#">
+                        View Achievements
+                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Section 5: Community Feed -->
+<section class="glass-card p-lg rounded-2xl">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-on-surface">Community</h3>
+<a class="text-primary text-label-sm font-bold uppercase hover:underline" href="#">View Feed</a>
+</div>
+<div class="space-y-lg">
+<div class="flex gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden shrink-0 border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A profile picture of a young Japanese woman with colored hair, wearing an futuristic urban outfit. The image has a cinematic teal and orange color grade, with soft bokeh lights in the background. She is looking directly at the camera with a slight smile. Consistent with a premium gamified learning app style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnmnoCIos9lfyObdWxwHnJ8nBwxw6r1s_aECcnKqo9fxjDAi0gl8f3Ar4arLOWy9wXjnc5f29ltk0TZgoXjrc7qW1zkP7ZWRPONLQYQktrhz4UkybsFD_0TVzWs_AMM2y-Oq4NlCN5fY1gMZW0lCR4-UjAZltQfg7U9fvTGYzJ3AWZVHahjrZF2VWKYiM3EKulUmPyU53lRC9tXK5OPTloChsoGs-DCx9ZJz3k_m8df42rgMp-v0Sz_GT-hXbXKkXOg323XRbrPbNa"/>
+</div>
+<div class="flex-1">
+<p class="text-on-surface font-body-md text-body-md leading-snug">
+<span class="font-bold">Mika</span> defeated 24 enemies in Japanese N5
+                            </p>
+<div class="flex items-center gap-md mt-xs text-on-surface-variant">
+<button class="flex items-center gap-xs hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+<span class="text-label-sm font-bold">12</span>
+</button>
+<span class="text-label-sm">2m ago</span>
+</div>
+</div>
+</div>
+<div class="flex gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden shrink-0 border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A profile picture of a cheerful male athlete with a tech-wear jacket, set against a dark architectural background with glowing accent lights. The character looks energetic and focused. High-quality digital rendering style, optimized for a professional SaaS dashboard's social feed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdAhyFHG51DWv-4cRHv-gQdbkKoQDIKbYHqaxU5vId9FqqBvGZMC8y7aIVZ_4opyNEOJGXAccdCU8s2h8fzmq6BnvfKvaPbhmoYUmrC4B_-sYzwowhcWLzoagP3OCEBQ-u-_2nzjnon2fnAKxZWjc5TYz7WZK5iuad-kQ_xqKBDGJhVotGI2nhLEC5mq6ROS0TuEHHfkPHa-t-dYThGqBVCXYpP8QM-lsnW67o_CGR5ave8nnARzU9q8q5u0_wVObI8rcSUkJHT5dr"/>
+</div>
+<div class="flex-1">
+<p class="text-on-surface font-body-md text-body-md leading-snug">
+<span class="font-bold">Alex</span> completed English Beginner Lesson 02
+                            </p>
+<div class="flex items-center gap-md mt-xs text-on-surface-variant">
+<button class="flex items-center gap-xs hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+<span class="text-label-sm font-bold">5</span>
+</button>
+<span class="text-label-sm">15m ago</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div></main>
+</div>
+
+<!-- Footer -->
+<footer class="fixed bottom-0 left-0 w-full z-40 bg-white/80 backdrop-blur-md py-lg px-gutter shadow-sm">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-md">
+    <p class="text-on-surface-variant text-sm">© 2025 LingoRx. All rights reserved.</p>
+    <div class="flex items-center gap-lg">
+      <a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">Privacy Policy</a>
+      <a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">Terms of Service</a>
+      <a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+    // Avatar dropdown toggle
+    const avatarBtn = document.getElementById('avatarBtn');
+    const avatarDropdown = document.getElementById('avatarDropdown');
+
+    avatarBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        avatarDropdown.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', function () {
+        avatarDropdown.classList.add('hidden');
+    });
+
+    avatarDropdown.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
+
+    // Glass card micro-interactions
+    document.querySelectorAll('.glass-card').forEach(function (card) {
+        card.addEventListener('mouseenter', function () {
+            card.style.transform = 'translateY(-2px)';
+        });
+        card.addEventListener('mouseleave', function () {
+            card.style.transform = 'translateY(0)';
+        });
+    });
+</script>
+</body></html>

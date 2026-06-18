@@ -1,0 +1,120 @@
+@import url("https://fonts.font.im/css?family=Kanit");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+:root {
+  font-family: "Kanit", sans-serif;
+}
+
+@theme {
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-gutter: 24px;
+  --spacing-base: 4px;
+
+  --radius-none: 0;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
+
+  --font-body-lg: "Kanit", sans-serif;
+  --font-body-md: "Kanit", sans-serif;
+  --font-headline-lg: "Kanit", sans-serif;
+  --font-headline-md: "Kanit", sans-serif;
+  --font-display-lg: "Kanit", sans-serif;
+  --font-label-sm: "Kanit", sans-serif;
+  --font-label-md: "Kanit", sans-serif;
+
+  --color-on-tertiary: #ffffff;
+  --color-surface: #f7f9fb;
+  --color-surface-container: #ffffff;
+  --color-on-error-container: #410002;
+  --color-error-container: #ffdad6;
+  --color-surface-bright: #ffffff;
+  --color-outline-variant: #cbd5e1;
+  --color-on-secondary-fixed-variant: #004e5c;
+  --color-on-primary-container: #ffffff;
+  --color-tertiary-fixed: #e9ddff;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-background: #0f172a;
+  --color-inverse-primary: #4edea3;
+  --color-on-primary-fixed-variant: #005236;
+  --color-secondary-fixed: #acedff;
+  --color-surface-dim: #d8dadc;
+  --color-surface-variant: #f1f5f9;
+  --color-on-secondary: #ffffff;
+  --color-error: #ba1a1a;
+  --color-surface-container-highest: #e2e8f0;
+  --color-on-primary-fixed: #002113;
+  --color-inverse-on-surface: #f1f5f9;
+  --color-secondary-container: #03b5d3;
+  --color-surface-container-low: #f8fafc;
+  --color-primary-fixed-dim: #10b981;
+  --color-on-secondary-container: #ffffff;
+  --color-tertiary-container: #7c3aed;
+  --color-on-secondary-fixed: #001f26;
+  --color-background: #f7f9fb;
+  --color-secondary: #0ea5e9;
+  --color-primary-fixed: #d1fae5;
+  --color-on-surface: #0f172a;
+  --color-secondary-fixed-dim: #4cd7f6;
+  --color-surface-tint: #10b981;
+  --color-on-error: #ffffff;
+  --color-surface-container-high: #f1f5f9;
+  --color-on-surface-variant: #64748b;
+  --color-on-tertiary-container: #ffffff;
+  --color-primary-container: #10b981;
+  --color-on-primary: #ffffff;
+  --color-tertiary-fixed-dim: #d0bcff;
+  --color-outline: #94a3b8;
+  --color-primary: #10b981;
+  --color-on-tertiary-fixed-variant: #5516be;
+  --color-inverse-surface: #1e293b;
+  --color-tertiary: #8b5cf6;
+  --color-on-tertiary-fixed: #23005c;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: "Kanit", sans-serif;
+  font-size: 12px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.glass-card {
+  background: #ffffff;
+  border: 1px solid var(--color-outline-variant);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.1);
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.hex-frame {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
