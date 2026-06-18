@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
 
 # Nuxt UI auto-generated
 auto-imports.d.ts

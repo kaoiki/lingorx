@@ -5,7 +5,7 @@
       <div
         v-for="course in courses"
         :key="course.id"
-        class="glass-card p-lg rounded-2xl cursor-pointer hover:translate-y-[-2px] transition-all"
+        class="glass-card p-lg rounded-2xl cursor-pointer hover:translate-y-[-2px] transition-all relative overflow-hidden"
       >
         <div class="w-12 h-12 rounded-xl flex items-center justify-center text-white mb-md" :style="{ backgroundColor: course.color }">
           <span class="material-symbols-outlined text-[24px]">{{ course.icon }}</span>
@@ -27,6 +27,8 @@
 </template>
 
 <script setup lang="ts">
+
+
 const courses = [
   { id: 1, title: 'English Beginner', description: 'Start with basic vocabulary and daily phrases.', lessons: 12, progress: 60, icon: 'menu_book', color: '#10b981' },
   { id: 2, title: 'English Intermediate', description: 'Build sentences and improve your grammar.', lessons: 16, progress: 25, icon: 'auto_stories', color: '#0ea5e9' },
