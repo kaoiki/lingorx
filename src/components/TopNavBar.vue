@@ -32,48 +32,71 @@
           aria-label="User menu"
           @click="toggleDropdown"
         >
-          <span class="material-symbols-outlined text-[24px] text-primary">account_circle</span>
+          <span class="material-symbols-outlined text-[24px]" :class="isLoggedIn ? 'text-primary' : 'text-on-surface-variant'">{{ isLoggedIn ? 'account_circle' : 'person' }}</span>
         </button>
         <!-- Dropdown -->
         <div
           v-show="dropdownOpen"
           class="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-outline-variant py-2 z-50"
         >
-          <div class="px-4 py-3 border-b border-outline-variant">
-            <p class="font-headline-md text-sm font-bold text-on-surface">Alex Chen</p>
-            <p class="text-on-surface-variant text-xs">alex@example.com</p>
-          </div>
-          <div class="py-1">
-            <a
-              class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm"
-              href="#"
-            >
-              <span class="material-symbols-outlined text-[20px] text-on-surface-variant">person</span>
-              <span>Profile</span>
-            </a>
-            <a
-              class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm"
-              href="#"
-            >
-              <span class="material-symbols-outlined text-[20px] text-on-surface-variant">settings</span>
-              <span>Settings</span>
-            </a>
-            <a
-              class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm"
-              href="#"
-            >
-              <span class="material-symbols-outlined text-[20px] text-on-surface-variant">bar_chart</span>
-              <span>Statistics</span>
-            </a>
-          </div>
-          <div class="border-t border-outline-variant py-1">
-            <button
-              class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-error text-sm"
-            >
-              <span class="material-symbols-outlined text-[20px]">logout</span>
-              <span>Log Out</span>
-            </button>
-          </div>
+          <!-- Logged in -->
+          <template v-if="isLoggedIn">
+            <div class="px-4 py-3 border-b border-outline-variant">
+              <p class="font-headline-md text-sm font-bold text-on-surface">Alex Chen</p>
+              <p class="text-on-surface-variant text-xs">alex@example.com</p>
+            </div>
+            <div class="py-1">
+              <router-link
+                to="/profile"
+                class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm"
+              >
+                <span class="material-symbols-outlined text-[20px] text-on-surface-variant">person</span>
+                <span>Profile</span>
+              </router-link>
+              <router-link
+                to="/settings"
+                class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm"
+              >
+                <span class="material-symbols-outlined text-[20px] text-on-surface-variant">settings</span>
+                <span>Settings</span>
+              </router-link>
+              <router-link
+                to="/stats"
+                class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm"
+              >
+                <span class="material-symbols-outlined text-[20px] text-on-surface-variant">bar_chart</span>
+                <span>Statistics</span>
+              </router-link>
+            </div>
+            <div class="border-t border-outline-variant py-1">
+              <button
+                class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-error text-sm"
+                @click="logout(); dropdownOpen = false"
+              >
+                <span class="material-symbols-outlined text-[20px]">logout</span>
+                <span>Log Out</span>
+              </button>
+            </div>
+          </template>
+          <!-- Logged out -->
+          <template v-else>
+            <div class="py-1">
+              <router-link
+                to="/login"
+                class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm"
+              >
+                <span class="material-symbols-outlined text-[20px] text-on-surface-variant">login</span>
+                <span>Sign In</span>
+              </router-link>
+              <router-link
+                to="/register"
+                class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm"
+              >
+                <span class="material-symbols-outlined text-[20px] text-on-surface-variant">person_add</span>
+                <span>Create Account</span>
+              </router-link>
+            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -102,7 +125,9 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useAuth } from '../composables/useAuth'
 
+const { isLoggedIn, logout } = useAuth()
 const mobileMenuOpen = ref(false)
 
 const navItems = [
