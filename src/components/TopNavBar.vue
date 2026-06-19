@@ -5,22 +5,26 @@
         <span class="material-symbols-outlined text-primary translate-y-[1px]" style="font-size: 28px; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 28;">auto_stories</span>
         LingoRx
       </router-link>
-      <nav ref="navRef" class="relative hidden md:flex items-center gap-lg">
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-lg">
         <router-link
           v-for="item in navItems"
           :key="item.to"
-          :ref="(el) => setLinkRef(item.to, el)"
           :to="item.to"
-          class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-colors duration-200 pb-1 px-0"
-          @click="updateIndicator"
-        >{{ item.label }}</router-link>
-        <span
-          class="absolute bottom-0 left-0 h-[2px] bg-primary rounded-full transition-all duration-300 ease-in-out"
-          :style="indicatorStyle"
-        />
+          class="text-on-surface-variant font-medium font-body-md text-body-md hover:text-primary transition-all duration-200 pb-1 px-0 flex items-center gap-xs"
+          :exact-active-class="item.to === '/' ? 'text-primary font-bold border-b-2 border-primary' : ''"
+          :active-class="item.to !== '/' ? 'text-primary font-bold border-b-2 border-primary' : ''"
+        >
+          <span class="material-symbols-outlined text-[12px]">{{ item.icon }}</span>
+          {{ item.label }}
+        </router-link>
       </nav>
     </div>
-    <div class="flex items-center gap-md">
+    <div class="flex items-center gap-sm">
+      <!-- Mobile hamburger -->
+      <button class="md:hidden flex items-center justify-center w-10 h-10 text-on-surface-variant hover:text-primary transition-colors" @click="mobileMenuOpen = !mobileMenuOpen">
+        <span class="material-symbols-outlined text-[24px]">{{ mobileMenuOpen ? 'close' : 'menu' }}</span>
+      </button>
       <div class="relative">
         <button
           id="avatarBtn"
@@ -73,61 +77,45 @@
         </div>
       </div>
     </div>
+    <!-- Mobile nav panel -->
+    <Transition name="mobile-nav">
+      <div
+        v-if="mobileMenuOpen"
+        class="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-t border-outline-variant shadow-sm py-md px-gutter flex flex-col gap-xs"
+      >
+      <router-link
+        v-for="item in navItems"
+        :key="item.to"
+        :to="item.to"
+        class="flex items-center gap-md px-md py-sm rounded-xl text-on-surface-variant font-medium text-sm hover:bg-surface-variant transition-all duration-200"
+        :exact-active-class="item.to === '/' ? 'text-primary font-bold bg-primary/5' : ''"
+        :active-class="item.to !== '/' ? 'text-primary font-bold bg-primary/5' : ''"
+        @click="mobileMenuOpen = false"
+      >
+        <span class="material-symbols-outlined text-[18px]">{{ item.icon }}</span>
+        {{ item.label }}
+      </router-link>
+    </div>
+    </Transition>
   </header>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, nextTick, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, onMounted, onUnmounted } from 'vue'
 
-const route = useRoute()
+const mobileMenuOpen = ref(false)
 
 const navItems = [
-  { to: '/', label: 'Dashboard' },
-  { to: '/courses', label: 'Courses' },
-  { to: '/achievements', label: 'Achievements' },
-  { to: '/community', label: 'Community' },
+  { to: '/', label: 'Dashboard', icon: 'dashboard' },
+  { to: '/courses', label: 'Courses', icon: 'menu_book' },
+  { to: '/achievements', label: 'Achievements', icon: 'workspace_premium' },
+  { to: '/community', label: 'Community', icon: 'groups' },
+  { to: '/playground', label: 'Playground', icon: 'psychology' },
 ]
 
-const navRef = ref<HTMLElement | null>(null)
-const linkRefs = ref<Record<string, HTMLElement | null>>({})
-const indicatorLeft = ref(0)
-const indicatorWidth = ref(0)
 
-function setLinkRef(to: string, el: any) {
-  if (el) {
-    linkRefs.value[to] = el.$el || el
-  }
-}
-
-function updateIndicator() {
-  nextTick(() => {
-    const activeItem = navItems.find((item) => {
-      if (item.to === '/') return route.path === '/'
-      return route.path.startsWith(item.to)
-    })
-    if (!activeItem || !navRef.value) return
-
-    const linkEl = linkRefs.value[activeItem.to]
-    if (!linkEl) return
-
-    const navRect = navRef.value.getBoundingClientRect()
-    const linkRect = linkEl.getBoundingClientRect()
-
-    indicatorLeft.value = linkRect.left - navRect.left
-    indicatorWidth.value = linkRect.width
-  })
-}
-
-const indicatorStyle = computed(() => ({
-  transform: `translateX(${indicatorLeft.value}px)`,
-  width: `${indicatorWidth.value}px`,
-}))
-
-watch(() => route.path, updateIndicator)
 
 onMounted(() => {
-  updateIndicator()
   document.addEventListener('click', closeDropdown)
 })
 
@@ -148,3 +136,16 @@ function closeDropdown(e: MouseEvent) {
   }
 }
 </script>
+
+<style scoped>
+.mobile-nav-enter-active,
+.mobile-nav-leave-active {
+  transition: all 0.25s ease-in-out;
+}
+
+.mobile-nav-enter-from,
+.mobile-nav-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+</style>
