@@ -103,7 +103,7 @@ const password = ref('')
 const showPassword = ref(false)
 
 async function handleLogin() {
-  const data = await api<{ token: string }>('/auth/login', {
+  const data = await api<{ token: string }>('/api/auth/login', {
     method: 'POST',
     body: { email: email.value, password: password.value },
   })

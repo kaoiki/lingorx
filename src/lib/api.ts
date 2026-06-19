@@ -1,5 +1,6 @@
 const BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
 const APP_CODE = import.meta.env.VITE_APP_CODE || ''
+const TOKEN_KEY = 'lingorx_token'
 
 export interface ApiOptions {
   method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE'
@@ -10,19 +11,27 @@ export interface ApiOptions {
 export async function api<T = unknown>(path: string, options: ApiOptions = {}): Promise<T> {
   const { method = 'GET', body, headers = {} } = options
 
+  const authHeaders: Record<string, string> = {
+    'Content-Type': 'application/json',
+    'X-App-Code': APP_CODE,
+  }
+
+  const token = localStorage.getItem(TOKEN_KEY)
+  if (token) {
+    authHeaders['Authorization'] = `Bearer ${token}`
+  }
+
   const res = await fetch(`${BASE_URL}${path}`, {
     method,
-    headers: {
-      'Content-Type': 'application/json',
-      'x-app-code': APP_CODE,
-      ...headers,
-    },
+    headers: { ...authHeaders, ...headers },
     body: body ? JSON.stringify(body) : undefined,
   })
 
-  if (!res.ok) {
-    throw new Error(`API error: ${res.status} ${res.statusText}`)
+  const json = await res.json()
+
+  if (json.code !== 0) {
+    throw new Error(json.message || 'API error')
   }
 
-  return res.json() as Promise<T>
+  return json.data as T
 }
