@@ -101,23 +101,25 @@
             </div>
           </div>
           <div class="space-y-sm">
-            <div class="flex items-center gap-md p-sm rounded-xl bg-primary/5 border border-primary/10">
-              <div class="w-6 h-6 bg-primary rounded-md flex items-center justify-center text-white">
-                <span class="material-symbols-outlined text-[18px]">check</span>
+            <div
+              v-for="mission in missions"
+              :key="mission.id"
+              class="flex items-center gap-md p-sm rounded-xl transition-colors"
+              :class="mission.done ? 'bg-primary/5 border border-primary/10' : 'hover:bg-surface-variant'"
+            >
+              <div
+                class="w-6 h-6 rounded-md flex items-center justify-center"
+                :class="mission.done ? 'bg-primary text-white' : 'border-2 border-outline-variant'"
+              >
+                <span v-if="mission.done" class="material-symbols-outlined text-[18px]">check</span>
               </div>
-              <span class="text-on-surface-variant font-medium">Complete one battle</span>
-              <span class="ml-auto text-primary font-bold text-label-sm">DONE</span>
+              <span class="text-on-surface">{{ mission.label }}</span>
+              <span
+                class="ml-auto font-bold text-label-sm"
+                :class="mission.done ? 'text-primary' : 'text-on-surface-variant'"
+              >{{ mission.done ? 'DONE' : mission.progress }}</span>
             </div>
-            <div class="flex items-center gap-md p-sm rounded-xl hover:bg-surface-variant transition-colors">
-              <div class="w-6 h-6 border-2 border-outline-variant rounded-md" />
-              <span class="text-on-surface">Practice 20 words</span>
-              <span class="ml-auto text-on-surface-variant font-bold text-label-sm">8/20</span>
-            </div>
-            <div class="flex items-center gap-md p-sm rounded-xl hover:bg-surface-variant transition-colors">
-              <div class="w-6 h-6 border-2 border-outline-variant rounded-md" />
-              <span class="text-on-surface">Keep your streak</span>
-              <span class="ml-auto text-on-surface-variant font-bold text-label-sm">PENDING</span>
-            </div>
+
           </div>
         </section>
 
@@ -170,6 +172,15 @@
             <p class="text-on-surface-variant font-body-md text-body-md mb-lg">
               Completed your first Typing Battle with 100% accuracy.
             </p>
+            <div class="w-full mb-md">
+              <div class="flex justify-between text-label-sm font-bold text-on-surface-variant mb-xs">
+                <span>Achievements</span>
+                <span>{{ unlockedCount }}/{{ totalCount }}</span>
+              </div>
+              <div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+                <div class="h-full bg-tertiary rounded-full transition-all" :style="{ width: (unlockedCount / totalCount) * 100 + '%' }" />
+              </div>
+            </div>
             <a
               class="text-tertiary font-bold hover:translate-x-1 transition-transform flex items-center gap-xs"
               href="#"
@@ -181,44 +192,37 @@
         </section>
 
         <!-- Community Feed -->
-        <section class="glass-card p-lg rounded-2xl">
-          <div class="flex justify-between items-center mb-lg">
-            <h3 class="font-headline-md text-on-surface">Community</h3>
-            <a class="text-primary text-label-sm font-bold uppercase hover:underline" href="#">View Feed</a>
+        <section class="glass-card p-lg rounded-2xl mb-lg">
+          <div class="flex items-center justify-between mb-lg">
+            <h3 class="font-headline-md text-on-surface">Community Check-in Top 3</h3>
+            <router-link to="/community" class="text-primary text-label-sm font-bold uppercase hover:underline">View</router-link>
           </div>
-          <div class="space-y-lg">
-            <div class="flex gap-md">
-              <div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden shrink-0 border border-outline-variant flex items-center justify-center text-on-surface-variant">
-                <span class="material-symbols-outlined text-[20px]">face</span>
+          <div class="flex flex-col gap-md">
+            <div class="flex items-center gap-md">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background: rgba(16,185,129,0.1); color: #10b981">
+                <span class="material-symbols-outlined text-[22px]">menu_book</span>
               </div>
               <div class="flex-1">
-                <p class="text-on-surface font-body-md text-body-md leading-snug">
-                  <span class="font-bold">Mika</span> defeated 24 enemies in Japanese N5
-                </p>
-                <div class="flex items-center gap-md mt-xs text-on-surface-variant">
-                  <button class="flex items-center gap-xs hover:text-error transition-colors cursor-pointer">
-                    <span class="material-symbols-outlined text-[16px]">favorite</span>
-                    <span class="text-label-sm font-bold">12</span>
-                  </button>
-                  <span class="text-label-sm">2m ago</span>
-                </div>
+                <p class="font-headline-md text-headline-md text-on-surface">English</p>
+                <p class="text-label-sm font-bold text-on-surface-variant">256 learners · 34 checked in</p>
               </div>
             </div>
-            <div class="flex gap-md">
-              <div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden shrink-0 border border-outline-variant flex items-center justify-center text-on-surface-variant">
-                <span class="material-symbols-outlined text-[20px]">face</span>
+            <div class="flex items-center gap-md">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background: rgba(244,63,94,0.1); color: #f43f5e">
+                <span class="material-symbols-outlined text-[22px]">translate</span>
               </div>
               <div class="flex-1">
-                <p class="text-on-surface font-body-md text-body-md leading-snug">
-                  <span class="font-bold">Alex</span> completed English Beginner Lesson 02
-                </p>
-                <div class="flex items-center gap-md mt-xs text-on-surface-variant">
-                  <button class="flex items-center gap-xs hover:text-error transition-colors cursor-pointer">
-                    <span class="material-symbols-outlined text-[16px]">favorite</span>
-                    <span class="text-label-sm font-bold">5</span>
-                  </button>
-                  <span class="text-label-sm">15m ago</span>
-                </div>
+                <p class="font-headline-md text-headline-md text-on-surface">Japanese</p>
+                <p class="text-label-sm font-bold text-on-surface-variant">128 learners · 18 checked in</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-md">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background: rgba(139,92,246,0.1); color: #8b5cf6">
+                <span class="material-symbols-outlined text-[22px]">flag</span>
+              </div>
+              <div class="flex-1">
+                <p class="font-headline-md text-headline-md text-on-surface">Spanish</p>
+                <p class="text-label-sm font-bold text-on-surface-variant">64 learners · 8 checked in</p>
               </div>
             </div>
           </div>
@@ -245,6 +249,18 @@ const defeated = ref(36)
 
 const practicePct = ref(Math.min((todayPracticeMin.value / 10) * 100, 100))
 const wordsPct = ref(Math.min((todayWords.value / 20) * 100, 100))
+
+// TODO: 从 BFF 获取今日任务完成状态
+const missions = ref([
+  { id: 1, label: 'Complete one battle', done: true, progress: '' },
+  { id: 2, label: 'Daily practice done', done: false, progress: 'PENDING' },
+  { id: 3, label: 'Earn 50 XP', done: false, progress: '12/50' },
+  { id: 4, label: '80%+ accuracy rate', done: false, progress: '75%' },
+])
+
+// TODO: 从 BFF 获取成就统计
+const unlockedCount = ref(3)
+const totalCount = ref(10)
 
 onMounted(() => {
   document.querySelectorAll('.glass-card').forEach((card) => {
