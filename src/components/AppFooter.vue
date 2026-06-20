@@ -24,10 +24,12 @@
           class="text-on-surface-variant text-xs hover:text-primary transition-colors"
           href="#"
         >Contact</a>
+        <span class="text-on-surface-variant text-xs font-mono">v{{ version }}</span>
       </div>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
+import { version } from '../../package.json'
 </script>
