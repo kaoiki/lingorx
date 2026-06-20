@@ -4,7 +4,7 @@
       <div class="flex items-center gap-md">
         <button
           class="flex items-center gap-xs bg-primary hover:bg-primary/90 text-on-primary font-bold px-md py-xs rounded-xl transition-all active:scale-95 shadow-sm cursor-pointer text-xs"
-          @click="$emit('openFeedback')"
+          @click="handleClick"
         >
           <span class="material-symbols-outlined text-[14px]">edit_note</span>
           Feedback
@@ -32,4 +32,19 @@
 
 <script setup lang="ts">
 import { version } from '../../package.json'
+import { useAuth } from '../composables/useAuth'
+import { useToast } from '../composables/useToast'
+
+const { isLoggedIn } = useAuth()
+const { show: showToast } = useToast()
+
+const emit = defineEmits<{ openFeedback: [] }>()
+
+function handleClick() {
+  if (!isLoggedIn.value) {
+    showToast('Please sign in to submit feedback', 'error')
+    return
+  }
+  emit('openFeedback')
+}
 </script>
