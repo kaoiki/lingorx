@@ -17,6 +17,10 @@
         >
           <span class="material-symbols-outlined text-[12px]">{{ item.icon }}</span>
           {{ item.label }}
+          <span
+            v-if="item.badge"
+            class="text-[10px] font-bold text-on-primary bg-secondary px-1.5 py-0.5 rounded-full ml-0.5"
+          >{{ item.badge }}</span>
         </router-link>
       </nav>
     </div>
@@ -118,6 +122,10 @@
       >
         <span class="material-symbols-outlined text-[18px]">{{ item.icon }}</span>
         {{ item.label }}
+        <span
+          v-if="item.badge"
+          class="text-[10px] font-bold text-on-primary bg-secondary px-1.5 py-0.5 rounded-full ml-auto"
+        >{{ item.badge }}</span>
       </router-link>
     </div>
     </Transition>
@@ -138,7 +146,7 @@ const navItems = [
   { to: '/courses', label: 'Courses', icon: 'menu_book' },
   { to: '/achievements', label: 'Achievements', icon: 'workspace_premium' },
   { to: '/community', label: 'Community', icon: 'groups' },
-  { to: '/playground', label: 'Playground', icon: 'psychology' },
+  { to: '/playground', label: 'Playground', icon: 'psychology', badge: 'Soon' },
 ]
 
 
