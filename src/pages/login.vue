@@ -71,9 +71,10 @@
 
         <button
           type="submit"
-          class="w-full bg-primary hover:bg-primary/90 text-on-primary font-bold py-sm rounded-xl transition-all active:scale-95 shadow-md shadow-primary/20 cursor-pointer"
+          :disabled="loading"
+          class="w-full bg-primary hover:bg-primary/90 disabled:bg-primary/50 text-on-primary font-bold py-sm rounded-xl transition-all active:scale-95 shadow-md shadow-primary/20 cursor-pointer disabled:cursor-not-allowed"
         >
-          Sign In
+          {{ loading ? 'Signing in…' : 'Sign In' }}
         </button>
       </form>
 
@@ -92,22 +93,33 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useAuth } from '../composables/useAuth'
+import { useAuth, type UserProfile } from '../composables/useAuth'
 import { api } from '../lib/api'
+import { useToast } from '../composables/useToast'
 
 const router = useRouter()
 const { login } = useAuth()
+const { show: showToast } = useToast()
 
 const email = ref('')
 const password = ref('')
 const showPassword = ref(false)
+const loading = ref(false)
 
 async function handleLogin() {
-  const data = await api<{ token: string }>('/api/auth/login', {
-    method: 'POST',
-    body: { email: email.value, password: password.value },
-  })
-  login(data.token)
-  router.push('/')
+  loading.value = true
+  try {
+    const data = await api<UserProfile & { token: string }>('/api/auth/login', {
+      method: 'POST',
+      body: { email: email.value, password: password.value },
+    })
+    login(data.token, { user_id: data.user_id, email: data.email, nickname: data.nickname, avatar: data.avatar })
+    showToast('Signed in successfully')
+    router.push('/')
+  } catch (e: any) {
+    showToast(e.message || 'Login failed', 'error')
+  } finally {
+    loading.value = false
+  }
 }
 </script>

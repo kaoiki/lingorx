@@ -46,10 +46,10 @@
 
         <button
           type="submit"
-          :disabled="!email"
+          :disabled="!email || sending"
           class="w-full bg-primary hover:bg-primary/90 disabled:bg-primary/50 text-on-primary font-bold py-sm rounded-xl transition-all active:scale-95 shadow-md shadow-primary/20 cursor-pointer disabled:cursor-not-allowed"
         >
-          Send Code
+          {{ sending ? 'Sending…' : 'Send Code' }}
         </button>
       </form>
 
@@ -114,9 +114,10 @@
 
         <button
           type="submit"
-          class="w-full bg-primary hover:bg-primary/90 text-on-primary font-bold py-sm rounded-xl transition-all active:scale-95 shadow-md shadow-primary/20 cursor-pointer"
+          :disabled="resetting"
+          class="w-full bg-primary hover:bg-primary/90 disabled:bg-primary/50 text-on-primary font-bold py-sm rounded-xl transition-all active:scale-95 shadow-md shadow-primary/20 cursor-pointer disabled:cursor-not-allowed"
         >
-          Reset Password
+          {{ resetting ? 'Resetting…' : 'Reset Password' }}
         </button>
 
         <button
@@ -139,20 +140,48 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { api } from '../lib/api'
+import { useToast } from '../composables/useToast'
+
+const { show: showToast } = useToast()
 
 const step = ref(1)
 const email = ref('')
 const code = ref('')
 const newPassword = ref('')
 const showPassword = ref(false)
+const sending = ref(false)
+const resetting = ref(false)
 
-function sendCode() {
-  // TODO: call POST /api/auth/password/send-code
-  step.value = 2
+async function sendCode() {
+  sending.value = true
+  try {
+    await api('/api/auth/password/send-code', {
+      method: 'POST',
+      body: { email: email.value },
+    })
+    showToast('Code sent to your email')
+    step.value = 2
+  } catch (e: any) {
+    showToast(e.message || 'Failed to send code', 'error')
+  } finally {
+    sending.value = false
+  }
 }
 
-function handleReset() {
-  // TODO: call POST /api/auth/password/reset
-  console.log('reset', email.value, code.value, newPassword.value)
+async function handleReset() {
+  resetting.value = true
+  try {
+    await api('/api/auth/password/reset', {
+      method: 'POST',
+      body: { email: email.value, code: code.value, new_password: newPassword.value },
+    })
+    showToast('Password reset successful! Please sign in.')
+    setTimeout(() => window.location.href = '/login', 1500)
+  } catch (e: any) {
+    showToast(e.message || 'Reset failed', 'error')
+  } finally {
+    resetting.value = false
+  }
 }
 </script>

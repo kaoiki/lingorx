@@ -42,10 +42,10 @@
 
         <button
           type="submit"
-          :disabled="!email"
+          :disabled="!email || sending"
           class="w-full bg-primary hover:bg-primary/90 disabled:bg-primary/50 text-on-primary font-bold py-sm rounded-xl transition-all active:scale-95 shadow-md shadow-primary/20 cursor-pointer disabled:cursor-not-allowed"
         >
-          Send Code
+          {{ sending ? 'Sending…' : 'Send Code' }}
         </button>
       </form>
 
@@ -108,9 +108,10 @@
 
         <button
           type="submit"
-          class="w-full bg-primary hover:bg-primary/90 text-on-primary font-bold py-sm rounded-xl transition-all active:scale-95 shadow-md shadow-primary/20 cursor-pointer"
+          :disabled="registering"
+          class="w-full bg-primary hover:bg-primary/90 disabled:bg-primary/50 text-on-primary font-bold py-sm rounded-xl transition-all active:scale-95 shadow-md shadow-primary/20 cursor-pointer disabled:cursor-not-allowed"
         >
-          Create Account
+          {{ registering ? 'Creating…' : 'Create Account' }}
         </button>
 
         <button
@@ -133,20 +134,49 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { api } from '../lib/api'
+import { useToast } from '../composables/useToast'
+
+const { show: showToast } = useToast()
 
 const step = ref(1)
 const email = ref('')
 const code = ref('')
 const password = ref('')
 const showPassword = ref(false)
+const sending = ref(false)
+const registering = ref(false)
 
-function sendCode() {
-  // TODO: call POST /api/auth/register/send-code
-  step.value = 2
+async function sendCode() {
+  sending.value = true
+  try {
+    await api('/api/auth/register/send-code', {
+      method: 'POST',
+      body: { email: email.value },
+    })
+    showToast('Code sent to your email')
+    step.value = 2
+  } catch (e: any) {
+    showToast(e.message || 'Failed to send code', 'error')
+  } finally {
+    sending.value = false
+  }
 }
 
-function handleRegister() {
-  // TODO: call POST /api/auth/register
-  console.log('register', email.value, code.value, password.value)
+async function handleRegister() {
+  registering.value = true
+  try {
+    await api('/api/auth/register', {
+      method: 'POST',
+      body: { email: email.value, password: password.value, code: code.value },
+    })
+    showToast('Account created! Please sign in.')
+    // redirect to login after brief delay
+    setTimeout(() => window.location.href = '/login', 1500)
+  } catch (e: any) {
+    showToast(e.message || 'Registration failed', 'error')
+  } finally {
+    registering.value = false
+  }
 }
 </script>

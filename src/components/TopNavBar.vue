@@ -42,17 +42,18 @@
           <!-- Logged in -->
           <template v-if="isLoggedIn">
             <div class="px-4 py-3 border-b border-outline-variant">
-              <p class="font-headline-md text-sm font-bold text-on-surface">Alex Chen</p>
-              <p class="text-on-surface-variant text-xs">alex@example.com</p>
+              <p class="font-headline-md text-sm font-bold text-on-surface">{{ user?.nickname || 'User' }}</p>
+              <p class="text-on-surface-variant text-xs">{{ user?.email || '' }}</p>
             </div>
             <div class="py-1">
               <router-link
-                to="/profile"
+                to="/courses"
                 class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm"
               >
-                <span class="material-symbols-outlined text-[20px] text-on-surface-variant">person</span>
-                <span>Profile</span>
+                <span class="material-symbols-outlined text-[20px] text-on-surface-variant">menu_book</span>
+                <span>My Courses</span>
               </router-link>
+
               <router-link
                 to="/settings"
                 class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm"
@@ -71,7 +72,7 @@
             <div class="border-t border-outline-variant py-1">
               <button
                 class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-error text-sm"
-                @click="logout(); dropdownOpen = false"
+                @click="logout(); dropdownOpen = false; showToast('Signed out')"
               >
                 <span class="material-symbols-outlined text-[20px]">logout</span>
                 <span>Log Out</span>
@@ -126,8 +127,10 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useAuth } from '../composables/useAuth'
+import { useToast } from '../composables/useToast'
 
-const { isLoggedIn, logout } = useAuth()
+const { isLoggedIn, user, logout } = useAuth()
+const { show: showToast } = useToast()
 const mobileMenuOpen = ref(false)
 
 const navItems = [

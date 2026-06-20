@@ -1,47 +1,70 @@
 <template>
   <div class="p-gutter max-w-7xl mx-auto px-4 md:px-gutter">
-    <!-- Hero Section -->
+    <!-- Hero: Stats + AI Matcher -->
     <section class="mb-xl relative overflow-hidden rounded-2xl bg-white border border-outline-variant shadow-sm">
       <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 pointer-events-none" />
-      <div class="relative p-xl flex flex-col md:flex-row gap-lg items-center">
+      <div class="relative p-xl flex flex-col md:flex-row gap-lg">
+        <!-- Personal Stats -->
         <div class="flex-1">
-          <div class="flex items-center gap-xs text-primary font-bold font-label-md mb-xs">
-            <span class="material-symbols-outlined text-[16px]">swords</span>
-            <span>CURRENT QUEST</span>
-          </div>
-          <h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">English Beginner</h1>
-          <p class="font-body-lg text-body-lg text-on-surface-variant mb-md">Lesson 03 · Daily Objects</p>
-          <div class="w-full h-3 bg-surface-variant rounded-full mb-base overflow-hidden">
-            <div class="h-full bg-gradient-to-r from-primary to-secondary w-[60%] relative">
-              <div class="absolute inset-0 shimmer opacity-50" />
+          <div class="flex items-center justify-between mb-md">
+            <p class="text-on-surface-variant text-sm font-bold">👋 Welcome back, <span class="text-on-surface">{{ nickname }}</span></p>
+            <div class="flex items-center gap-xs bg-primary/10 text-primary px-sm py-xs rounded-full font-bold text-label-sm">
+              <span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+              <span>{{ streak }} day streak</span>
             </div>
           </div>
-          <div class="flex justify-between text-label-sm font-bold font-label-sm text-on-surface-variant mb-lg">
-            <span class="text-primary">60% Complete</span>
-            <span>12/20 XP earned</span>
+
+          <!-- Today's Progress -->
+          <div class="mb-md">
+            <p class="text-label-sm font-bold text-on-surface-variant mb-sm">Today's Progress</p>
+            <div class="flex items-center gap-md mb-xs">
+              <span class="text-label-sm text-on-surface-variant w-20 shrink-0">Practice</span>
+              <div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
+                <div class="h-full bg-primary rounded-full transition-all" :style="{ width: practicePct + '%' }" />
+              </div>
+              <span class="text-label-sm font-bold text-on-surface-variant w-16 text-right">{{ todayPracticeMin }}/10 min</span>
+            </div>
+            <div class="flex items-center gap-md">
+              <span class="text-label-sm text-on-surface-variant w-20 shrink-0">Words</span>
+              <div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
+                <div class="h-full bg-secondary rounded-full transition-all" :style="{ width: wordsPct + '%' }" />
+              </div>
+              <span class="text-label-sm font-bold text-on-surface-variant w-16 text-right">{{ todayWords }}/20</span>
+            </div>
           </div>
-          <div class="flex flex-wrap gap-md">
-            <button class="bg-primary hover:bg-primary/90 text-on-primary font-bold px-lg py-sm rounded-xl transition-all active:scale-95 shadow-md shadow-primary/20 cursor-pointer">
-              Continue Challenge
-            </button>
-            <button class="bg-white border border-outline-variant hover:bg-surface-variant text-on-surface font-bold px-lg py-sm rounded-xl transition-all cursor-pointer">
-              View Course
-            </button>
+
+          <!-- Quick Stats -->
+          <div class="flex items-center gap-lg mb-md">
+            <div class="text-center flex-1">
+              <div class="font-headline-md text-headline-md text-on-surface">{{ xp }}</div>
+              <div class="text-label-sm font-bold text-on-surface-variant">XP</div>
+            </div>
+            <div class="w-px h-8 bg-outline-variant" />
+            <div class="text-center flex-1">
+              <div class="font-headline-md text-headline-md text-on-surface">{{ lessons }}</div>
+              <div class="text-label-sm font-bold text-on-surface-variant">Lessons</div>
+            </div>
+            <div class="w-px h-8 bg-outline-variant" />
+            <div class="text-center flex-1">
+              <div class="font-headline-md text-headline-md text-on-surface">{{ defeated }}</div>
+              <div class="text-label-sm font-bold text-on-surface-variant">Defeated</div>
+            </div>
           </div>
+
         </div>
-        <div class="w-full md:w-72">
-          <div class="bg-surface-container-low p-md rounded-2xl border border-primary/20">
-            <div class="flex items-center gap-xs text-secondary font-bold font-label-sm mb-xs">
-              <span class="material-symbols-outlined text-[14px]">psychology</span>
-              <span>AI MATCHER</span>
-            </div>
-            <p class="text-label-md text-on-surface-variant leading-relaxed mb-md">
-              Not sure what to learn next? Answer a few questions and LingoRx will recommend a course for you.
-            </p>
-            <button class="w-full py-xs bg-white text-secondary font-bold rounded-lg border border-secondary/20 hover:bg-secondary/5 transition-colors shadow-sm cursor-pointer">
-              Get Recommendation
-            </button>
+
+        <!-- AI Matcher -->
+        <div class="w-full md:w-64 shrink-0 bg-surface-container-low p-md rounded-2xl border border-primary/20">
+          <div class="flex items-center gap-xs text-secondary font-bold font-label-sm mb-xs">
+            <span class="material-symbols-outlined text-[14px]">psychology</span>
+            <span>AI MATCHER</span>
           </div>
+          <p class="text-label-md text-on-surface-variant leading-relaxed mb-md">
+            Not sure what to learn next? Answer a few questions and LingoRx will recommend a course for you.
+          </p>
+          <button class="w-full py-xs bg-white text-secondary font-bold rounded-lg border border-secondary/20 hover:bg-secondary/5 transition-colors shadow-sm cursor-pointer">
+            Get Recommendation
+          </button>
         </div>
       </div>
     </section>
@@ -206,7 +229,22 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
+import { useAuth } from '../composables/useAuth'
+
+const { user } = useAuth()
+
+// TODO: 从 BFF 获取实时数据
+const nickname = ref(user.value?.nickname || 'Learner')
+const streak = ref(7)
+const todayPracticeMin = ref(3)
+const todayWords = ref(8)
+const xp = ref(420)
+const lessons = ref(12)
+const defeated = ref(36)
+
+const practicePct = ref(Math.min((todayPracticeMin.value / 10) * 100, 100))
+const wordsPct = ref(Math.min((todayWords.value / 20) * 100, 100))
 
 onMounted(() => {
   document.querySelectorAll('.glass-card').forEach((card) => {
