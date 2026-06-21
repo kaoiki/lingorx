@@ -19,7 +19,10 @@
       </div>
       <h2 class="font-headline-md font-bold text-on-surface mb-xs">Sign in to browse courses</h2>
       <p class="text-on-surface-variant text-sm mb-lg">Please sign in or create an account to start learning.</p>
-      <router-link to="/login" class="inline-block bg-primary hover:bg-primary/90 text-on-primary font-bold px-lg py-sm rounded-xl transition-all">Sign In</router-link>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-sm">
+        <router-link to="/login" class="w-full sm:w-auto bg-primary hover:bg-primary/90 text-on-primary font-bold px-lg py-sm rounded-xl transition-all text-center">Sign In</router-link>
+        <router-link to="/register" class="w-full sm:w-auto border border-outline-variant hover:bg-surface-variant text-on-surface font-bold px-lg py-sm rounded-xl transition-all text-center">Create Account</router-link>
+      </div>
     </section>
 
     <!-- Loading -->
@@ -182,7 +185,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted } from 'vue'
+import { computed, ref, onMounted, watch } from 'vue'
 import { api } from '../lib/api'
 import { useAuth } from '../composables/useAuth'
 
@@ -213,6 +216,12 @@ const aiMessage = ref('')
 const loading = ref(true)
 const refreshing = ref(false)
 const courses = ref<Course[]>([])
+
+watch(isLoggedIn, (val) => {
+  if (!val) {
+    courses.value = []
+  }
+})
 
 const languages = computed(() => {
   const labels = [...new Set(courses.value.map(c => c.languageLabel))]
