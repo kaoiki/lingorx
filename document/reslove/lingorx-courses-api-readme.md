@@ -76,3 +76,28 @@ GET /api/courses
 - All Courses 计数：`data.length`
 
 > 无需分页，一次返回全部课程。
+
+---
+
+## 开始学习（Enroll）
+
+用户点击 "Start Course" 时调用，标记该课程为学习中。
+
+```
+POST /api/courses/{course_id}/enroll
+```
+
+**不需要请求体**
+
+**成功响应**
+
+```json
+{
+  "code": 0,
+  "message": "success",
+  "data": {}
+}
+```
+
+> 幂等：重复调用不会报错。
+> 已 `enroll` 的课程在 `GET /api/courses` 中 `status` 变为 `learning`。

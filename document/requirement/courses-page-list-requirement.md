@@ -62,6 +62,33 @@
 2. **Learning 板块计数**：`data.filter(c => c.status === 'learning').length`
 3. **All Courses 板块计数**：`data.length`
 
+---
+
+## 开始学习（Enroll）
+
+用户点击 "Start Course" 时调用，标记该课程为学习中。
+
+### POST /api/courses/:courseId/enroll
+
+**请求体**
+
+无需 body，后端根据 `courseId` 和当前登录用户创建学习记录。
+
+**成功响应**
+
+```json
+{
+  "code": 0,
+  "message": "success",
+  "data": {}
+}
+```
+
+> 如果已经 `learning` 状态，重复调用应返回成功（幂等）。
+> 接口需要登录，需要 `X-App-Code: lingorx`。
+
+---
+
 ### 备注
 
 - 接口需要登录：`Authorization: Bearer <token>`，无 token 不返回数据（401）

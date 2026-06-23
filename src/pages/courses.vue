@@ -31,6 +31,15 @@
       <p class="text-on-surface-variant text-sm">Loading courses…</p>
     </section>
 
+    <!-- Empty state -->
+    <section v-else-if="!loading && courses.length === 0" class="glass-card p-xl rounded-2xl text-center">
+      <div class="w-16 h-16 mx-auto mb-md rounded-2xl bg-primary/10 flex items-center justify-center">
+        <span class="material-symbols-outlined text-[36px] text-primary">school</span>
+      </div>
+      <h2 class="font-headline-md font-bold text-on-surface mb-xs">No courses available</h2>
+      <p class="text-on-surface-variant text-sm">Could not load courses. Please check your connection and try refreshing.</p>
+    </section>
+
     <!-- Courses content -->
     <template v-else>
       <!-- AI Course Matcher -->
@@ -52,6 +61,34 @@
         </div>
       </section>
 
+      <!-- Learning Courses（不参与语言筛选） -->
+      <section v-if="learningCoursesUnfiltered.length" class="mb-xl">
+        <div class="flex items-center justify-between mb-md">
+          <h2 class="font-headline-md text-headline-md text-on-surface">Learning</h2>
+          <span class="text-label-sm font-bold text-on-surface-variant">{{ learningCoursesUnfiltered.length }} active</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+          <article v-for="course in learningCoursesUnfiltered" :key="course.id" class="glass-card p-lg rounded-2xl">
+            <div class="flex gap-md">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0" :class="courseGradient(courses.indexOf(course))">
+                <span class="material-symbols-outlined text-white text-[30px]">{{ course.icon }}</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-md mb-xs">
+                  <h3 class="font-headline-md text-on-surface">{{ course.title }}</h3>
+                  <span class="bg-primary/10 text-primary px-sm py-xs rounded-full font-bold text-label-sm shrink-0">Learning</span>
+                </div>
+                <p class="text-body-md text-on-surface-variant mb-md">Lesson {{ course.current_lesson }} / {{ course.total_lessons }}</p>
+                <div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden mb-md">
+                  <div class="h-full bg-gradient-to-r from-primary to-secondary" :style="{ width: `${(course.current_lesson / course.total_lessons) * 100}%` }" />
+                </div>
+                <router-link :to="`/courses/${course.id}`" class="inline-block bg-primary hover:bg-primary/90 text-on-primary font-bold px-md py-xs rounded-xl transition-all active:scale-95 cursor-pointer">Continue</router-link>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <!-- Language Tabs -->
       <section v-if="languages.length > 1" class="glass-card p-md rounded-2xl mb-lg">
         <div class="flex items-center justify-between gap-sm">
@@ -66,34 +103,6 @@
           <button class="flex items-center gap-xs text-on-surface-variant hover:text-primary text-xs transition-colors cursor-pointer shrink-0" @click="refresh">
             <span class="material-symbols-outlined text-[16px]" :class="{ 'animate-spin': refreshing }">refresh</span>
           </button>
-        </div>
-      </section>
-
-      <!-- Learning Courses -->
-      <section v-if="learningCourses.length" class="mb-xl">
-        <div class="flex items-center justify-between mb-md">
-          <h2 class="font-headline-md text-headline-md text-on-surface">Learning</h2>
-          <span class="text-label-sm font-bold text-on-surface-variant">{{ learningCourses.length }} active</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
-          <article v-for="course in learningCourses" :key="course.id" class="glass-card p-lg rounded-2xl">
-            <div class="flex gap-md">
-              <div class="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0" :class="courseGradient(courses.indexOf(course))">
-                <span class="material-symbols-outlined text-white text-[30px]">{{ course.icon }}</span>
-              </div>
-              <div class="flex-1">
-                <div class="flex items-start justify-between gap-md mb-xs">
-                  <h3 class="font-headline-md text-on-surface">{{ course.title }}</h3>
-                  <span class="bg-primary/10 text-primary px-sm py-xs rounded-full font-bold text-label-sm shrink-0">Learning</span>
-                </div>
-                <p class="text-body-md text-on-surface-variant mb-md">Lesson {{ course.current_lesson }} / {{ course.total_lessons }}</p>
-                <div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden mb-md">
-                  <div class="h-full bg-gradient-to-r from-primary to-secondary" :style="{ width: `${(course.current_lesson / course.total_lessons) * 100}%` }" />
-                </div>
-                <button class="bg-primary hover:bg-primary/90 text-on-primary font-bold px-md py-xs rounded-xl transition-all active:scale-95 cursor-pointer">Continue</button>
-              </div>
-            </div>
-          </article>
         </div>
       </section>
 
@@ -128,13 +137,23 @@
                 <span class="px-sm py-xs rounded-full bg-primary/10 text-primary text-label-sm font-bold">{{ course.level }}</span>
                 <span class="px-sm py-xs rounded-full bg-secondary/10 text-secondary text-label-sm font-bold">{{ course.languageLabel }}</span>
               </div>
+              <div class="flex items-center gap-xs text-on-surface-variant text-label-sm font-bold mb-xs">
+                <span class="material-symbols-outlined text-[14px]">person</span>
+                <span>{{ course.author || 'Platform' }}</span>
+              </div>
               <div class="flex items-center justify-between mb-md text-label-sm font-bold text-on-surface-variant">
                 <span>{{ course.total_lessons }} Lessons</span>
               </div>
-              <button class="w-full font-bold py-sm rounded-xl transition-all active:scale-95 cursor-pointer"
-                :class="course.status === 'learning' ? 'bg-primary text-on-primary hover:bg-primary/90' : course.status === 'completed' ? 'bg-white border border-outline-variant text-on-surface hover:bg-surface-variant' : 'bg-secondary text-white hover:bg-secondary/90'">
-                {{ course.status === 'learning' ? 'Continue' : course.status === 'completed' ? 'Review' : 'Start Course' }}
+              <button v-if="course.status === 'not_started'"
+                class="block w-full font-bold py-sm rounded-xl transition-all active:scale-95 text-center bg-secondary text-white hover:bg-secondary/90 cursor-pointer"
+                @click="confirmEnroll(course)">
+                {{ enrolling ? 'Enrolling…' : 'Start Course' }}
               </button>
+              <router-link v-else :to="`/courses/${course.id}`"
+                class="block w-full font-bold py-sm rounded-xl transition-all active:scale-95 text-center"
+                :class="course.status === 'learning' ? 'bg-primary text-on-primary hover:bg-primary/90' : 'bg-white border border-outline-variant text-on-surface hover:bg-surface-variant'">
+                {{ course.status === 'learning' ? 'Continue' : 'Review' }}
+              </router-link>
             </div>
           </article>
         </div>
@@ -156,6 +175,23 @@
         </div>
       </section>
     </template>
+
+    <!-- Enroll Confirm Modal -->
+    <div v-if="enrollTarget" class="fixed inset-0 z-50 bg-black/30 flex items-center justify-center px-4" @click.self="enrollTarget = null">
+      <div class="w-full bg-white rounded-2xl shadow-xl p-xl text-center" style="max-width: 440px;">
+        <div class="w-16 h-16 mx-auto mb-md rounded-2xl bg-primary/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-[36px] text-primary">school</span>
+        </div>
+        <h3 class="font-headline-md font-bold text-on-surface mb-xs">Start Course</h3>
+        <p class="text-on-surface-variant text-sm mb-lg">Start learning <strong>{{ enrollTarget.title }}</strong>? You can continue anytime.</p>
+        <div class="flex flex-col gap-sm">
+          <button class="w-full bg-primary hover:bg-primary/90 text-on-primary font-bold py-sm rounded-xl transition-all cursor-pointer" @click="doEnroll">
+            {{ enrolling ? 'Enrolling…' : 'Yes, Start' }}
+          </button>
+          <button class="w-full text-on-surface-variant hover:text-primary text-sm transition-colors cursor-pointer" @click="enrollTarget = null">Cancel</button>
+        </div>
+      </div>
+    </div>
 
     <!-- AI Modal -->
     <div v-if="showAiModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center px-4" @click.self="showAiModal = false">
@@ -186,6 +222,7 @@
 
 <script setup lang="ts">
 import { computed, ref, onMounted, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import { api } from '../lib/api'
 import { useAuth } from '../composables/useAuth'
 
@@ -208,13 +245,18 @@ interface Course {
   total_lessons: number
   current_lesson: number
   icon: string
+  author?: string
 }
+
+const router = useRouter()
 
 const activeLanguage = ref('All')
 const showAiModal = ref(false)
 const aiMessage = ref('')
 const loading = ref(true)
 const refreshing = ref(false)
+const enrolling = ref(false)
+const enrollTarget = ref<Course | null>(null)
 const courses = ref<Course[]>([])
 
 watch(isLoggedIn, (val) => {
@@ -232,7 +274,7 @@ const filteredCourses = computed(() =>
   courses.value.filter(c => activeLanguage.value === 'All' || c.languageLabel === activeLanguage.value)
 )
 
-const learningCourses = computed(() => filteredCourses.value.filter(c => c.status === 'learning'))
+const learningCoursesUnfiltered = computed(() => courses.value.filter(c => c.status === 'learning'))
 
 const gradients = [
   'from-primary to-primary/70',
@@ -283,6 +325,27 @@ async function refresh() {
     // silently fail
   } finally {
     refreshing.value = false
+  }
+}
+
+function confirmEnroll(course: Course) {
+  enrollTarget.value = course
+}
+
+async function doEnroll() {
+  if (!enrollTarget.value) return
+  enrolling.value = true
+  try {
+    await api(`/api/courses/${enrollTarget.value.id}/enroll`, { method: 'POST' })
+    const c = courses.value.find(c => c.id === enrollTarget.value!.id)
+    if (c) c.status = 'learning'
+    const id = enrollTarget.value.id
+    enrollTarget.value = null
+    router.push(`/courses/${id}`)
+  } catch {
+    enrollTarget.value = null
+  } finally {
+    enrolling.value = false
   }
 }
 </script>

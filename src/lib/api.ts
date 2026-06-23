@@ -29,6 +29,14 @@ export async function api<T = unknown>(path: string, options: ApiOptions = {}): 
 
   const json = await res.json()
 
+  // Token invalid — 清除登录态并通知用户
+  if (json.code === 401 || res.status === 401) {
+    localStorage.removeItem('lingorx_token')
+    localStorage.removeItem('lingorx_profile')
+    window.dispatchEvent(new CustomEvent('auth:expired'))
+    throw new Error('Session expired. Please sign in again.')
+  }
+
   if (json.code !== 0) {
     throw new Error(json.message || 'API error')
   }
