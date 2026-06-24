@@ -1,0 +1,59 @@
+{
+  "courseId": "japanese-n5",
+  "title": "Hiragana",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    {
+      "type": "vocabulary",
+      "prompt": "あ",
+      "answer": "a"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "い",
+      "answer": "i"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "う",
+      "answer": "u"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "え",
+      "answer": "e"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "お",
+      "answer": "o"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "か",
+      "answer": "ka"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "き",
+      "answer": "ki"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "く",
+      "answer": "ku"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "け",
+      "answer": "ke"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "こ",
+      "answer": "ko"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000015"
+}

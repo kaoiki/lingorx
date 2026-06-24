@@ -119,8 +119,8 @@ const route = useRoute()
 const router = useRouter()
 const { isLoggedIn } = useAuth()
 
-// TODO: 从 BFF 获取课程详情 GET /api/courses/:courseId
-// TODO: 从 BFF 获取 lesson 列表 GET /api/courses/:courseId/lessons
+// 课程信息: GET /api/courses  → 按 id 匹配
+// lesson 列表: GET /api/courses/:courseId/lessons
 
 interface Course {
   id: string
@@ -173,33 +173,26 @@ onMounted(async () => {
   }
 
   try {
-    // 获取课程信息
+    // 课程信息
     const allCourses = await api<Course[]>('/api/courses')
     const found = allCourses.find((c: Course) => c.id === courseId)
     if (found) {
       course.value = { ...found, languageLabel: LANGUAGE_LABELS[found.language] || found.language }
     }
+  } catch (e) {
+    console.warn('Failed to load course:', e)
+  }
 
-    // 从本地配置加载 lesson 列表
-    const COURSE_ID_MAP: Record<string, string> = {
-      'a0000001-0000-0000-0000-000000000001': 'english-beginner',
-      'a0000001-0000-0000-0000-000000000002': 'japanese-n5',
-      'a0000001-0000-0000-0000-000000000003': 'spanish-vocabulary',
-      'a0000001-0000-0000-0000-000000000004': 'chinese-vocabulary',
-      'a0000001-0000-0000-0000-000000000005': 'english-grammar',
-      'a0000001-0000-0000-0000-000000000006': 'english-translation',
-    }
-    const shortId = COURSE_ID_MAP[courseId] || courseId
-    const resp = await fetch('/courses/lessons.json')
-    const allLessons: Record<string, any> = await resp.json()
-    const courseLessons = Object.entries(allLessons)
-      .filter(([, l]: [string, any]) => l.courseId === shortId)
-      .map(([key, l]: [string, any]) => ({ ...l, id: key }))
-    lessons.value = courseLessons.map((l: any, i: number) => ({
+  try {
+    // lesson 列表（独立，失败不影响课程信息展示）
+    const lessonData = await api<
+      { id: string; title: string; description: string; sequence: number; status: string }[]
+    >(`/api/courses/${courseId}/lessons`)
+    lessons.value = lessonData.map((l) => ({
       id: l.id,
       title: l.title,
       description: l.description,
-      status: i === 0 ? 'available' : 'locked',
+      status: l.status as 'locked' | 'available' | 'completed',
     }))
   } catch (e) {
     console.warn('Failed to load lessons:', e)

@@ -1,0 +1,88 @@
+{
+  "courseId": "english-grammar",
+  "title": "Present Tense",
+  "type": "grammar",
+  "units": [
+    {
+      "type": "grammar",
+      "prompt": "She ___ to school every day.",
+      "answer": "goes",
+      "options": [
+        "go",
+        "goes",
+        "going"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "I ___ coffee every morning.",
+      "answer": "drink",
+      "options": [
+        "drinks",
+        "drink",
+        "drinking"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "He ___ English very well.",
+      "answer": "speaks",
+      "options": [
+        "speak",
+        "speaks",
+        "speaking"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "They ___ in a big city.",
+      "answer": "live",
+      "options": [
+        "lives",
+        "live",
+        "living"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "The sun ___ in the east.",
+      "answer": "rises",
+      "options": [
+        "rise",
+        "rises",
+        "rising"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "My mother ___ delicious food.",
+      "answer": "cooks",
+      "options": [
+        "cook",
+        "cooks",
+        "cooking"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "We ___ TV after dinner.",
+      "answer": "watch",
+      "options": [
+        "watch",
+        "watches",
+        "watching"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "The cat ___ on the sofa.",
+      "answer": "sleeps",
+      "options": [
+        "sleep",
+        "sleeps",
+        "sleeping"
+      ]
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000007"
+}

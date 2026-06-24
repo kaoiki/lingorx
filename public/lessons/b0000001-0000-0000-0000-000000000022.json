@@ -1,0 +1,59 @@
+{
+  "courseId": "spanish-vocabulary",
+  "title": "Comida",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    {
+      "type": "vocabulary",
+      "prompt": "pan",
+      "answer": "bread"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "agua",
+      "answer": "water"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "leche",
+      "answer": "milk"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "fruta",
+      "answer": "fruit"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "carne",
+      "answer": "meat"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "arroz",
+      "answer": "rice"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "huevo",
+      "answer": "egg"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "pescado",
+      "answer": "fish"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "queso",
+      "answer": "cheese"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "café",
+      "answer": "coffee"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000022"
+}

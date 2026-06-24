@@ -1,0 +1,59 @@
+{
+  "courseId": "english-beginner",
+  "title": "Numbers & Colors",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    {
+      "type": "vocabulary",
+      "prompt": "one",
+      "answer": "一"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "ten",
+      "answer": "十"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "hundred",
+      "answer": "百"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "red",
+      "answer": "红色"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "blue",
+      "answer": "蓝色"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "green",
+      "answer": "绿色"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "yellow",
+      "answer": "黄色"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "white",
+      "answer": "白色"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "black",
+      "answer": "黑色"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "color",
+      "answer": "颜色"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000002"
+}

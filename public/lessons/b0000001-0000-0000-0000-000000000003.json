@@ -1,0 +1,59 @@
+{
+  "courseId": "english-beginner",
+  "title": "Food & Drinks",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    {
+      "type": "vocabulary",
+      "prompt": "bread",
+      "answer": "面包"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "rice",
+      "answer": "米饭"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "water",
+      "answer": "水"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "milk",
+      "answer": "牛奶"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "coffee",
+      "answer": "咖啡"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "tea",
+      "answer": "茶"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "fruit",
+      "answer": "水果"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "meat",
+      "answer": "肉"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "vegetable",
+      "answer": "蔬菜"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "egg",
+      "answer": "鸡蛋"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000003"
+}

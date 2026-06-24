@@ -1,0 +1,59 @@
+{
+  "courseId": "spanish-vocabulary",
+  "title": "Colores",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    {
+      "type": "vocabulary",
+      "prompt": "rojo",
+      "answer": "red"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "azul",
+      "answer": "blue"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "verde",
+      "answer": "green"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "amarillo",
+      "answer": "yellow"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "blanco",
+      "answer": "white"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "negro",
+      "answer": "black"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "naranja",
+      "answer": "orange"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "morado",
+      "answer": "purple"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "gris",
+      "answer": "gray"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "marrón",
+      "answer": "brown"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000021"
+}

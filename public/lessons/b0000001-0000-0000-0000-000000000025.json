@@ -1,0 +1,59 @@
+{
+  "courseId": "chinese-vocabulary",
+  "title": "Food & Drinks",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    {
+      "type": "vocabulary",
+      "prompt": "米饭",
+      "answer": "rice"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "面条",
+      "answer": "noodles"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "水",
+      "answer": "water"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "茶",
+      "answer": "tea"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "苹果",
+      "answer": "apple"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "鸡肉",
+      "answer": "chicken"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "鱼",
+      "answer": "fish"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "鸡蛋",
+      "answer": "egg"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "牛奶",
+      "answer": "milk"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "面包",
+      "answer": "bread"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000025"
+}

@@ -1,0 +1,58 @@
+{
+  "courseId": "english-grammar",
+  "title": "Sentence Structure",
+  "type": "grammar",
+  "units": [
+    {
+      "type": "grammar",
+      "prompt": "Arrange: like / I / apples",
+      "answer": "I like apples",
+      "options": [
+        "I like apples",
+        "Apples I like",
+        "Like I apples"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "Arrange: is / she / a doctor",
+      "answer": "She is a doctor",
+      "options": [
+        "She is a doctor",
+        "Is she a doctor",
+        "A doctor she is"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "Arrange: to school / go / every day / they",
+      "answer": "They go to school every day",
+      "options": [
+        "They go to school every day",
+        "Go they to school every day",
+        "Every day they to school go"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "Arrange: not / like / I / coffee",
+      "answer": "I do not like coffee",
+      "options": [
+        "I do not like coffee",
+        "Not like I coffee",
+        "I like not coffee"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "Arrange: you / where / from / are",
+      "answer": "Where are you from",
+      "options": [
+        "Where are you from",
+        "You are from where",
+        "From where you are"
+      ]
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000010"
+}

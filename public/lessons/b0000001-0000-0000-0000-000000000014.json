@@ -1,0 +1,48 @@
+{
+  "courseId": "english-translation",
+  "title": "Travel Scenarios",
+  "type": "translation",
+  "units": [
+    {
+      "type": "translation",
+      "prompt": "请问火车站怎么走",
+      "answer": "How do I get to the train station"
+    },
+    {
+      "type": "translation",
+      "prompt": "我迷路了",
+      "answer": "I am lost"
+    },
+    {
+      "type": "translation",
+      "prompt": "我要去机场",
+      "answer": "I need to go to the airport"
+    },
+    {
+      "type": "translation",
+      "prompt": "请帮我拍照",
+      "answer": "Could you take a photo for me"
+    },
+    {
+      "type": "translation",
+      "prompt": "这个景点叫什么名字",
+      "answer": "What is the name of this attraction"
+    },
+    {
+      "type": "translation",
+      "prompt": "几点开门",
+      "answer": "What time does it open"
+    },
+    {
+      "type": "translation",
+      "prompt": "有会说中文的人吗",
+      "answer": "Does anyone speak Chinese"
+    },
+    {
+      "type": "translation",
+      "prompt": "我在找这个地址",
+      "answer": "I am looking for this address"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000014"
+}

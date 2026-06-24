@@ -1,0 +1,48 @@
+{
+  "courseId": "english-translation",
+  "title": "Dining Out",
+  "type": "translation",
+  "units": [
+    {
+      "type": "translation",
+      "prompt": "我要预订位子",
+      "answer": "I would like to reserve a table"
+    },
+    {
+      "type": "translation",
+      "prompt": "有菜单吗",
+      "answer": "Can I see the menu"
+    },
+    {
+      "type": "translation",
+      "prompt": "推荐一下特色菜",
+      "answer": "What is your specialty"
+    },
+    {
+      "type": "translation",
+      "prompt": "我吃素",
+      "answer": "I am a vegetarian"
+    },
+    {
+      "type": "translation",
+      "prompt": "结账",
+      "answer": "Check please"
+    },
+    {
+      "type": "translation",
+      "prompt": "太好吃了",
+      "answer": "It is delicious"
+    },
+    {
+      "type": "translation",
+      "prompt": "打包带走",
+      "answer": "To go please"
+    },
+    {
+      "type": "translation",
+      "prompt": "请给我一杯水",
+      "answer": "A glass of water please"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000013"
+}

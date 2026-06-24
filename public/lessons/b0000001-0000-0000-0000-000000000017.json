@@ -1,0 +1,59 @@
+{
+  "courseId": "japanese-n5",
+  "title": "Basic Kanji",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    {
+      "type": "vocabulary",
+      "prompt": "日",
+      "answer": "sun"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "月",
+      "answer": "moon"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "山",
+      "answer": "mountain"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "川",
+      "answer": "river"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "木",
+      "answer": "tree"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "火",
+      "answer": "fire"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "水",
+      "answer": "water"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "金",
+      "answer": "money"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "土",
+      "answer": "soil"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "人",
+      "answer": "person"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000017"
+}

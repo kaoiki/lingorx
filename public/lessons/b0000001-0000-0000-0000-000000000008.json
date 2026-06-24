@@ -1,0 +1,88 @@
+{
+  "courseId": "english-grammar",
+  "title": "Past Tense",
+  "type": "grammar",
+  "units": [
+    {
+      "type": "grammar",
+      "prompt": "I ___ a movie yesterday.",
+      "answer": "watched",
+      "options": [
+        "watch",
+        "watched",
+        "watching"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "She ___ to the park last Sunday.",
+      "answer": "went",
+      "options": [
+        "go",
+        "went",
+        "gone"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "He ___ breakfast at 7am.",
+      "answer": "ate",
+      "options": [
+        "eat",
+        "ate",
+        "eaten"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "They ___ a new car last month.",
+      "answer": "bought",
+      "options": [
+        "buy",
+        "bought",
+        "buying"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "I ___ her at the party.",
+      "answer": "met",
+      "options": [
+        "meet",
+        "met",
+        "meeting"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "We ___ a great time.",
+      "answer": "had",
+      "options": [
+        "have",
+        "had",
+        "having"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "She ___ the letter yesterday.",
+      "answer": "wrote",
+      "options": [
+        "write",
+        "wrote",
+        "written"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "He ___ his keys this morning.",
+      "answer": "lost",
+      "options": [
+        "lose",
+        "lost",
+        "losing"
+      ]
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000008"
+}

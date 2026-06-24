@@ -258,15 +258,13 @@ function quitBattle() {
 
 onMounted(async () => {
   try {
-    const resp = await fetch('/courses/lessons.json')
-    const allData = await resp.json()
-    const found = allData[lessonId]
-    if (found) {
-      lessonTitle.value = found.title
-      units.value = found.shuffle ? [...found.units].sort(() => Math.random() - 0.5) : found.units
-    } else {
-      console.warn('Lesson not found:', lessonId)
-    }
+    const resp = await fetch(`/lessons/${lessonId}.json`)
+    const data = await resp.json()
+
+    lessonTitle.value = data.title
+    units.value = data.shuffle
+      ? [...data.units].sort(() => Math.random() - 0.5)
+      : data.units
   } catch (e) {
     console.warn('Failed to load lesson data:', e)
     // Fallback mock

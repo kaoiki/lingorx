@@ -1,0 +1,59 @@
+{
+  "courseId": "chinese-vocabulary",
+  "title": "Numbers & Dates",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    {
+      "type": "vocabulary",
+      "prompt": "一",
+      "answer": "one"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "二",
+      "answer": "two"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "三",
+      "answer": "three"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "十",
+      "answer": "ten"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "百",
+      "answer": "hundred"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "今天",
+      "answer": "today"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "明天",
+      "answer": "tomorrow"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "昨天",
+      "answer": "yesterday"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "星期",
+      "answer": "week"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "月",
+      "answer": "month"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000024"
+}

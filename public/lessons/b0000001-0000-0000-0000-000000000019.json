@@ -1,0 +1,59 @@
+{
+  "courseId": "spanish-vocabulary",
+  "title": "Saludos",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    {
+      "type": "vocabulary",
+      "prompt": "hola",
+      "answer": "hello"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "adiós",
+      "answer": "goodbye"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "buenos días",
+      "answer": "good morning"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "buenas noches",
+      "answer": "good night"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "gracias",
+      "answer": "thank you"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "por favor",
+      "answer": "please"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "amigo",
+      "answer": "friend"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "señor",
+      "answer": "mister"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "señora",
+      "answer": "madam"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "mucho gusto",
+      "answer": "nice to meet you"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000019"
+}

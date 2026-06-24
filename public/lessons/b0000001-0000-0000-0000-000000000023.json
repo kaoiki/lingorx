@@ -1,0 +1,59 @@
+{
+  "courseId": "chinese-vocabulary",
+  "title": "Greetings",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    {
+      "type": "vocabulary",
+      "prompt": "你好",
+      "answer": "hello"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "再见",
+      "answer": "goodbye"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "谢谢",
+      "answer": "thank you"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "对不起",
+      "answer": "sorry"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "没关系",
+      "answer": "no problem"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "请问",
+      "answer": "excuse me"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "我叫",
+      "answer": "my name is"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "你好吗",
+      "answer": "how are you"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "认识你很高兴",
+      "answer": "nice to meet you"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "早上好",
+      "answer": "good morning"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000023"
+}

@@ -1,0 +1,59 @@
+{
+  "courseId": "english-beginner",
+  "title": "Weather & Seasons",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    {
+      "type": "vocabulary",
+      "prompt": "sunny",
+      "answer": "晴天"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "rainy",
+      "answer": "下雨"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "cloudy",
+      "answer": "多云"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "snowy",
+      "answer": "下雪"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "windy",
+      "answer": "刮风"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "spring",
+      "answer": "春天"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "summer",
+      "answer": "夏天"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "autumn",
+      "answer": "秋天"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "winter",
+      "answer": "冬天"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "temperature",
+      "answer": "温度"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000006"
+}

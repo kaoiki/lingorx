@@ -1,0 +1,59 @@
+{
+  "courseId": "spanish-vocabulary",
+  "title": "Números",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    {
+      "type": "vocabulary",
+      "prompt": "uno",
+      "answer": "one"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "dos",
+      "answer": "two"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "tres",
+      "answer": "three"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "cuatro",
+      "answer": "four"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "cinco",
+      "answer": "five"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "diez",
+      "answer": "ten"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "cien",
+      "answer": "hundred"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "primero",
+      "answer": "first"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "último",
+      "answer": "last"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "más",
+      "answer": "more"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000020"
+}

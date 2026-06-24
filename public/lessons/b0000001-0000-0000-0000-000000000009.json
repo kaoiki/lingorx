@@ -1,0 +1,88 @@
+{
+  "courseId": "english-grammar",
+  "title": "Articles & Prepositions",
+  "type": "grammar",
+  "units": [
+    {
+      "type": "grammar",
+      "prompt": "I saw ___ elephant at the zoo.",
+      "answer": "an",
+      "options": [
+        "a",
+        "an",
+        "the"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "She is ___ teacher.",
+      "answer": "a",
+      "options": [
+        "a",
+        "an",
+        "the"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "The book is ___ the table.",
+      "answer": "on",
+      "options": [
+        "in",
+        "on",
+        "at"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "I will meet you ___ 5pm.",
+      "answer": "at",
+      "options": [
+        "in",
+        "on",
+        "at"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "He lives ___ Tokyo.",
+      "answer": "in",
+      "options": [
+        "in",
+        "on",
+        "at"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "___ sun is very bright today.",
+      "answer": "The",
+      "options": [
+        "A",
+        "An",
+        "The"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "She went ___ the store.",
+      "answer": "to",
+      "options": [
+        "to",
+        "for",
+        "at"
+      ]
+    },
+    {
+      "type": "grammar",
+      "prompt": "I have been here ___ Monday.",
+      "answer": "since",
+      "options": [
+        "for",
+        "since",
+        "from"
+      ]
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000009"
+}

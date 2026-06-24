@@ -1,0 +1,119 @@
+{
+  "courseId": "english-beginner",
+  "title": "Greetings",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    {
+      "type": "vocabulary",
+      "prompt": "A common greeting you say when meeting someone",
+      "answer": "hello",
+      "options": [
+        "goodbye",
+        "hello",
+        "please",
+        "sorry"
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "What you say when leaving",
+      "answer": "goodbye",
+      "options": [
+        "hello",
+        "thanks",
+        "goodbye",
+        "yes"
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "A greeting used before 12 PM",
+      "answer": "good morning",
+      "options": [
+        "good night",
+        "good morning",
+        "good evening",
+        "hello"
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "A greeting used after the sun goes down",
+      "answer": "good evening",
+      "options": [
+        "good morning",
+        "good afternoon",
+        "good evening",
+        "good night"
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "A question asking about someone's health or feelings",
+      "answer": "how are you",
+      "options": [
+        "how are you",
+        "what's up",
+        "who are you",
+        "where are you"
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "A polite word used when making a request",
+      "answer": "please",
+      "options": [
+        "sorry",
+        "thanks",
+        "please",
+        "yes"
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "What you say when someone does something nice for you",
+      "answer": "thank you",
+      "options": [
+        "sorry",
+        "please",
+        "thank you",
+        "goodbye"
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "What you say when you make a mistake",
+      "answer": "sorry",
+      "options": [
+        "thanks",
+        "sorry",
+        "please",
+        "hello"
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "An affirmative response",
+      "answer": "yes",
+      "options": [
+        "no",
+        "yes",
+        "maybe",
+        "ok"
+      ]
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "A negative response",
+      "answer": "no",
+      "options": [
+        "yes",
+        "no",
+        "maybe",
+        "not"
+      ]
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000001"
+}

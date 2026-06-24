@@ -1,0 +1,48 @@
+{
+  "courseId": "english-translation",
+  "title": "Daily Expressions",
+  "type": "translation",
+  "units": [
+    {
+      "type": "translation",
+      "prompt": "今天天气真好",
+      "answer": "The weather is nice today"
+    },
+    {
+      "type": "translation",
+      "prompt": "你吃饭了吗",
+      "answer": "Have you eaten"
+    },
+    {
+      "type": "translation",
+      "prompt": "我很好，谢谢",
+      "answer": "I am fine, thank you"
+    },
+    {
+      "type": "translation",
+      "prompt": "见到你很高兴",
+      "answer": "Nice to meet you"
+    },
+    {
+      "type": "translation",
+      "prompt": "祝你生日快乐",
+      "answer": "Happy birthday to you"
+    },
+    {
+      "type": "translation",
+      "prompt": "周末愉快",
+      "answer": "Have a nice weekend"
+    },
+    {
+      "type": "translation",
+      "prompt": "请慢用",
+      "answer": "Enjoy your meal"
+    },
+    {
+      "type": "translation",
+      "prompt": "一路平安",
+      "answer": "Have a safe trip"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000011"
+}

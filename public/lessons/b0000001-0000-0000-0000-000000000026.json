@@ -1,0 +1,59 @@
+{
+  "courseId": "chinese-vocabulary",
+  "title": "Colors & Shapes",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    {
+      "type": "vocabulary",
+      "prompt": "红色",
+      "answer": "red"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "蓝色",
+      "answer": "blue"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "绿色",
+      "answer": "green"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "白色",
+      "answer": "white"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "黑色",
+      "answer": "black"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "圆形",
+      "answer": "circle"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "方形",
+      "answer": "square"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "三角形",
+      "answer": "triangle"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "大",
+      "answer": "big"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "小",
+      "answer": "small"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000026"
+}

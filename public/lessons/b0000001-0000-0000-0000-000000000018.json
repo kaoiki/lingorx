@@ -1,0 +1,59 @@
+{
+  "courseId": "japanese-n5",
+  "title": "Self Introduction",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    {
+      "type": "vocabulary",
+      "prompt": "私",
+      "answer": "I"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "名前",
+      "answer": "name"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "出身",
+      "answer": "hometown"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "学生",
+      "answer": "student"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "仕事",
+      "answer": "job"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "趣味",
+      "answer": "hobby"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "友達",
+      "answer": "friend"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "家族",
+      "answer": "family"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "学校",
+      "answer": "school"
+    },
+    {
+      "type": "vocabulary",
+      "prompt": "会社",
+      "answer": "company"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000018"
+}

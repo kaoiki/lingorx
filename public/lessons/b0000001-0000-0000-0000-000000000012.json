@@ -1,0 +1,48 @@
+{
+  "courseId": "english-translation",
+  "title": "Shopping",
+  "type": "translation",
+  "units": [
+    {
+      "type": "translation",
+      "prompt": "这个多少钱",
+      "answer": "How much is this"
+    },
+    {
+      "type": "translation",
+      "prompt": "太贵了",
+      "answer": "It is too expensive"
+    },
+    {
+      "type": "translation",
+      "prompt": "能便宜一点吗",
+      "answer": "Can you make it cheaper"
+    },
+    {
+      "type": "translation",
+      "prompt": "我在找一双鞋",
+      "answer": "I am looking for a pair of shoes"
+    },
+    {
+      "type": "translation",
+      "prompt": "可以试穿吗",
+      "answer": "Can I try it on"
+    },
+    {
+      "type": "translation",
+      "prompt": "我要这个",
+      "answer": "I will take this"
+    },
+    {
+      "type": "translation",
+      "prompt": "可以刷卡吗",
+      "answer": "Can I pay by card"
+    },
+    {
+      "type": "translation",
+      "prompt": "有发票吗",
+      "answer": "Do you have a receipt"
+    }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000012"
+}
