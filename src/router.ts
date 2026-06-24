@@ -13,7 +13,8 @@ const router = createRouter({
         { path: 'achievements', name: 'achievements', component: () => import('./pages/achievements.vue') },
         { path: 'community', name: 'community', component: () => import('./pages/community.vue') },
         { path: 'playground', name: 'playground', component: () => import('./pages/playground.vue') },
-        { path: 'settings', name: 'settings', component: () => import('./pages/settings.vue') }
+        { path: 'settings', name: 'settings', component: () => import('./pages/settings.vue') },
+        { path: 'play/:lessonId', name: 'play', component: () => import('./pages/play.vue') }
       ]
     },
     {

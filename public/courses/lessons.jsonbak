@@ -1,0 +1,300 @@
+{
+  "eb-1": { "courseId": "english-beginner", "title": "Greetings", "type": "vocabulary", "shuffle": true, "units": [
+    { "type": "vocabulary", "prompt": "A common greeting you say when meeting someone", "answer": "hello", "options": ["goodbye", "hello", "please", "sorry"] },
+    { "type": "vocabulary", "prompt": "What you say when leaving", "answer": "goodbye", "options": ["hello", "thanks", "goodbye", "yes"] },
+    { "type": "vocabulary", "prompt": "A greeting used before 12 PM", "answer": "good morning", "options": ["good night", "good morning", "good evening", "hello"] },
+    { "type": "vocabulary", "prompt": "A greeting used after the sun goes down", "answer": "good evening", "options": ["good morning", "good afternoon", "good evening", "good night"] },
+    { "type": "vocabulary", "prompt": "A question asking about someone's health or feelings", "answer": "how are you", "options": ["how are you", "what's up", "who are you", "where are you"] },
+    { "type": "vocabulary", "prompt": "A polite word used when making a request", "answer": "please", "options": ["sorry", "thanks", "please", "yes"] },
+    { "type": "vocabulary", "prompt": "What you say when someone does something nice for you", "answer": "thank you", "options": ["sorry", "please", "thank you", "goodbye"] },
+    { "type": "vocabulary", "prompt": "What you say when you make a mistake", "answer": "sorry", "options": ["thanks", "sorry", "please", "hello"] },
+    { "type": "vocabulary", "prompt": "An affirmative response", "answer": "yes", "options": ["no", "yes", "maybe", "ok"] },
+    { "type": "vocabulary", "prompt": "A negative response", "answer": "no", "options": ["yes", "no", "maybe", "not"] }
+  ]},
+  "eb-2": { "courseId": "english-beginner", "title": "Numbers & Colors", "type": "vocabulary", "shuffle": true, "units": [
+    { "type": "vocabulary", "prompt": "one", "answer": "一" },
+    { "type": "vocabulary", "prompt": "ten", "answer": "十" },
+    { "type": "vocabulary", "prompt": "hundred", "answer": "百" },
+    { "type": "vocabulary", "prompt": "red", "answer": "红色" },
+    { "type": "vocabulary", "prompt": "blue", "answer": "蓝色" },
+    { "type": "vocabulary", "prompt": "green", "answer": "绿色" },
+    { "type": "vocabulary", "prompt": "yellow", "answer": "黄色" },
+    { "type": "vocabulary", "prompt": "white", "answer": "白色" },
+    { "type": "vocabulary", "prompt": "black", "answer": "黑色" },
+    { "type": "vocabulary", "prompt": "color", "answer": "颜色" }
+  ]},
+  "eb-3": { "courseId": "english-beginner", "title": "Food & Drinks", "type": "vocabulary", "units": [
+    { "type": "vocabulary", "prompt": "bread", "answer": "面包" },
+    { "type": "vocabulary", "prompt": "rice", "answer": "米饭" },
+    { "type": "vocabulary", "prompt": "water", "answer": "水" },
+    { "type": "vocabulary", "prompt": "milk", "answer": "牛奶" },
+    { "type": "vocabulary", "prompt": "coffee", "answer": "咖啡" },
+    { "type": "vocabulary", "prompt": "tea", "answer": "茶" },
+    { "type": "vocabulary", "prompt": "fruit", "answer": "水果" },
+    { "type": "vocabulary", "prompt": "meat", "answer": "肉" },
+    { "type": "vocabulary", "prompt": "vegetable", "answer": "蔬菜" },
+    { "type": "vocabulary", "prompt": "egg", "answer": "鸡蛋" }
+  ]},
+  "eb-4": { "courseId": "english-beginner", "title": "Daily Routine", "type": "vocabulary", "units": [
+    { "type": "vocabulary", "prompt": "wake up", "answer": "起床" },
+    { "type": "vocabulary", "prompt": "eat breakfast", "answer": "吃早餐" },
+    { "type": "vocabulary", "prompt": "go to work", "answer": "去上班" },
+    { "type": "vocabulary", "prompt": "study", "answer": "学习" },
+    { "type": "vocabulary", "prompt": "cook dinner", "answer": "做晚饭" },
+    { "type": "vocabulary", "prompt": "watch TV", "answer": "看电视" },
+    { "type": "vocabulary", "prompt": "take a shower", "answer": "洗澡" },
+    { "type": "vocabulary", "prompt": "go to bed", "answer": "上床睡觉" },
+    { "type": "vocabulary", "prompt": "brush teeth", "answer": "刷牙" },
+    { "type": "vocabulary", "prompt": "get dressed", "answer": "穿衣服" }
+  ]},
+  "eb-5": { "courseId": "english-beginner", "title": "Travel", "type": "vocabulary", "units": [
+    { "type": "vocabulary", "prompt": "airport", "answer": "机场" },
+    { "type": "vocabulary", "prompt": "hotel", "answer": "酒店" },
+    { "type": "vocabulary", "prompt": "ticket", "answer": "票" },
+    { "type": "vocabulary", "prompt": "passport", "answer": "护照" },
+    { "type": "vocabulary", "prompt": "train", "answer": "火车" },
+    { "type": "vocabulary", "prompt": "map", "answer": "地图" },
+    { "type": "vocabulary", "prompt": "restaurant", "answer": "餐厅" },
+    { "type": "vocabulary", "prompt": "hospital", "answer": "医院" },
+    { "type": "vocabulary", "prompt": "police", "answer": "警察" },
+    { "type": "vocabulary", "prompt": "bank", "answer": "银行" }
+  ]},
+  "eb-6": { "courseId": "english-beginner", "title": "Weather & Seasons", "type": "vocabulary", "units": [
+    { "type": "vocabulary", "prompt": "sunny", "answer": "晴天" },
+    { "type": "vocabulary", "prompt": "rainy", "answer": "下雨" },
+    { "type": "vocabulary", "prompt": "cloudy", "answer": "多云" },
+    { "type": "vocabulary", "prompt": "snowy", "answer": "下雪" },
+    { "type": "vocabulary", "prompt": "windy", "answer": "刮风" },
+    { "type": "vocabulary", "prompt": "spring", "answer": "春天" },
+    { "type": "vocabulary", "prompt": "summer", "answer": "夏天" },
+    { "type": "vocabulary", "prompt": "autumn", "answer": "秋天" },
+    { "type": "vocabulary", "prompt": "winter", "answer": "冬天" },
+    { "type": "vocabulary", "prompt": "temperature", "answer": "温度" }
+  ]},
+
+  "eg-1": { "courseId": "english-grammar", "title": "Present Tense", "type": "grammar", "units": [
+    { "type": "grammar", "prompt": "She ___ to school every day.", "answer": "goes", "options": ["go", "goes", "going"] },
+    { "type": "grammar", "prompt": "I ___ coffee every morning.", "answer": "drink", "options": ["drinks", "drink", "drinking"] },
+    { "type": "grammar", "prompt": "He ___ English very well.", "answer": "speaks", "options": ["speak", "speaks", "speaking"] },
+    { "type": "grammar", "prompt": "They ___ in a big city.", "answer": "live", "options": ["lives", "live", "living"] },
+    { "type": "grammar", "prompt": "The sun ___ in the east.", "answer": "rises", "options": ["rise", "rises", "rising"] },
+    { "type": "grammar", "prompt": "My mother ___ delicious food.", "answer": "cooks", "options": ["cook", "cooks", "cooking"] },
+    { "type": "grammar", "prompt": "We ___ TV after dinner.", "answer": "watch", "options": ["watch", "watches", "watching"] },
+    { "type": "grammar", "prompt": "The cat ___ on the sofa.", "answer": "sleeps", "options": ["sleep", "sleeps", "sleeping"] }
+  ]},
+  "eg-2": { "courseId": "english-grammar", "title": "Past Tense", "type": "grammar", "units": [
+    { "type": "grammar", "prompt": "I ___ a movie yesterday.", "answer": "watched", "options": ["watch", "watched", "watching"] },
+    { "type": "grammar", "prompt": "She ___ to the park last Sunday.", "answer": "went", "options": ["go", "went", "gone"] },
+    { "type": "grammar", "prompt": "He ___ breakfast at 7am.", "answer": "ate", "options": ["eat", "ate", "eaten"] },
+    { "type": "grammar", "prompt": "They ___ a new car last month.", "answer": "bought", "options": ["buy", "bought", "buying"] },
+    { "type": "grammar", "prompt": "I ___ her at the party.", "answer": "met", "options": ["meet", "met", "meeting"] },
+    { "type": "grammar", "prompt": "We ___ a great time.", "answer": "had", "options": ["have", "had", "having"] },
+    { "type": "grammar", "prompt": "She ___ the letter yesterday.", "answer": "wrote", "options": ["write", "wrote", "written"] },
+    { "type": "grammar", "prompt": "He ___ his keys this morning.", "answer": "lost", "options": ["lose", "lost", "losing"] }
+  ]},
+  "eg-3": { "courseId": "english-grammar", "title": "Articles & Prepositions", "type": "grammar", "units": [
+    { "type": "grammar", "prompt": "I saw ___ elephant at the zoo.", "answer": "an", "options": ["a", "an", "the"] },
+    { "type": "grammar", "prompt": "She is ___ teacher.", "answer": "a", "options": ["a", "an", "the"] },
+    { "type": "grammar", "prompt": "The book is ___ the table.", "answer": "on", "options": ["in", "on", "at"] },
+    { "type": "grammar", "prompt": "I will meet you ___ 5pm.", "answer": "at", "options": ["in", "on", "at"] },
+    { "type": "grammar", "prompt": "He lives ___ Tokyo.", "answer": "in", "options": ["in", "on", "at"] },
+    { "type": "grammar", "prompt": "___ sun is very bright today.", "answer": "The", "options": ["A", "An", "The"] },
+    { "type": "grammar", "prompt": "She went ___ the store.", "answer": "to", "options": ["to", "for", "at"] },
+    { "type": "grammar", "prompt": "I have been here ___ Monday.", "answer": "since", "options": ["for", "since", "from"] }
+  ]},
+  "eg-4": { "courseId": "english-grammar", "title": "Sentence Structure", "type": "grammar", "units": [
+    { "type": "grammar", "prompt": "Arrange: like / I / apples", "answer": "I like apples", "options": ["I like apples", "Apples I like", "Like I apples"] },
+    { "type": "grammar", "prompt": "Arrange: is / she / a doctor", "answer": "She is a doctor", "options": ["She is a doctor", "Is she a doctor", "A doctor she is"] },
+    { "type": "grammar", "prompt": "Arrange: to school / go / every day / they", "answer": "They go to school every day", "options": ["They go to school every day", "Go they to school every day", "Every day they to school go"] },
+    { "type": "grammar", "prompt": "Arrange: not / like / I / coffee", "answer": "I do not like coffee", "options": ["I do not like coffee", "Not like I coffee", "I like not coffee"] },
+    { "type": "grammar", "prompt": "Arrange: you / where / from / are", "answer": "Where are you from", "options": ["Where are you from", "You are from where", "From where you are"] }
+  ]},
+
+  "et-1": { "courseId": "english-translation", "title": "Daily Expressions", "type": "translation", "units": [
+    { "type": "translation", "prompt": "今天天气真好", "answer": "The weather is nice today" },
+    { "type": "translation", "prompt": "你吃饭了吗", "answer": "Have you eaten" },
+    { "type": "translation", "prompt": "我很好，谢谢", "answer": "I am fine, thank you" },
+    { "type": "translation", "prompt": "见到你很高兴", "answer": "Nice to meet you" },
+    { "type": "translation", "prompt": "祝你生日快乐", "answer": "Happy birthday to you" },
+    { "type": "translation", "prompt": "周末愉快", "answer": "Have a nice weekend" },
+    { "type": "translation", "prompt": "请慢用", "answer": "Enjoy your meal" },
+    { "type": "translation", "prompt": "一路平安", "answer": "Have a safe trip" }
+  ]},
+  "et-2": { "courseId": "english-translation", "title": "Shopping", "type": "translation", "units": [
+    { "type": "translation", "prompt": "这个多少钱", "answer": "How much is this" },
+    { "type": "translation", "prompt": "太贵了", "answer": "It is too expensive" },
+    { "type": "translation", "prompt": "能便宜一点吗", "answer": "Can you make it cheaper" },
+    { "type": "translation", "prompt": "我在找一双鞋", "answer": "I am looking for a pair of shoes" },
+    { "type": "translation", "prompt": "可以试穿吗", "answer": "Can I try it on" },
+    { "type": "translation", "prompt": "我要这个", "answer": "I will take this" },
+    { "type": "translation", "prompt": "可以刷卡吗", "answer": "Can I pay by card" },
+    { "type": "translation", "prompt": "有发票吗", "answer": "Do you have a receipt" }
+  ]},
+  "et-3": { "courseId": "english-translation", "title": "Dining Out", "type": "translation", "units": [
+    { "type": "translation", "prompt": "我要预订位子", "answer": "I would like to reserve a table" },
+    { "type": "translation", "prompt": "有菜单吗", "answer": "Can I see the menu" },
+    { "type": "translation", "prompt": "推荐一下特色菜", "answer": "What is your specialty" },
+    { "type": "translation", "prompt": "我吃素", "answer": "I am a vegetarian" },
+    { "type": "translation", "prompt": "结账", "answer": "Check please" },
+    { "type": "translation", "prompt": "太好吃了", "answer": "It is delicious" },
+    { "type": "translation", "prompt": "打包带走", "answer": "To go please" },
+    { "type": "translation", "prompt": "请给我一杯水", "answer": "A glass of water please" }
+  ]},
+  "et-4": { "courseId": "english-translation", "title": "Travel Scenarios", "type": "translation", "units": [
+    { "type": "translation", "prompt": "请问火车站怎么走", "answer": "How do I get to the train station" },
+    { "type": "translation", "prompt": "我迷路了", "answer": "I am lost" },
+    { "type": "translation", "prompt": "我要去机场", "answer": "I need to go to the airport" },
+    { "type": "translation", "prompt": "请帮我拍照", "answer": "Could you take a photo for me" },
+    { "type": "translation", "prompt": "这个景点叫什么名字", "answer": "What is the name of this attraction" },
+    { "type": "translation", "prompt": "几点开门", "answer": "What time does it open" },
+    { "type": "translation", "prompt": "有会说中文的人吗", "answer": "Does anyone speak Chinese" },
+    { "type": "translation", "prompt": "我在找这个地址", "answer": "I am looking for this address" }
+  ]},
+
+  "jn5-1": { "courseId": "japanese-n5", "title": "Hiragana", "type": "vocabulary", "units": [
+    { "type": "vocabulary", "prompt": "あ", "answer": "a" },
+    { "type": "vocabulary", "prompt": "い", "answer": "i" },
+    { "type": "vocabulary", "prompt": "う", "answer": "u" },
+    { "type": "vocabulary", "prompt": "え", "answer": "e" },
+    { "type": "vocabulary", "prompt": "お", "answer": "o" },
+    { "type": "vocabulary", "prompt": "か", "answer": "ka" },
+    { "type": "vocabulary", "prompt": "き", "answer": "ki" },
+    { "type": "vocabulary", "prompt": "く", "answer": "ku" },
+    { "type": "vocabulary", "prompt": "け", "answer": "ke" },
+    { "type": "vocabulary", "prompt": "こ", "answer": "ko" }
+  ]},
+  "jn5-2": { "courseId": "japanese-n5", "title": "Katakana", "type": "vocabulary", "units": [
+    { "type": "vocabulary", "prompt": "ア", "answer": "a" },
+    { "type": "vocabulary", "prompt": "イ", "answer": "i" },
+    { "type": "vocabulary", "prompt": "ウ", "answer": "u" },
+    { "type": "vocabulary", "prompt": "エ", "answer": "e" },
+    { "type": "vocabulary", "prompt": "オ", "answer": "o" },
+    { "type": "vocabulary", "prompt": "カ", "answer": "ka" },
+    { "type": "vocabulary", "prompt": "キ", "answer": "ki" },
+    { "type": "vocabulary", "prompt": "ク", "answer": "ku" },
+    { "type": "vocabulary", "prompt": "ケ", "answer": "ke" },
+    { "type": "vocabulary", "prompt": "コ", "answer": "ko" }
+  ]},
+  "jn5-3": { "courseId": "japanese-n5", "title": "Basic Kanji", "type": "vocabulary", "units": [
+    { "type": "vocabulary", "prompt": "日", "answer": "sun" },
+    { "type": "vocabulary", "prompt": "月", "answer": "moon" },
+    { "type": "vocabulary", "prompt": "山", "answer": "mountain" },
+    { "type": "vocabulary", "prompt": "川", "answer": "river" },
+    { "type": "vocabulary", "prompt": "木", "answer": "tree" },
+    { "type": "vocabulary", "prompt": "火", "answer": "fire" },
+    { "type": "vocabulary", "prompt": "水", "answer": "water" },
+    { "type": "vocabulary", "prompt": "金", "answer": "money" },
+    { "type": "vocabulary", "prompt": "土", "answer": "soil" },
+    { "type": "vocabulary", "prompt": "人", "answer": "person" }
+  ]},
+  "jn5-4": { "courseId": "japanese-n5", "title": "Self Introduction", "type": "vocabulary", "units": [
+    { "type": "vocabulary", "prompt": "私", "answer": "I" },
+    { "type": "vocabulary", "prompt": "名前", "answer": "name" },
+    { "type": "vocabulary", "prompt": "出身", "answer": "hometown" },
+    { "type": "vocabulary", "prompt": "学生", "answer": "student" },
+    { "type": "vocabulary", "prompt": "仕事", "answer": "job" },
+    { "type": "vocabulary", "prompt": "趣味", "answer": "hobby" },
+    { "type": "vocabulary", "prompt": "友達", "answer": "friend" },
+    { "type": "vocabulary", "prompt": "家族", "answer": "family" },
+    { "type": "vocabulary", "prompt": "学校", "answer": "school" },
+    { "type": "vocabulary", "prompt": "会社", "answer": "company" }
+  ]},
+
+  "sp-1": { "courseId": "spanish-vocabulary", "title": "Saludos", "type": "vocabulary", "units": [
+    { "type": "vocabulary", "prompt": "hola", "answer": "hello" },
+    { "type": "vocabulary", "prompt": "adiós", "answer": "goodbye" },
+    { "type": "vocabulary", "prompt": "buenos días", "answer": "good morning" },
+    { "type": "vocabulary", "prompt": "buenas noches", "answer": "good night" },
+    { "type": "vocabulary", "prompt": "gracias", "answer": "thank you" },
+    { "type": "vocabulary", "prompt": "por favor", "answer": "please" },
+    { "type": "vocabulary", "prompt": "amigo", "answer": "friend" },
+    { "type": "vocabulary", "prompt": "señor", "answer": "mister" },
+    { "type": "vocabulary", "prompt": "señora", "answer": "madam" },
+    { "type": "vocabulary", "prompt": "mucho gusto", "answer": "nice to meet you" }
+  ]},
+  "sp-2": { "courseId": "spanish-vocabulary", "title": "Números", "type": "vocabulary", "units": [
+    { "type": "vocabulary", "prompt": "uno", "answer": "one" },
+    { "type": "vocabulary", "prompt": "dos", "answer": "two" },
+    { "type": "vocabulary", "prompt": "tres", "answer": "three" },
+    { "type": "vocabulary", "prompt": "cuatro", "answer": "four" },
+    { "type": "vocabulary", "prompt": "cinco", "answer": "five" },
+    { "type": "vocabulary", "prompt": "diez", "answer": "ten" },
+    { "type": "vocabulary", "prompt": "cien", "answer": "hundred" },
+    { "type": "vocabulary", "prompt": "primero", "answer": "first" },
+    { "type": "vocabulary", "prompt": "último", "answer": "last" },
+    { "type": "vocabulary", "prompt": "más", "answer": "more" }
+  ]},
+  "sp-3": { "courseId": "spanish-vocabulary", "title": "Colores", "type": "vocabulary", "units": [
+    { "type": "vocabulary", "prompt": "rojo", "answer": "red" },
+    { "type": "vocabulary", "prompt": "azul", "answer": "blue" },
+    { "type": "vocabulary", "prompt": "verde", "answer": "green" },
+    { "type": "vocabulary", "prompt": "amarillo", "answer": "yellow" },
+    { "type": "vocabulary", "prompt": "blanco", "answer": "white" },
+    { "type": "vocabulary", "prompt": "negro", "answer": "black" },
+    { "type": "vocabulary", "prompt": "naranja", "answer": "orange" },
+    { "type": "vocabulary", "prompt": "morado", "answer": "purple" },
+    { "type": "vocabulary", "prompt": "gris", "answer": "gray" },
+    { "type": "vocabulary", "prompt": "marrón", "answer": "brown" }
+  ]},
+  "sp-4": { "courseId": "spanish-vocabulary", "title": "Comida", "type": "vocabulary", "units": [
+    { "type": "vocabulary", "prompt": "pan", "answer": "bread" },
+    { "type": "vocabulary", "prompt": "agua", "answer": "water" },
+    { "type": "vocabulary", "prompt": "leche", "answer": "milk" },
+    { "type": "vocabulary", "prompt": "fruta", "answer": "fruit" },
+    { "type": "vocabulary", "prompt": "carne", "answer": "meat" },
+    { "type": "vocabulary", "prompt": "arroz", "answer": "rice" },
+    { "type": "vocabulary", "prompt": "huevo", "answer": "egg" },
+    { "type": "vocabulary", "prompt": "pescado", "answer": "fish" },
+    { "type": "vocabulary", "prompt": "queso", "answer": "cheese" },
+    { "type": "vocabulary", "prompt": "café", "answer": "coffee" }
+  ]},
+
+  "zh-1": { "courseId": "chinese-vocabulary", "title": "Greetings", "type": "vocabulary", "units": [
+    { "type": "vocabulary", "prompt": "你好", "answer": "hello" },
+    { "type": "vocabulary", "prompt": "再见", "answer": "goodbye" },
+    { "type": "vocabulary", "prompt": "谢谢", "answer": "thank you" },
+    { "type": "vocabulary", "prompt": "对不起", "answer": "sorry" },
+    { "type": "vocabulary", "prompt": "没关系", "answer": "no problem" },
+    { "type": "vocabulary", "prompt": "请问", "answer": "excuse me" },
+    { "type": "vocabulary", "prompt": "我叫", "answer": "my name is" },
+    { "type": "vocabulary", "prompt": "你好吗", "answer": "how are you" },
+    { "type": "vocabulary", "prompt": "认识你很高兴", "answer": "nice to meet you" },
+    { "type": "vocabulary", "prompt": "早上好", "answer": "good morning" }
+  ]},
+  "zh-2": { "courseId": "chinese-vocabulary", "title": "Numbers & Dates", "type": "vocabulary", "units": [
+    { "type": "vocabulary", "prompt": "一", "answer": "one" },
+    { "type": "vocabulary", "prompt": "二", "answer": "two" },
+    { "type": "vocabulary", "prompt": "三", "answer": "three" },
+    { "type": "vocabulary", "prompt": "十", "answer": "ten" },
+    { "type": "vocabulary", "prompt": "百", "answer": "hundred" },
+    { "type": "vocabulary", "prompt": "今天", "answer": "today" },
+    { "type": "vocabulary", "prompt": "明天", "answer": "tomorrow" },
+    { "type": "vocabulary", "prompt": "昨天", "answer": "yesterday" },
+    { "type": "vocabulary", "prompt": "星期", "answer": "week" },
+    { "type": "vocabulary", "prompt": "月", "answer": "month" }
+  ]},
+  "zh-3": { "courseId": "chinese-vocabulary", "title": "Food & Drinks", "type": "vocabulary", "units": [
+    { "type": "vocabulary", "prompt": "米饭", "answer": "rice" },
+    { "type": "vocabulary", "prompt": "面条", "answer": "noodles" },
+    { "type": "vocabulary", "prompt": "水", "answer": "water" },
+    { "type": "vocabulary", "prompt": "茶", "answer": "tea" },
+    { "type": "vocabulary", "prompt": "苹果", "answer": "apple" },
+    { "type": "vocabulary", "prompt": "鸡肉", "answer": "chicken" },
+    { "type": "vocabulary", "prompt": "鱼", "answer": "fish" },
+    { "type": "vocabulary", "prompt": "鸡蛋", "answer": "egg" },
+    { "type": "vocabulary", "prompt": "牛奶", "answer": "milk" },
+    { "type": "vocabulary", "prompt": "面包", "answer": "bread" }
+  ]},
+  "zh-4": { "courseId": "chinese-vocabulary", "title": "Colors & Shapes", "type": "vocabulary", "units": [
+    { "type": "vocabulary", "prompt": "红色", "answer": "red" },
+    { "type": "vocabulary", "prompt": "蓝色", "answer": "blue" },
+    { "type": "vocabulary", "prompt": "绿色", "answer": "green" },
+    { "type": "vocabulary", "prompt": "白色", "answer": "white" },
+    { "type": "vocabulary", "prompt": "黑色", "answer": "black" },
+    { "type": "vocabulary", "prompt": "圆形", "answer": "circle" },
+    { "type": "vocabulary", "prompt": "方形", "answer": "square" },
+    { "type": "vocabulary", "prompt": "三角形", "answer": "triangle" },
+    { "type": "vocabulary", "prompt": "大", "answer": "big" },
+    { "type": "vocabulary", "prompt": "小", "answer": "small" }
+  ]}
+}

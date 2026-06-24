@@ -32,6 +32,29 @@
             {{ updating ? 'Saving…' : 'Save' }}
           </button>
         </div>
+
+        <div class="mt-md">
+          <label class="text-label-sm font-bold text-on-surface-variant mb-xs block">Native Language</label>
+          <select
+            v-model="nativeLang"
+            class="w-full px-md py-sm rounded-xl border border-outline-variant bg-white text-on-surface text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+            @change="updateNativeLang"
+          >
+            <option value="">— Select —</option>
+            <option value="cn">中文</option>
+            <option value="tw">中文（繁體）</option>
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="pt">Português</option>
+            <option value="ru">Русский</option>
+            <option value="th">ไทย</option>
+            <option value="vi">Tiếng Việt</option>
+          </select>
+        </div>
       </section>
 
       <!-- Security -->
@@ -160,7 +183,9 @@ const { show: showToast } = useToast()
 // Profile
 const profile = ref({ nickname: user.value?.nickname || '', email: user.value?.email || '' })
 const nickname = ref(user.value?.nickname || '')
+const nativeLang = ref('')
 const updating = ref(false)
+const updatingLang = ref(false)
 
 // Password
 const currentPassword = ref('')
@@ -178,10 +203,13 @@ const showComingSoon = ref(false)
 
 onMounted(async () => {
   try {
-    const data = await api<{ nickname: string; google_bound?: boolean }>('/api/profile')
+    const data = await api<{ nickname: string; native_language?: string }>('/api/profile')
     if (data.nickname) {
       profile.value.nickname = data.nickname
       nickname.value = data.nickname
+    }
+    if (data.native_language) {
+      nativeLang.value = data.native_language
     }
   } catch {
     // silently use cached
@@ -202,6 +230,21 @@ async function updateNickname() {
     showToast(e.message || 'Failed to update', 'error')
   } finally {
     updating.value = false
+  }
+}
+
+async function updateNativeLang() {
+  updatingLang.value = true
+  try {
+    await api('/api/profile', {
+      method: 'PUT',
+      body: { native_language: nativeLang.value },
+    })
+    showToast('Native language updated')
+  } catch (e: any) {
+    showToast(e.message || 'Failed to update', 'error')
+  } finally {
+    updatingLang.value = false
   }
 }
 

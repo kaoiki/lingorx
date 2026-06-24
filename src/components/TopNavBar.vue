@@ -1,10 +1,13 @@
 <template>
   <header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md flex justify-between items-center px-gutter py-xs shadow-sm">
     <div class="flex items-center gap-xl">
-      <router-link to="/" class="flex items-center gap-sm font-headline-lg font-extrabold text-primary cursor-pointer text-[24px]">
-        <span class="material-symbols-outlined text-primary translate-y-[1px]" style="font-size: 28px; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 28;">auto_stories</span>
-        LingoRx
-      </router-link>
+      <div class="flex flex-col items-start">
+        <router-link to="/" class="flex items-center gap-sm font-headline-lg font-extrabold text-primary cursor-pointer text-[24px]">
+          <span class="material-symbols-outlined text-primary translate-y-[1px]" style="font-size: 28px; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 28;">auto_stories</span>
+          LingoRx
+        </router-link>
+        <TextType :text="['Remember, Don\'t Just Learn.', 'Remember, Don\'t Just Learn.']" :typing-speed="40" :deleting-speed="20" :pause-duration="4000" :show-cursor="false" :loop="true" class="hidden sm:inline text-[10px] text-primary font-bold leading-none ml-1" :as="'span'" />
+      </div>
       <!-- Desktop nav -->
       <nav class="hidden md:flex items-center gap-lg">
         <router-link
@@ -134,6 +137,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import TextType from '../components/animate/TextType.vue'
 import { useAuth } from '../composables/useAuth'
 import { useToast } from '../composables/useToast'
 

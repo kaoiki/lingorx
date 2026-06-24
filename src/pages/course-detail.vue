@@ -35,6 +35,7 @@
               <span class="px-sm py-xs rounded-full bg-primary/10 text-primary text-label-sm font-bold">{{ course.level }}</span>
               <span class="px-sm py-xs rounded-full bg-secondary/10 text-secondary text-label-sm font-bold">{{ course.languageLabel }}</span>
               <span class="px-sm py-xs rounded-full bg-surface-variant text-on-surface-variant text-label-sm font-bold">{{ course.total_lessons }} Lessons</span>
+              <span v-if="course.type" class="px-sm py-xs rounded-full bg-tertiary/10 text-tertiary text-label-sm font-bold">{{ course.type === 'vocabulary' ? 'Vocabulary' : course.type === 'grammar' ? 'Grammar' : 'Translation' }}</span>
               <span class="px-sm py-xs rounded-full bg-surface-variant text-on-surface-variant text-label-sm font-bold flex items-center gap-xs">
                 <span class="material-symbols-outlined text-[12px]">person</span>
                 {{ course.author || 'Platform' }}
@@ -132,6 +133,7 @@ interface Course {
   current_lesson: number
   icon: string
   author?: string
+  type?: string
 }
 
 interface Lesson {
@@ -178,10 +180,29 @@ onMounted(async () => {
       course.value = { ...found, languageLabel: LANGUAGE_LABELS[found.language] || found.language }
     }
 
-    // 获取 lesson 列表
-    lessons.value = await api<Lesson[]>(`/api/courses/${courseId}/lessons`)
-  } catch {
-    // 静默失败
+    // 从本地配置加载 lesson 列表
+    const COURSE_ID_MAP: Record<string, string> = {
+      'a0000001-0000-0000-0000-000000000001': 'english-beginner',
+      'a0000001-0000-0000-0000-000000000002': 'japanese-n5',
+      'a0000001-0000-0000-0000-000000000003': 'spanish-vocabulary',
+      'a0000001-0000-0000-0000-000000000004': 'chinese-vocabulary',
+      'a0000001-0000-0000-0000-000000000005': 'english-grammar',
+      'a0000001-0000-0000-0000-000000000006': 'english-translation',
+    }
+    const shortId = COURSE_ID_MAP[courseId] || courseId
+    const resp = await fetch('/courses/lessons.json')
+    const allLessons: Record<string, any> = await resp.json()
+    const courseLessons = Object.entries(allLessons)
+      .filter(([, l]: [string, any]) => l.courseId === shortId)
+      .map(([key, l]: [string, any]) => ({ ...l, id: key }))
+    lessons.value = courseLessons.map((l: any, i: number) => ({
+      id: l.id,
+      title: l.title,
+      description: l.description,
+      status: i === 0 ? 'available' : 'locked',
+    }))
+  } catch (e) {
+    console.warn('Failed to load lessons:', e)
   } finally {
     loading.value = false
   }

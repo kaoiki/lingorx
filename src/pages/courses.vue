@@ -136,6 +136,7 @@
               <div class="flex flex-wrap gap-sm mb-md">
                 <span class="px-sm py-xs rounded-full bg-primary/10 text-primary text-label-sm font-bold">{{ course.level }}</span>
                 <span class="px-sm py-xs rounded-full bg-secondary/10 text-secondary text-label-sm font-bold">{{ course.languageLabel }}</span>
+                <span v-if="course.type" class="px-sm py-xs rounded-full bg-tertiary/10 text-tertiary text-label-sm font-bold">{{ typeLabel(course.type) }}</span>
               </div>
               <div class="flex items-center gap-xs text-on-surface-variant text-label-sm font-bold mb-xs">
                 <span class="material-symbols-outlined text-[14px]">person</span>
@@ -246,6 +247,7 @@ interface Course {
   current_lesson: number
   icon: string
   author?: string
+  type?: string
 }
 
 const router = useRouter()
@@ -287,6 +289,11 @@ const gradients = [
 
 function courseGradient(index: number) {
   return `bg-gradient-to-br ${gradients[index % gradients.length]}`
+}
+
+function typeLabel(type: string) {
+  const map: Record<string, string> = { vocabulary: 'Vocabulary', grammar: 'Grammar', translation: 'Translation' }
+  return map[type] || type
 }
 
 function statusClass(status: CourseStatus) {
