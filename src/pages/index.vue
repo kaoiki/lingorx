@@ -14,7 +14,7 @@
             <p class="text-on-surface-variant text-sm font-bold">👋 Welcome back, <span class="text-on-surface">{{ nickname }}</span></p>
             <div class="flex items-center gap-xs bg-primary/10 text-primary px-sm py-xs rounded-full font-bold text-label-sm">
               <span class="material-symbols-outlined text-[14px]">local_fire_department</span>
-              <span>{{ streak }} day streak</span>
+              <span>{{ streak }} day{{ streak > 1 ? 's' : '' }} streak</span>
             </div>
           </div>
 
@@ -50,8 +50,13 @@
             </div>
             <div class="w-px h-8 bg-outline-variant" />
             <div class="text-center flex-1">
-              <div class="font-headline-md text-headline-md text-on-surface">{{ defeated }}</div>
-              <div class="text-label-sm font-bold text-on-surface-variant">Defeated</div>
+              <div class="font-headline-md text-headline-md text-on-surface">{{ totalTimeMin }}</div>
+              <div class="text-label-sm font-bold text-on-surface-variant">Minutes</div>
+            </div>
+            <div class="w-px h-8 bg-outline-variant" />
+            <div class="text-center flex-1">
+              <div class="font-headline-md text-headline-md text-on-surface">{{ totalAccuracy }}%</div>
+              <div class="text-label-sm font-bold text-on-surface-variant">Accuracy</div>
             </div>
           </div>
 
@@ -133,28 +138,28 @@
             <div class="text-primary mb-xs">
               <span class="material-symbols-outlined text-[28px]">local_fire_department</span>
             </div>
-            <div class="font-headline-md text-headline-md text-on-surface">7 Days</div>
+            <div class="font-headline-md text-headline-md text-on-surface">{{ streak }} Days</div>
             <div class="text-label-sm font-bold text-on-surface-variant">Streak</div>
           </div>
           <div class="glass-card p-md rounded-2xl text-center border-b-4 border-b-secondary/40">
             <div class="text-secondary mb-xs">
               <span class="material-symbols-outlined text-[28px]">keyboard</span>
             </div>
-            <div class="font-headline-md text-headline-md text-on-surface">128</div>
+            <div class="font-headline-md text-headline-md text-on-surface">{{ totalWords }}</div>
             <div class="text-label-sm font-bold text-on-surface-variant">Words Typed</div>
           </div>
           <div class="glass-card p-md rounded-2xl text-center border-b-4 border-b-error/40">
             <div class="text-error mb-xs">
-              <span class="material-symbols-outlined text-[28px]">skull</span>
+              <span class="material-symbols-outlined text-[28px]">trending_up</span>
             </div>
-            <div class="font-headline-md text-headline-md text-on-surface">36</div>
-            <div class="text-label-sm font-bold text-on-surface-variant">Defeated</div>
+            <div class="font-headline-md text-headline-md text-on-surface">{{ totalAccuracy }}%</div>
+            <div class="text-label-sm font-bold text-on-surface-variant">Accuracy</div>
           </div>
           <div class="glass-card p-md rounded-2xl text-center border-b-4 border-b-tertiary/40">
             <div class="text-tertiary mb-xs">
               <span class="material-symbols-outlined text-[28px]">bolt</span>
             </div>
-            <div class="font-headline-md text-headline-md text-on-surface">420</div>
+            <div class="font-headline-md text-headline-md text-on-surface">{{ xp }}</div>
             <div class="text-label-sm font-bold text-on-surface-variant">XP</div>
           </div>
         </div>
@@ -250,7 +255,9 @@ const todayPracticeMin = ref(0)
 const todayWords = ref(0)
 const xp = ref(0)
 const lessons = ref(0)
-const defeated = ref(0)
+const totalAccuracy = ref(0)
+const totalTimeMin = ref(0)
+const totalWords = ref(0)
 
 const practicePct = ref(0)
 const wordsPct = ref(0)
@@ -288,7 +295,7 @@ onMounted(async () => {
       total_xp: number
       total_coins: number
       total_lessons: number
-      total_defeated: number
+      total_accuracy: number
       total_words_typed: number
       total_time_seconds: number
       today_time_seconds: number
@@ -301,7 +308,9 @@ onMounted(async () => {
     xp.value = data.total_xp
     coins.value = data.total_coins
     lessons.value = data.total_lessons
-    defeated.value = data.total_defeated
+    totalAccuracy.value = data.total_accuracy
+    totalTimeMin.value = Math.floor(data.total_time_seconds / 60)
+    totalWords.value = data.total_words_typed
     streak.value = data.streak_days
     todayPracticeMin.value = Math.floor(data.today_time_seconds / 60)
     todayWords.value = data.today_words
