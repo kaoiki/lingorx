@@ -1,5 +1,9 @@
 <template>
-  <div class="p-gutter max-w-6xl mx-auto px-4 md:px-gutter">
+  <div v-if="loading" class="flex items-center justify-center py-32">
+    <div class="w-10 h-10 border-[3px] border-primary/30 border-t-primary rounded-full animate-spin" />
+  </div>
+
+  <div v-else class="p-gutter max-w-6xl mx-auto px-4 md:px-gutter">
     <!-- Header -->
     <section class="mb-lg">
       <div class="flex items-center gap-xs text-primary font-bold font-label-md mb-xs">
@@ -107,46 +111,26 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import * as echarts from 'echarts'
+import { api } from '../lib/api'
+const loading = ref(true)
 
-// Mock data — 后续切换为 API 调用
 const XP_PER_LEVEL = 500
 const level = computed(() => Math.floor(stats.value.total_xp / XP_PER_LEVEL))
 const nextLevelXp = computed(() => (level.value + 1) * XP_PER_LEVEL)
 const xpProgress = computed(() => ((stats.value.total_xp - level.value * XP_PER_LEVEL) / XP_PER_LEVEL) * 100)
 
+interface RecentLesson {
+  title: string; course_name: string; accuracy: number
+  xp_earned: number; coins_earned: number; time_seconds: number; completed_at: string
+}
+
 const stats = ref({
-  total_xp: 320,
-  total_coins: 54,
-  total_lessons: 4,
-  total_defeated: 4,
-  total_words_typed: 40,
-  total_time_seconds: 386,
-  today_time_seconds: 341,
-  today_words: 30,
-  streak_days: 2,
-  today_missions: [
-    { id: 1, label: 'Complete one battle', done: true, progress: '' },
-    { id: 2, label: 'Practice 10 minutes', done: false, progress: '5/10 min' },
-    { id: 3, label: 'Learn 20 words', done: true, progress: '20/20' },
-    { id: 4, label: 'Earn 50 XP', done: true, progress: '50/50' },
-    { id: 5, label: '80%+ accuracy', done: false, progress: '63%' },
-    { id: 6, label: 'Login streak +1', done: true, progress: '' },
-  ],
-  daily_activity: [
-    { date: '06/19', xp: 0, coins: 0, missions: 0 },
-    { date: '06/20', xp: 0, coins: 0, missions: 0 },
-    { date: '06/21', xp: 0, coins: 0, missions: 0 },
-    { date: '06/22', xp: 0, coins: 0, missions: 0 },
-    { date: '06/23', xp: 0, coins: 0, missions: 0 },
-    { date: '06/24', xp: 100, coins: 16, missions: 2 },
-    { date: '06/25', xp: 220, coins: 38, missions: 4 },
-  ],
-  recent_lessons: [
-    { title: 'Daily Routine', course_name: 'English Beginner', accuracy: 20, xp_earned: 20, coins_earned: 4, time_seconds: 130, completed_at: '2026-06-25T01:15:40Z' },
-    { title: 'Food & Drinks', course_name: 'English Beginner', accuracy: 100, xp_earned: 120, coins_earned: 20, time_seconds: 120, completed_at: '2026-06-25T01:04:37Z' },
-    { title: 'Numbers & Colors', course_name: 'English Beginner', accuracy: 70, xp_earned: 80, coins_earned: 14, time_seconds: 91, completed_at: '2026-06-25T00:24:16Z' },
-    { title: 'Greetings', course_name: 'English Beginner', accuracy: 80, xp_earned: 100, coins_earned: 16, time_seconds: 45, completed_at: '2026-06-24T23:28:48Z' },
-  ],
+  total_xp: 0,
+  total_coins: 0,
+  total_time_seconds: 0,
+  streak_days: 0,
+  daily_activity: [] as { date: string; xp: number; coins: number; missions: number }[],
+  recent_lessons: [] as RecentLesson[],
 })
 
 function formatTime(seconds: number): string {
@@ -236,11 +220,21 @@ function handleResize() {
   activityChart?.resize()
 }
 
+async function loadStats() {
+  try {
+    const data = await api<typeof stats.value>('/api/stats/history')
+    stats.value = data
+  } catch {
+    // 未登录或接口失败
+  } finally {
+    loading.value = false
+    nextTick(() => initCharts())
+  }
+}
+
 onMounted(() => {
-  nextTick(() => {
-    initCharts()
-    window.addEventListener('resize', handleResize)
-  })
+  loadStats()
+  window.addEventListener('resize', handleResize)
 })
 
 onUnmounted(() => {
