@@ -112,6 +112,8 @@
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import * as echarts from 'echarts'
 import { api } from '../lib/api'
+import { useAuth } from '../composables/useAuth'
+const { isLoggedIn } = useAuth()
 const loading = ref(true)
 
 const XP_PER_LEVEL = 500
@@ -221,6 +223,11 @@ function handleResize() {
 }
 
 async function loadStats() {
+  if (!isLoggedIn.value) {
+    loading.value = false
+    return
+  }
+
   try {
     const data = await api<typeof stats.value>('/api/stats/history')
     stats.value = data

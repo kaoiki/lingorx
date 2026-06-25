@@ -241,7 +241,7 @@ import { onMounted, ref } from 'vue'
 import { useAuth } from '../composables/useAuth'
 import { api } from '../lib/api'
 
-const { user } = useAuth()
+const { user, isLoggedIn } = useAuth()
 const loading = ref(true)
 
 const nickname = ref(user.value?.nickname || 'Learner')
@@ -277,6 +277,11 @@ onMounted(async () => {
       (card as HTMLElement).style.transform = 'translateY(0)'
     })
   })
+
+  if (!isLoggedIn.value) {
+    loading.value = false
+    return
+  }
 
   try {
     const data = await api<{
