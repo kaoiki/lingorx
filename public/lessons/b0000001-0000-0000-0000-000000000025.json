@@ -7,53 +7,114 @@
     {
       "type": "vocabulary",
       "prompt": "米饭",
-      "answer": "rice"
+      "answer": "rice",
+      "options": [
+        "tea",
+        "water",
+        "rice",
+        "fish"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "面条",
-      "answer": "noodles"
+      "answer": "noodles",
+      "options": [
+        "noodles",
+        "rice",
+        "tea",
+        "milk"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "水",
-      "answer": "water"
+      "answer": "water",
+      "options": [
+        "egg",
+        "water",
+        "milk",
+        "apple"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "茶",
-      "answer": "tea"
+      "answer": "tea",
+      "options": [
+        "rice",
+        "tea",
+        "noodles",
+        "egg"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "苹果",
-      "answer": "apple"
+      "answer": "apple",
+      "options": [
+        "milk",
+        "tea",
+        "apple",
+        "rice"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "鸡肉",
-      "answer": "chicken"
+      "answer": "chicken",
+      "options": [
+        "noodles",
+        "egg",
+        "chicken",
+        "rice"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "鱼",
-      "answer": "fish"
+      "answer": "fish",
+      "options": [
+        "fish",
+        "water",
+        "noodles",
+        "rice"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "鸡蛋",
-      "answer": "egg"
+      "answer": "egg",
+      "options": [
+        "apple",
+        "noodles",
+        "water",
+        "egg"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "牛奶",
-      "answer": "milk"
+      "answer": "milk",
+      "options": [
+        "noodles",
+        "egg",
+        "tea",
+        "milk"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "面包",
-      "answer": "bread"
+      "answer": "bread",
+      "options": [
+        "chicken",
+        "bread",
+        "tea",
+        "noodles"
+      ]
     }
   ],
-  "id": "b0000001-0000-0000-0000-000000000025"
+  "id": "b0000001-0000-0000-0000-000000000025",
+  "courseUUID": "a0000001-0000-0000-0000-000000000006"
 }

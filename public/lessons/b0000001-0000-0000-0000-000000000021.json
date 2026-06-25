@@ -7,53 +7,114 @@
     {
       "type": "vocabulary",
       "prompt": "rojo",
-      "answer": "red"
+      "answer": "red",
+      "options": [
+        "red",
+        "green",
+        "purple",
+        "blue"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "azul",
-      "answer": "blue"
+      "answer": "blue",
+      "options": [
+        "white",
+        "gray",
+        "yellow",
+        "blue"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "verde",
-      "answer": "green"
+      "answer": "green",
+      "options": [
+        "gray",
+        "orange",
+        "red",
+        "green"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "amarillo",
-      "answer": "yellow"
+      "answer": "yellow",
+      "options": [
+        "yellow",
+        "blue",
+        "brown",
+        "red"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "blanco",
-      "answer": "white"
+      "answer": "white",
+      "options": [
+        "white",
+        "black",
+        "yellow",
+        "red"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "negro",
-      "answer": "black"
+      "answer": "black",
+      "options": [
+        "gray",
+        "red",
+        "yellow",
+        "black"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "naranja",
-      "answer": "orange"
+      "answer": "orange",
+      "options": [
+        "red",
+        "yellow",
+        "gray",
+        "orange"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "morado",
-      "answer": "purple"
+      "answer": "purple",
+      "options": [
+        "blue",
+        "purple",
+        "black",
+        "orange"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "gris",
-      "answer": "gray"
+      "answer": "gray",
+      "options": [
+        "green",
+        "purple",
+        "gray",
+        "red"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "marrón",
-      "answer": "brown"
+      "answer": "brown",
+      "options": [
+        "brown",
+        "orange",
+        "yellow",
+        "purple"
+      ]
     }
   ],
-  "id": "b0000001-0000-0000-0000-000000000021"
+  "id": "b0000001-0000-0000-0000-000000000021",
+  "courseUUID": "a0000001-0000-0000-0000-000000000005"
 }

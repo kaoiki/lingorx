@@ -54,7 +54,7 @@
             </div>
             <div class="py-1">
               <router-link
-                to="/courses"
+                to="/my-courses"
                 class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm"
               >
                 <span class="material-symbols-outlined text-[20px] text-on-surface-variant">menu_book</span>

@@ -7,53 +7,114 @@
     {
       "type": "vocabulary",
       "prompt": "红色",
-      "answer": "red"
+      "answer": "red",
+      "options": [
+        "square",
+        "circle",
+        "red",
+        "big"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "蓝色",
-      "answer": "blue"
+      "answer": "blue",
+      "options": [
+        "circle",
+        "small",
+        "blue",
+        "triangle"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "绿色",
-      "answer": "green"
+      "answer": "green",
+      "options": [
+        "red",
+        "green",
+        "big",
+        "blue"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "白色",
-      "answer": "white"
+      "answer": "white",
+      "options": [
+        "small",
+        "white",
+        "green",
+        "red"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "黑色",
-      "answer": "black"
+      "answer": "black",
+      "options": [
+        "black",
+        "white",
+        "blue",
+        "red"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "圆形",
-      "answer": "circle"
+      "answer": "circle",
+      "options": [
+        "circle",
+        "small",
+        "black",
+        "square"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "方形",
-      "answer": "square"
+      "answer": "square",
+      "options": [
+        "square",
+        "small",
+        "circle",
+        "triangle"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "三角形",
-      "answer": "triangle"
+      "answer": "triangle",
+      "options": [
+        "triangle",
+        "black",
+        "square",
+        "small"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "大",
-      "answer": "big"
+      "answer": "big",
+      "options": [
+        "green",
+        "big",
+        "red",
+        "blue"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "小",
-      "answer": "small"
+      "answer": "small",
+      "options": [
+        "big",
+        "square",
+        "white",
+        "small"
+      ]
     }
   ],
-  "id": "b0000001-0000-0000-0000-000000000026"
+  "id": "b0000001-0000-0000-0000-000000000026",
+  "courseUUID": "a0000001-0000-0000-0000-000000000006"
 }

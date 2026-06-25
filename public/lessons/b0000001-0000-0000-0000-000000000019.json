@@ -7,53 +7,114 @@
     {
       "type": "vocabulary",
       "prompt": "hola",
-      "answer": "hello"
+      "answer": "hello",
+      "options": [
+        "nice to meet you",
+        "goodbye",
+        "hello",
+        "friend"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "adiós",
-      "answer": "goodbye"
+      "answer": "goodbye",
+      "options": [
+        "goodbye",
+        "mister",
+        "hello",
+        "good morning"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "buenos días",
-      "answer": "good morning"
+      "answer": "good morning",
+      "options": [
+        "good morning",
+        "madam",
+        "hello",
+        "goodbye"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "buenas noches",
-      "answer": "good night"
+      "answer": "good night",
+      "options": [
+        "hello",
+        "thank you",
+        "goodbye",
+        "good night"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "gracias",
-      "answer": "thank you"
+      "answer": "thank you",
+      "options": [
+        "nice to meet you",
+        "thank you",
+        "good night",
+        "friend"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "por favor",
-      "answer": "please"
+      "answer": "please",
+      "options": [
+        "goodbye",
+        "hello",
+        "please",
+        "madam"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "amigo",
-      "answer": "friend"
+      "answer": "friend",
+      "options": [
+        "good night",
+        "mister",
+        "please",
+        "friend"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "señor",
-      "answer": "mister"
+      "answer": "mister",
+      "options": [
+        "good night",
+        "mister",
+        "hello",
+        "madam"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "señora",
-      "answer": "madam"
+      "answer": "madam",
+      "options": [
+        "madam",
+        "good night",
+        "goodbye",
+        "thank you"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "mucho gusto",
-      "answer": "nice to meet you"
+      "answer": "nice to meet you",
+      "options": [
+        "please",
+        "hello",
+        "madam",
+        "nice to meet you"
+      ]
     }
   ],
-  "id": "b0000001-0000-0000-0000-000000000019"
+  "id": "b0000001-0000-0000-0000-000000000019",
+  "courseUUID": "a0000001-0000-0000-0000-000000000005"
 }

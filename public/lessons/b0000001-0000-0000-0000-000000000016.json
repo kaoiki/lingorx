@@ -7,53 +7,114 @@
     {
       "type": "vocabulary",
       "prompt": "ア",
-      "answer": "a"
+      "answer": "a",
+      "options": [
+        "ka",
+        "ko",
+        "ki",
+        "a"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "イ",
-      "answer": "i"
+      "answer": "i",
+      "options": [
+        "i",
+        "ka",
+        "e",
+        "o"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "ウ",
-      "answer": "u"
+      "answer": "u",
+      "options": [
+        "u",
+        "ke",
+        "o",
+        "e"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "エ",
-      "answer": "e"
+      "answer": "e",
+      "options": [
+        "ke",
+        "ka",
+        "a",
+        "e"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "オ",
-      "answer": "o"
+      "answer": "o",
+      "options": [
+        "e",
+        "a",
+        "o",
+        "ki"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "カ",
-      "answer": "ka"
+      "answer": "ka",
+      "options": [
+        "ku",
+        "e",
+        "ka",
+        "u"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "キ",
-      "answer": "ki"
+      "answer": "ki",
+      "options": [
+        "ka",
+        "ki",
+        "u",
+        "a"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "ク",
-      "answer": "ku"
+      "answer": "ku",
+      "options": [
+        "ku",
+        "i",
+        "u",
+        "e"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "ケ",
-      "answer": "ke"
+      "answer": "ke",
+      "options": [
+        "o",
+        "e",
+        "u",
+        "ke"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "コ",
-      "answer": "ko"
+      "answer": "ko",
+      "options": [
+        "o",
+        "i",
+        "e",
+        "ko"
+      ]
     }
   ],
-  "id": "b0000001-0000-0000-0000-000000000016"
+  "id": "b0000001-0000-0000-0000-000000000016",
+  "courseUUID": "a0000001-0000-0000-0000-000000000004"
 }

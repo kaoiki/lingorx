@@ -4,56 +4,17 @@
   "type": "vocabulary",
   "shuffle": true,
   "units": [
-    {
-      "type": "vocabulary",
-      "prompt": "one",
-      "answer": "一"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "ten",
-      "answer": "十"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "hundred",
-      "answer": "百"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "red",
-      "answer": "红色"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "blue",
-      "answer": "蓝色"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "green",
-      "answer": "绿色"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "yellow",
-      "answer": "黄色"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "white",
-      "answer": "白色"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "black",
-      "answer": "黑色"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "color",
-      "answer": "颜色"
-    }
+    { "type": "vocabulary", "prompt": "The number that comes before two", "answer": "one", "options": ["one", "two", "three", "zero"] },
+    { "type": "vocabulary", "prompt": "The number that comes after nine", "answer": "ten", "options": ["ten", "eleven", "nine", "eight"] },
+    { "type": "vocabulary", "prompt": "The number that has two zeros", "answer": "hundred", "options": ["thousand", "hundred", "ten", "million"] },
+    { "type": "vocabulary", "prompt": "The color of strawberries and blood", "answer": "red", "options": ["red", "blue", "green", "yellow"] },
+    { "type": "vocabulary", "prompt": "The color of the sky on a sunny day", "answer": "blue", "options": ["blue", "green", "gray", "black"] },
+    { "type": "vocabulary", "prompt": "The color of grass and leaves", "answer": "green", "options": ["green", "yellow", "blue", "brown"] },
+    { "type": "vocabulary", "prompt": "The color of the sun and bananas", "answer": "yellow", "options": ["yellow", "orange", "red", "gold"] },
+    { "type": "vocabulary", "prompt": "The color of snow and paper", "answer": "white", "options": ["white", "gray", "silver", "light"] },
+    { "type": "vocabulary", "prompt": "The color of the night sky and coal", "answer": "black", "options": ["black", "dark", "brown", "gray"] },
+    { "type": "vocabulary", "prompt": "A word that describes if something is red, blue, or green", "answer": "color", "options": ["color", "shade", "tone", "paint"] }
   ],
-  "id": "b0000001-0000-0000-0000-000000000002"
+  "id": "b0000001-0000-0000-0000-000000000002",
+  "courseUUID": "a0000001-0000-0000-0000-000000000001"
 }

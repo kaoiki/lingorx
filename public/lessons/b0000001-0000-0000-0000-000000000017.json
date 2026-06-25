@@ -7,53 +7,114 @@
     {
       "type": "vocabulary",
       "prompt": "日",
-      "answer": "sun"
+      "answer": "sun",
+      "options": [
+        "sun",
+        "tree",
+        "moon",
+        "soil"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "月",
-      "answer": "moon"
+      "answer": "moon",
+      "options": [
+        "mountain",
+        "moon",
+        "sun",
+        "money"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "山",
-      "answer": "mountain"
+      "answer": "mountain",
+      "options": [
+        "tree",
+        "river",
+        "moon",
+        "mountain"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "川",
-      "answer": "river"
+      "answer": "river",
+      "options": [
+        "money",
+        "fire",
+        "river",
+        "water"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "木",
-      "answer": "tree"
+      "answer": "tree",
+      "options": [
+        "tree",
+        "person",
+        "moon",
+        "sun"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "火",
-      "answer": "fire"
+      "answer": "fire",
+      "options": [
+        "river",
+        "tree",
+        "money",
+        "fire"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "水",
-      "answer": "water"
+      "answer": "water",
+      "options": [
+        "fire",
+        "river",
+        "water",
+        "sun"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "金",
-      "answer": "money"
+      "answer": "money",
+      "options": [
+        "mountain",
+        "river",
+        "tree",
+        "money"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "土",
-      "answer": "soil"
+      "answer": "soil",
+      "options": [
+        "tree",
+        "river",
+        "mountain",
+        "soil"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "人",
-      "answer": "person"
+      "answer": "person",
+      "options": [
+        "tree",
+        "person",
+        "water",
+        "money"
+      ]
     }
   ],
-  "id": "b0000001-0000-0000-0000-000000000017"
+  "id": "b0000001-0000-0000-0000-000000000017",
+  "courseUUID": "a0000001-0000-0000-0000-000000000004"
 }

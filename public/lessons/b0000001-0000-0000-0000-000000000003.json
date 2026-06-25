@@ -4,56 +4,17 @@
   "type": "vocabulary",
   "shuffle": true,
   "units": [
-    {
-      "type": "vocabulary",
-      "prompt": "bread",
-      "answer": "面包"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "rice",
-      "answer": "米饭"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "water",
-      "answer": "水"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "milk",
-      "answer": "牛奶"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "coffee",
-      "answer": "咖啡"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "tea",
-      "answer": "茶"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "fruit",
-      "answer": "水果"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "meat",
-      "answer": "肉"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "vegetable",
-      "answer": "蔬菜"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "egg",
-      "answer": "鸡蛋"
-    }
+    { "type": "vocabulary", "prompt": "A baked food made from flour, often sliced for sandwiches", "answer": "bread", "options": ["bread", "cake", "rice", "noodles"] },
+    { "type": "vocabulary", "prompt": "A grain that is a staple food in many Asian countries", "answer": "rice", "options": ["rice", "wheat", "corn", "oat"] },
+    { "type": "vocabulary", "prompt": "A clear liquid that everyone needs to drink every day", "answer": "water", "options": ["water", "juice", "soda", "tea"] },
+    { "type": "vocabulary", "prompt": "A white liquid from cows, often drunk with breakfast", "answer": "milk", "options": ["milk", "cream", "yogurt", "water"] },
+    { "type": "vocabulary", "prompt": "A hot dark brown drink made from beans, often drunk in the morning", "answer": "coffee", "options": ["coffee", "tea", "cocoa", "soda"] },
+    { "type": "vocabulary", "prompt": "A hot drink made by pouring hot water over leaves", "answer": "tea", "options": ["tea", "coffee", "juice", "soup"] },
+    { "type": "vocabulary", "prompt": "Sweet and juicy food that grows on trees or plants", "answer": "fruit", "options": ["fruit", "vegetable", "candy", "bread"] },
+    { "type": "vocabulary", "prompt": "Animal flesh that people cook and eat as food", "answer": "meat", "options": ["meat", "fish", "egg", "milk"] },
+    { "type": "vocabulary", "prompt": "A green or colorful plant food that is good for health", "answer": "vegetable", "options": ["vegetable", "fruit", "grain", "herb"] },
+    { "type": "vocabulary", "prompt": "A round food that comes from chickens, often eaten at breakfast", "answer": "egg", "options": ["egg", "meat", "bread", "milk"] }
   ],
-  "id": "b0000001-0000-0000-0000-000000000003"
+  "id": "b0000001-0000-0000-0000-000000000003",
+  "courseUUID": "a0000001-0000-0000-0000-000000000001"
 }

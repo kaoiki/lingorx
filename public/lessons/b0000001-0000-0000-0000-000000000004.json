@@ -4,56 +4,17 @@
   "type": "vocabulary",
   "shuffle": true,
   "units": [
-    {
-      "type": "vocabulary",
-      "prompt": "wake up",
-      "answer": "起床"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "eat breakfast",
-      "answer": "吃早餐"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "go to work",
-      "answer": "去上班"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "study",
-      "answer": "学习"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "cook dinner",
-      "answer": "做晚饭"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "watch TV",
-      "answer": "看电视"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "take a shower",
-      "answer": "洗澡"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "go to bed",
-      "answer": "上床睡觉"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "brush teeth",
-      "answer": "刷牙"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "get dressed",
-      "answer": "穿衣服"
-    }
+    { "type": "vocabulary", "prompt": "To stop sleeping and get out of bed", "answer": "wake up", "options": ["wake up", "get up", "stand up", "sit up"] },
+    { "type": "vocabulary", "prompt": "To have your first meal of the day in the morning", "answer": "eat breakfast", "options": ["eat breakfast", "cook breakfast", "make breakfast", "have lunch"] },
+    { "type": "vocabulary", "prompt": "To travel to your job or workplace", "answer": "go to work", "options": ["go to work", "go to school", "go home", "leave work"] },
+    { "type": "vocabulary", "prompt": "To read books or practice a skill to learn something new", "answer": "study", "options": ["study", "read", "teach", "learn"] },
+    { "type": "vocabulary", "prompt": "To prepare and make the evening meal", "answer": "cook dinner", "options": ["cook dinner", "eat dinner", "order food", "wash dishes"] },
+    { "type": "vocabulary", "prompt": "To look at shows or movies on a screen at home", "answer": "watch TV", "options": ["watch TV", "watch movies", "listen radio", "play games"] },
+    { "type": "vocabulary", "prompt": "To clean your body under running water", "answer": "take a shower", "options": ["take a shower", "take a bath", "wash hands", "brush teeth"] },
+    { "type": "vocabulary", "prompt": "To lie down in bed at night to sleep", "answer": "go to bed", "options": ["go to bed", "go to sleep", "lie down", "rest"] },
+    { "type": "vocabulary", "prompt": "To clean your teeth with a brush and toothpaste", "answer": "brush teeth", "options": ["brush teeth", "wash face", "comb hair", "clean mouth"] },
+    { "type": "vocabulary", "prompt": "To put clothes on your body", "answer": "get dressed", "options": ["get dressed", "put on", "wear clothes", "change clothes"] }
   ],
-  "id": "b0000001-0000-0000-0000-000000000004"
+  "id": "b0000001-0000-0000-0000-000000000004",
+  "courseUUID": "a0000001-0000-0000-0000-000000000001"
 }

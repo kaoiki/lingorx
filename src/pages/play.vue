@@ -24,6 +24,18 @@
 
     <!-- Game area -->
     <div class="flex-1 flex flex-col items-center justify-center px-gutter gap-8 overflow-hidden" v-show="started && !finished">
+      <!-- Timer bar (centered) -->
+      <div v-if="started && !finished" class="flex items-center justify-center gap-sm text-sm font-bold w-full max-w-xs mx-auto"
+        :class="questionTimeLeft <= 5 ? 'text-error' : 'text-on-surface-variant'">
+        <span class="material-symbols-outlined text-[18px]">timer</span>
+        <div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
+          <div class="h-full rounded-full transition-all duration-500"
+            :class="questionTimeLeft <= 5 ? 'bg-error' : 'bg-primary'"
+            :style="{ width: (questionTimeLeft / 30) * 100 + '%' }" />
+        </div>
+        <span class="font-bold min-w-[28px] text-right">{{ questionTimeLeft }}s</span>
+      </div>
+
       <!-- Monster -->
       <div class="text-center">
         <div class="text-5xl" :class="{ 'animate-shake': shaking }">👾</div>
@@ -45,6 +57,9 @@
             class="px-md py-xs rounded-lg bg-surface-variant text-on-surface-variant text-sm font-bold">
             {{ opt }}
           </span>
+          <p class="w-full mt-xs text-xs text-primary flex items-center justify-center gap-xs">
+            Tap the <span class="material-symbols-outlined text-[12px] align-middle">lightbulb</span> to hide hints
+          </p>
         </div>
         <!-- No hint: prompt to enable -->
         <p v-if="currentUnit.options && !showHints" class="mt-sm text-xs text-primary flex items-center justify-center gap-xs">
@@ -94,7 +109,7 @@
 
     <!-- Lesson Start Modal -->
     <Teleport to="body">
-      <div v-if="showStartPrompt" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center px-4" @click.self="showStartPrompt = false">
+      <div v-if="showStartPrompt" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center px-4" @click.self="startBattle()">
         <div class="w-full bg-white rounded-2xl shadow-xl p-xl text-center" style="max-width: 440px;">
           <div class="w-20 h-20 mx-auto mb-md rounded-2xl bg-primary/10 flex items-center justify-center">
             <span class="material-symbols-outlined text-[48px] text-primary">stadia_controller</span>
@@ -115,13 +130,20 @@
             <span class="material-symbols-outlined text-[48px] text-primary">stadia_controller</span>
           </div>
           <h3 class="font-headline-md font-bold text-on-surface mb-xs">Battle Complete!</h3>
+          <div v-if="submitting" class="text-sm text-on-surface-variant mb-lg">Submitting result…</div>
+          <p v-else-if="isCompleted" class="text-sm text-on-surface-variant mb-lg">📝 Review completed — no XP earned</p>
+          <p v-else-if="xpEarned > 0" class="text-sm text-primary font-bold mb-lg">✓ Results submitted!</p>
+          <div v-if="xpEarned > 0" class="flex justify-center gap-lg mb-lg text-sm">
+            <div><p class="font-headline-md text-headline-md text-primary">+{{ xpEarned }}</p><p class="text-label-sm font-bold text-on-surface-variant flex items-center justify-center gap-xs"><span class="material-symbols-outlined text-[14px]">bolt</span> XP</p></div>
+            <div><p class="font-headline-md text-headline-md text-secondary">+{{ coinsEarned }}</p><p class="text-label-sm font-bold text-on-surface-variant flex items-center justify-center gap-xs"><span class="material-symbols-outlined text-[14px]">monetization_on</span> Coins</p></div>
+          </div>
           <div class="flex justify-center gap-lg mb-lg text-sm">
             <div><p class="font-headline-md text-headline-md text-primary">{{ correctCount }}</p><p class="text-label-sm font-bold text-on-surface-variant flex items-center justify-center gap-xs"><span class="material-symbols-outlined text-[14px]">check_circle</span> Correct</p></div>
             <div><p class="font-headline-md text-headline-md text-error">{{ wrongCount }}</p><p class="text-label-sm font-bold text-on-surface-variant flex items-center justify-center gap-xs"><span class="material-symbols-outlined text-[14px]">cancel</span> Wrong</p></div>
             <div><p class="font-headline-md text-headline-md text-secondary">{{ accuracy }}%</p><p class="text-label-sm font-bold text-on-surface-variant flex items-center justify-center gap-xs"><span class="material-symbols-outlined text-[14px]">stars</span> Accuracy</p></div>
           </div>
-          <p class="text-label-sm font-bold text-on-surface-variant mb-lg">Accuracy: {{ accuracy }}%</p>
-          <router-link to="/courses" class="block w-full bg-primary hover:bg-primary/90 text-on-primary font-bold py-sm rounded-xl transition-all text-center">Back to Courses</router-link>
+          <p class="text-label-sm font-bold text-on-surface-variant mb-lg flex items-center justify-center gap-xs"><span class="material-symbols-outlined text-[14px]">schedule</span> Time: {{ totalTime }}s</p>
+          <router-link :to="courseUUID ? `/courses/${courseUUID}` : '/courses'" class="block w-full bg-primary hover:bg-primary/90 text-on-primary font-bold py-sm rounded-xl transition-all text-center">Back to Course</router-link>
         </div>
       </div>
     </Teleport>
@@ -148,10 +170,13 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
+import { api } from '../lib/api'
 
 const route = useRoute()
 const lessonId = route.params.lessonId as string
+const isCompleted = route.query.completed === '1'
 const lessonTitle = ref('')
+const courseUUID = ref('')
 const units = ref<Unit[]>([])
 
 interface Unit {
@@ -175,10 +200,18 @@ const lastCorrect = ref(false)
 const waiting = ref(false)
 const finished = ref(false)
 const showQuit = ref(false)
+const startTime = ref(0)
+const xpEarned = ref(0)
+const coinsEarned = ref(0)
+const submitting = ref(false)
+const totalTime = ref(0)
 const showStartPrompt = ref(true)
 const started = ref(false)
-const showHints = ref(localStorage.getItem('lingorx_show_hints') !== 'false')
+const showHints = ref(localStorage.getItem('lingorx_show_hints') === 'true')
 const inputRef = ref<HTMLInputElement | null>(null)
+const questionTimeLeft = ref(30)
+const QUESTION_TIME_LIMIT = 30
+let timerHandle: ReturnType<typeof setInterval> | null = null
 
 const currentUnit = computed(() => units.value[currentIndex.value])
 
@@ -192,6 +225,39 @@ const accuracy = computed(() => {
   if (total === 0) return 0
   return Math.round((correctCount.value / total) * 100)
 })
+
+function startTimer() {
+  stopTimer()
+  questionTimeLeft.value = QUESTION_TIME_LIMIT
+  timerHandle = setInterval(() => {
+    questionTimeLeft.value--
+    if (questionTimeLeft.value <= 0) {
+      // 时间到，自动算错
+      stopTimer()
+      wrongCount.value++
+      showResult.value = true
+      waiting.value = true
+      setTimeout(() => {
+        showResult.value = false
+        waiting.value = false
+        if (hp.value <= 0 || currentIndex.value >= units.value.length - 1) {
+          finishBattle()
+        } else {
+          currentIndex.value++
+          startTimer()
+          nextTick(() => inputRef.value?.focus())
+        }
+      }, 1500)
+    }
+  }, 1000)
+}
+
+function stopTimer() {
+  if (timerHandle !== null) {
+    clearInterval(timerHandle)
+    timerHandle = null
+  }
+}
 
 function submitAnswer() {
   if (waiting.value) return
@@ -214,6 +280,7 @@ function submitAnswer() {
     wrongCount.value++
   }
 
+  stopTimer()
   showResult.value = true
   waiting.value = true
 
@@ -227,6 +294,7 @@ function submitAnswer() {
       finishBattle()
     } else {
       currentIndex.value++
+      startTimer()
       nextTick(() => inputRef.value?.focus())
     }
   }, 1500)
@@ -240,19 +308,66 @@ function toggleHints() {
 function startBattle() {
   showStartPrompt.value = false
   started.value = true
+  startTime.value = Date.now()
+  window.addEventListener('beforeunload', onBeforeUnload)
+  startTimer()
+}
+
+function onBeforeUnload(e: Event) {
+  e.preventDefault()
 }
 
 function finishBattle() {
   finished.value = true
   showQuit.value = false
+  stopTimer()
+  window.removeEventListener('beforeunload', onBeforeUnload)
   import('canvas-confetti').then(m => {
     m.default({ particleCount: 100, spread: 80, origin: { y: 0.6 } })
   })
+
+  if (isCompleted) {
+    totalTime.value = Math.round((Date.now() - startTime.value) / 1000)
+    return // 已完成的 lesson 不提交
+  }
+
+  submitting.value = true
+  const rawElapsed = Math.round((Date.now() - startTime.value) / 1000)
+  const maxTime = units.value.length * 30 // 每题上限 30 秒
+  const elapsed = Math.min(rawElapsed, maxTime)
+  totalTime.value = elapsed
+
+  api<{
+    xp_earned: number
+    coins_earned: number
+    total_xp: number
+    lesson_status: string
+    next_lesson_status: string | null
+  }>(`/api/lessons/${lessonId}/submit`, {
+    method: 'POST',
+    body: {
+      correct_count: correctCount.value,
+      wrong_count: wrongCount.value,
+      total_questions: units.value.length,
+      total_time_seconds: elapsed,
+    },
+  })
+    .then((res) => {
+      xpEarned.value = res.xp_earned
+      coinsEarned.value = res.coins_earned
+    })
+    .catch((e) => {
+      console.warn('Failed to submit result:', e)
+    })
+    .finally(() => {
+      submitting.value = false
+    })
 }
 
 function quitBattle() {
   showQuit.value = false
-  // navigate back to the course detail page
+  stopTimer()
+  window.removeEventListener('beforeunload', onBeforeUnload)
   window.history.back()
 }
 
@@ -262,6 +377,8 @@ onMounted(async () => {
     const data = await resp.json()
 
     lessonTitle.value = data.title
+    courseUUID.value = data.courseUUID || ''
+    startTime.value = Date.now()
     units.value = data.shuffle
       ? [...data.units].sort(() => Math.random() - 0.5)
       : data.units

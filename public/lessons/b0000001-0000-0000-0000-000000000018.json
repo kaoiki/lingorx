@@ -7,53 +7,114 @@
     {
       "type": "vocabulary",
       "prompt": "私",
-      "answer": "I"
+      "answer": "I",
+      "options": [
+        "student",
+        "I",
+        "hometown",
+        "name"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "名前",
-      "answer": "name"
+      "answer": "name",
+      "options": [
+        "company",
+        "hometown",
+        "name",
+        "hobby"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "出身",
-      "answer": "hometown"
+      "answer": "hometown",
+      "options": [
+        "job",
+        "school",
+        "hometown",
+        "company"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "学生",
-      "answer": "student"
+      "answer": "student",
+      "options": [
+        "name",
+        "job",
+        "student",
+        "family"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "仕事",
-      "answer": "job"
+      "answer": "job",
+      "options": [
+        "I",
+        "company",
+        "student",
+        "job"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "趣味",
-      "answer": "hobby"
+      "answer": "hobby",
+      "options": [
+        "I",
+        "name",
+        "hobby",
+        "hometown"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "友達",
-      "answer": "friend"
+      "answer": "friend",
+      "options": [
+        "student",
+        "friend",
+        "hometown",
+        "company"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "家族",
-      "answer": "family"
+      "answer": "family",
+      "options": [
+        "family",
+        "company",
+        "job",
+        "school"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "学校",
-      "answer": "school"
+      "answer": "school",
+      "options": [
+        "student",
+        "hometown",
+        "school",
+        "hobby"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "会社",
-      "answer": "company"
+      "answer": "company",
+      "options": [
+        "school",
+        "hometown",
+        "company",
+        "family"
+      ]
     }
   ],
-  "id": "b0000001-0000-0000-0000-000000000018"
+  "id": "b0000001-0000-0000-0000-000000000018",
+  "courseUUID": "a0000001-0000-0000-0000-000000000004"
 }

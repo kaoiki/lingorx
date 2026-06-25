@@ -7,53 +7,114 @@
     {
       "type": "vocabulary",
       "prompt": "你好",
-      "answer": "hello"
+      "answer": "hello",
+      "options": [
+        "nice to meet you",
+        "no problem",
+        "excuse me",
+        "hello"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "再见",
-      "answer": "goodbye"
+      "answer": "goodbye",
+      "options": [
+        "good morning",
+        "nice to meet you",
+        "goodbye",
+        "sorry"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "谢谢",
-      "answer": "thank you"
+      "answer": "thank you",
+      "options": [
+        "no problem",
+        "nice to meet you",
+        "sorry",
+        "thank you"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "对不起",
-      "answer": "sorry"
+      "answer": "sorry",
+      "options": [
+        "hello",
+        "goodbye",
+        "nice to meet you",
+        "sorry"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "没关系",
-      "answer": "no problem"
+      "answer": "no problem",
+      "options": [
+        "no problem",
+        "nice to meet you",
+        "thank you",
+        "good morning"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "请问",
-      "answer": "excuse me"
+      "answer": "excuse me",
+      "options": [
+        "nice to meet you",
+        "good morning",
+        "excuse me",
+        "how are you"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "我叫",
-      "answer": "my name is"
+      "answer": "my name is",
+      "options": [
+        "thank you",
+        "my name is",
+        "good morning",
+        "excuse me"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "你好吗",
-      "answer": "how are you"
+      "answer": "how are you",
+      "options": [
+        "nice to meet you",
+        "how are you",
+        "no problem",
+        "excuse me"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "认识你很高兴",
-      "answer": "nice to meet you"
+      "answer": "nice to meet you",
+      "options": [
+        "my name is",
+        "excuse me",
+        "good morning",
+        "nice to meet you"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "早上好",
-      "answer": "good morning"
+      "answer": "good morning",
+      "options": [
+        "how are you",
+        "excuse me",
+        "sorry",
+        "good morning"
+      ]
     }
   ],
-  "id": "b0000001-0000-0000-0000-000000000023"
+  "id": "b0000001-0000-0000-0000-000000000023",
+  "courseUUID": "a0000001-0000-0000-0000-000000000006"
 }

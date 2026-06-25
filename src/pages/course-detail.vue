@@ -161,7 +161,9 @@ function courseGradient(index: number) {
 }
 
 function goToBattle(lessonId: string) {
-  router.push(`/play/${lessonId}`)
+  const lesson = lessons.value.find((l) => l.id === lessonId)
+  const isCompleted = lesson?.status === 'completed'
+  router.push(`/play/${lessonId}${isCompleted ? '?completed=1' : ''}`)
 }
 
 onMounted(async () => {

@@ -1,5 +1,9 @@
 <template>
-  <div class="p-gutter max-w-7xl mx-auto px-4 md:px-gutter">
+  <div v-if="loading" class="flex items-center justify-center py-32">
+    <div class="w-10 h-10 border-[3px] border-primary/30 border-t-primary rounded-full animate-spin" />
+  </div>
+
+  <div v-else class="p-gutter max-w-7xl mx-auto px-4 md:px-gutter">
     <!-- Hero: Stats + AI Matcher -->
     <section class="mb-xl relative overflow-hidden rounded-2xl bg-white border border-outline-variant shadow-sm">
       <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 pointer-events-none" />
@@ -79,17 +83,17 @@
             <h2 class="font-headline-md text-headline-md text-on-surface">Today's Mission</h2>
             <span class="bg-secondary/10 text-secondary px-sm py-xs rounded-full font-bold text-label-sm flex items-center gap-xs">
               <span class="material-symbols-outlined text-[14px]">monetization_on</span>
-              +20 Coins
+              + {{ coins }} Coins
             </span>
           </div>
           <div class="flex items-center gap-lg mb-lg">
             <div class="relative w-20 h-20">
               <svg class="w-full h-full transform -rotate-90">
                 <circle class="text-surface-variant" cx="40" cy="40" fill="transparent" r="36" stroke="currentColor" stroke-width="6" />
-                <circle class="text-secondary" cx="40" cy="40" fill="transparent" r="36" stroke="currentColor" stroke-dasharray="226" stroke-dashoffset="158" stroke-width="6" />
+                <circle class="text-secondary" cx="40" cy="40" fill="transparent" r="36" stroke="currentColor" stroke-dasharray="226" :stroke-dashoffset="226 - (226 * todayPracticeMin / 10)" stroke-width="6" />
               </svg>
               <div class="absolute inset-0 flex flex-col items-center justify-center">
-                <span class="font-bold text-on-surface leading-none">3/10</span>
+                <span class="font-bold text-on-surface leading-none">{{ todayPracticeMin }}/10</span>
                 <span class="text-[10px] text-on-surface-variant uppercase font-bold">min</span>
               </div>
             </div>
@@ -235,34 +239,36 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { useAuth } from '../composables/useAuth'
+import { api } from '../lib/api'
 
 const { user } = useAuth()
+const loading = ref(true)
 
-// TODO: 从 BFF 获取实时数据
 const nickname = ref(user.value?.nickname || 'Learner')
-const streak = ref(7)
-const todayPracticeMin = ref(3)
-const todayWords = ref(8)
-const xp = ref(420)
-const lessons = ref(12)
-const defeated = ref(36)
+const streak = ref(0)
+const todayPracticeMin = ref(0)
+const todayWords = ref(0)
+const xp = ref(0)
+const lessons = ref(0)
+const defeated = ref(0)
 
-const practicePct = ref(Math.min((todayPracticeMin.value / 10) * 100, 100))
-const wordsPct = ref(Math.min((todayWords.value / 20) * 100, 100))
+const practicePct = ref(0)
+const wordsPct = ref(0)
 
-// TODO: 从 BFF 获取今日任务完成状态
 const missions = ref([
-  { id: 1, label: 'Complete one battle', done: true, progress: '' },
-  { id: 2, label: 'Daily practice done', done: false, progress: 'PENDING' },
-  { id: 3, label: 'Earn 50 XP', done: false, progress: '12/50' },
-  { id: 4, label: '80%+ accuracy rate', done: false, progress: '75%' },
+  { id: 1, label: 'Complete one battle', done: false, progress: '' },
+  { id: 2, label: 'Practice 10 minutes', done: false, progress: '' },
+  { id: 3, label: 'Learn 20 words', done: false, progress: '' },
+  { id: 4, label: 'Earn 50 XP', done: false, progress: '' },
+  { id: 5, label: '80%+ accuracy', done: false, progress: '' },
+  { id: 6, label: 'Login streak +1', done: false, progress: '' },
 ])
 
-// TODO: 从 BFF 获取成就统计
-const unlockedCount = ref(3)
-const totalCount = ref(10)
+const coins = ref(0)
+const unlockedCount = ref(0)
+const totalCount = ref(0)
 
-onMounted(() => {
+onMounted(async () => {
   document.querySelectorAll('.glass-card').forEach((card) => {
     card.addEventListener('mouseenter', () => {
       (card as HTMLElement).style.transform = 'translateY(-2px)'
@@ -271,5 +277,40 @@ onMounted(() => {
       (card as HTMLElement).style.transform = 'translateY(0)'
     })
   })
+
+  try {
+    const data = await api<{
+      total_xp: number
+      total_coins: number
+      total_lessons: number
+      total_defeated: number
+      total_words_typed: number
+      total_time_seconds: number
+      today_time_seconds: number
+      today_words: number
+      today_missions: { id: number; label: string; done: boolean; progress: string }[]
+      achievements: { unlocked: number; total: number }
+      streak_days: number
+    }>('/api/stats')
+
+    xp.value = data.total_xp
+    coins.value = data.total_coins
+    lessons.value = data.total_lessons
+    defeated.value = data.total_defeated
+    streak.value = data.streak_days
+    todayPracticeMin.value = Math.floor(data.today_time_seconds / 60)
+    todayWords.value = data.today_words
+
+    practicePct.value = Math.min((todayPracticeMin.value / 10) * 100, 100)
+    wordsPct.value = Math.min((todayWords.value / 20) * 100, 100)
+
+    missions.value = data.today_missions
+    unlockedCount.value = data.achievements.unlocked
+    totalCount.value = data.achievements.total
+  } catch {
+    // 未登录或接口失败，保持 0 值
+  } finally {
+    loading.value = false
+  }
 })
 </script>

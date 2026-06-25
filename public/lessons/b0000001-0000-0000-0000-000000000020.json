@@ -7,53 +7,114 @@
     {
       "type": "vocabulary",
       "prompt": "uno",
-      "answer": "one"
+      "answer": "one",
+      "options": [
+        "one",
+        "hundred",
+        "three",
+        "last"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "dos",
-      "answer": "two"
+      "answer": "two",
+      "options": [
+        "more",
+        "three",
+        "two",
+        "four"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "tres",
-      "answer": "three"
+      "answer": "three",
+      "options": [
+        "first",
+        "more",
+        "last",
+        "three"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "cuatro",
-      "answer": "four"
+      "answer": "four",
+      "options": [
+        "four",
+        "two",
+        "hundred",
+        "five"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "cinco",
-      "answer": "five"
+      "answer": "five",
+      "options": [
+        "three",
+        "two",
+        "four",
+        "five"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "diez",
-      "answer": "ten"
+      "answer": "ten",
+      "options": [
+        "ten",
+        "three",
+        "hundred",
+        "five"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "cien",
-      "answer": "hundred"
+      "answer": "hundred",
+      "options": [
+        "more",
+        "hundred",
+        "first",
+        "ten"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "primero",
-      "answer": "first"
+      "answer": "first",
+      "options": [
+        "ten",
+        "four",
+        "last",
+        "first"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "último",
-      "answer": "last"
+      "answer": "last",
+      "options": [
+        "ten",
+        "five",
+        "one",
+        "last"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "más",
-      "answer": "more"
+      "answer": "more",
+      "options": [
+        "more",
+        "last",
+        "ten",
+        "first"
+      ]
     }
   ],
-  "id": "b0000001-0000-0000-0000-000000000020"
+  "id": "b0000001-0000-0000-0000-000000000020",
+  "courseUUID": "a0000001-0000-0000-0000-000000000005"
 }

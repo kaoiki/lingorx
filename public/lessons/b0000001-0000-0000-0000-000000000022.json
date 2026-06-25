@@ -7,53 +7,114 @@
     {
       "type": "vocabulary",
       "prompt": "pan",
-      "answer": "bread"
+      "answer": "bread",
+      "options": [
+        "fruit",
+        "water",
+        "milk",
+        "bread"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "agua",
-      "answer": "water"
+      "answer": "water",
+      "options": [
+        "fruit",
+        "cheese",
+        "coffee",
+        "water"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "leche",
-      "answer": "milk"
+      "answer": "milk",
+      "options": [
+        "milk",
+        "egg",
+        "fish",
+        "rice"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "fruta",
-      "answer": "fruit"
+      "answer": "fruit",
+      "options": [
+        "cheese",
+        "milk",
+        "fruit",
+        "bread"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "carne",
-      "answer": "meat"
+      "answer": "meat",
+      "options": [
+        "coffee",
+        "cheese",
+        "meat",
+        "fish"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "arroz",
-      "answer": "rice"
+      "answer": "rice",
+      "options": [
+        "fish",
+        "water",
+        "rice",
+        "bread"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "huevo",
-      "answer": "egg"
+      "answer": "egg",
+      "options": [
+        "egg",
+        "water",
+        "cheese",
+        "bread"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "pescado",
-      "answer": "fish"
+      "answer": "fish",
+      "options": [
+        "coffee",
+        "rice",
+        "fish",
+        "egg"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "queso",
-      "answer": "cheese"
+      "answer": "cheese",
+      "options": [
+        "cheese",
+        "fish",
+        "bread",
+        "egg"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "café",
-      "answer": "coffee"
+      "answer": "coffee",
+      "options": [
+        "fish",
+        "cheese",
+        "egg",
+        "coffee"
+      ]
     }
   ],
-  "id": "b0000001-0000-0000-0000-000000000022"
+  "id": "b0000001-0000-0000-0000-000000000022",
+  "courseUUID": "a0000001-0000-0000-0000-000000000005"
 }

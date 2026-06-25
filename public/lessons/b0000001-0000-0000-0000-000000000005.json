@@ -4,56 +4,17 @@
   "type": "vocabulary",
   "shuffle": true,
   "units": [
-    {
-      "type": "vocabulary",
-      "prompt": "airport",
-      "answer": "机场"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "hotel",
-      "answer": "酒店"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "ticket",
-      "answer": "票"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "passport",
-      "answer": "护照"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "train",
-      "answer": "火车"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "map",
-      "answer": "地图"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "restaurant",
-      "answer": "餐厅"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "hospital",
-      "answer": "医院"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "police",
-      "answer": "警察"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "bank",
-      "answer": "银行"
-    }
+    { "type": "vocabulary", "prompt": "A place where planes take off and land", "answer": "airport", "options": ["airport", "train station", "bus stop", "harbor"] },
+    { "type": "vocabulary", "prompt": "A place where travelers sleep and stay overnight", "answer": "hotel", "options": ["hotel", "hostel", "motel", "inn"] },
+    { "type": "vocabulary", "prompt": "A small piece of paper that lets you travel on a plane or train", "answer": "ticket", "options": ["ticket", "passport", "receipt", "coupon"] },
+    { "type": "vocabulary", "prompt": "A small book with your photo that proves your identity when traveling abroad", "answer": "passport", "options": ["passport", "visa", "ID card", "license"] },
+    { "type": "vocabulary", "prompt": "A vehicle that runs on tracks and carries passengers between cities", "answer": "train", "options": ["train", "bus", "subway", "taxi"] },
+    { "type": "vocabulary", "prompt": "A drawing or picture that shows roads and helps you find places", "answer": "map", "options": ["map", "guide", "compass", "sign"] },
+    { "type": "vocabulary", "prompt": "A place where you go to order and eat food", "answer": "restaurant", "options": ["restaurant", "cafe", "bar", "cafeteria"] },
+    { "type": "vocabulary", "prompt": "A building where sick people go to see a doctor", "answer": "hospital", "options": ["hospital", "clinic", "pharmacy", "school"] },
+    { "type": "vocabulary", "prompt": "People in uniform who protect the city and catch criminals", "answer": "police", "options": ["police", "soldier", "guard", "firefighter"] },
+    { "type": "vocabulary", "prompt": "A building where people keep and manage their money", "answer": "bank", "options": ["bank", "market", "shop", "office"] }
   ],
-  "id": "b0000001-0000-0000-0000-000000000005"
+  "id": "b0000001-0000-0000-0000-000000000005",
+  "courseUUID": "a0000001-0000-0000-0000-000000000001"
 }

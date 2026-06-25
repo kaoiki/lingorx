@@ -4,56 +4,17 @@
   "type": "vocabulary",
   "shuffle": true,
   "units": [
-    {
-      "type": "vocabulary",
-      "prompt": "sunny",
-      "answer": "晴天"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "rainy",
-      "answer": "下雨"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "cloudy",
-      "answer": "多云"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "snowy",
-      "answer": "下雪"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "windy",
-      "answer": "刮风"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "spring",
-      "answer": "春天"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "summer",
-      "answer": "夏天"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "autumn",
-      "answer": "秋天"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "winter",
-      "answer": "冬天"
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "temperature",
-      "answer": "温度"
-    }
+    { "type": "vocabulary", "prompt": "When the sun is shining brightly with no clouds", "answer": "sunny", "options": ["sunny", "cloudy", "rainy", "windy"] },
+    { "type": "vocabulary", "prompt": "When water is falling from the sky", "answer": "rainy", "options": ["rainy", "snowy", "stormy", "foggy"] },
+    { "type": "vocabulary", "prompt": "When the sky is full of gray or white soft masses", "answer": "cloudy", "options": ["cloudy", "sunny", "foggy", "smoky"] },
+    { "type": "vocabulary", "prompt": "When white frozen flakes fall from the sky in winter", "answer": "snowy", "options": ["snowy", "rainy", "icy", "cold"] },
+    { "type": "vocabulary", "prompt": "When there is a lot of moving air and it's hard to hold your umbrella", "answer": "windy", "options": ["windy", "stormy", "breezy", "gusty"] },
+    { "type": "vocabulary", "prompt": "The season after winter when flowers start to bloom", "answer": "spring", "options": ["spring", "summer", "autumn", "winter"] },
+    { "type": "vocabulary", "prompt": "The hottest season of the year when schools have holidays", "answer": "summer", "options": ["summer", "spring", "autumn", "winter"] },
+    { "type": "vocabulary", "prompt": "The season when leaves change color and fall from trees", "answer": "autumn", "options": ["autumn", "summer", "spring", "winter"] },
+    { "type": "vocabulary", "prompt": "The coldest season of the year when it might snow", "answer": "winter", "options": ["winter", "autumn", "summer", "spring"] },
+    { "type": "vocabulary", "prompt": "A measurement of how hot or cold something is", "answer": "temperature", "options": ["temperature", "weather", "climate", "degree"] }
   ],
-  "id": "b0000001-0000-0000-0000-000000000006"
+  "id": "b0000001-0000-0000-0000-000000000006",
+  "courseUUID": "a0000001-0000-0000-0000-000000000001"
 }

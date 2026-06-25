@@ -7,53 +7,114 @@
     {
       "type": "vocabulary",
       "prompt": "一",
-      "answer": "one"
+      "answer": "one",
+      "options": [
+        "three",
+        "tomorrow",
+        "one",
+        "hundred"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "二",
-      "answer": "two"
+      "answer": "two",
+      "options": [
+        "tomorrow",
+        "ten",
+        "yesterday",
+        "two"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "三",
-      "answer": "three"
+      "answer": "three",
+      "options": [
+        "ten",
+        "today",
+        "month",
+        "three"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "十",
-      "answer": "ten"
+      "answer": "ten",
+      "options": [
+        "ten",
+        "two",
+        "yesterday",
+        "tomorrow"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "百",
-      "answer": "hundred"
+      "answer": "hundred",
+      "options": [
+        "one",
+        "two",
+        "three",
+        "hundred"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "今天",
-      "answer": "today"
+      "answer": "today",
+      "options": [
+        "three",
+        "today",
+        "two",
+        "one"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "明天",
-      "answer": "tomorrow"
+      "answer": "tomorrow",
+      "options": [
+        "today",
+        "one",
+        "tomorrow",
+        "ten"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "昨天",
-      "answer": "yesterday"
+      "answer": "yesterday",
+      "options": [
+        "today",
+        "three",
+        "ten",
+        "yesterday"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "星期",
-      "answer": "week"
+      "answer": "week",
+      "options": [
+        "today",
+        "week",
+        "tomorrow",
+        "month"
+      ]
     },
     {
       "type": "vocabulary",
       "prompt": "月",
-      "answer": "month"
+      "answer": "month",
+      "options": [
+        "one",
+        "yesterday",
+        "two",
+        "month"
+      ]
     }
   ],
-  "id": "b0000001-0000-0000-0000-000000000024"
+  "id": "b0000001-0000-0000-0000-000000000024",
+  "courseUUID": "a0000001-0000-0000-0000-000000000006"
 }
