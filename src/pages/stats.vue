@@ -11,7 +11,7 @@
         <span>STATISTICS</span>
       </div>
       <h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Learning Statistics</h1>
-      <p class="font-body-lg text-body-lg text-on-surface-variant">Track your progress and learning activity.</p>
+      <p class="font-body-lg text-body-lg text-on-surface-variant">Track your progress and learning activity. <span class="text-[10px] text-on-surface-variant/50">(UTC+8)</span></p>
     </section>
 
     <!-- Summary Cards -->
@@ -105,6 +105,8 @@
         </div>
       </div>
     </section>
+
+    <p class="text-center text-[10px] text-on-surface-variant/50 mt-md">Today's statistics are based on Beijing time (UTC+8)</p>
   </div>
 </template>
 

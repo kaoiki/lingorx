@@ -10,9 +10,9 @@
       <div class="relative p-xl flex flex-col md:flex-row gap-lg">
         <!-- Personal Stats -->
         <div class="flex-1">
-          <div class="flex items-center justify-between mb-md">
-            <p class="text-on-surface-variant text-sm font-bold">👋 Welcome back, <span class="text-on-surface">{{ nickname }}</span></p>
-            <div class="flex items-center gap-xs bg-primary/10 text-primary px-sm py-xs rounded-full font-bold text-label-sm">
+          <div class="flex items-center justify-between mb-md gap-sm">
+            <p class="text-sm font-bold flex items-center gap-xs min-w-0"><span class="material-symbols-outlined text-[18px] shrink-0 text-primary">waving_hand</span> <span class="text-primary whitespace-nowrap hidden md:inline">Welcome back,</span> <span class="text-on-surface truncate">{{ nickname }}</span></p>
+            <div class="flex items-center gap-xs bg-primary/10 text-primary px-sm py-xs rounded-full font-bold text-label-sm shrink-0">
               <span class="material-symbols-outlined text-[14px]">local_fire_department</span>
               <span>{{ streak }} day{{ streak > 1 ? 's' : '' }} streak</span>
             </div>
@@ -20,7 +20,7 @@
 
           <!-- Today's Progress -->
           <div class="mb-md">
-            <p class="text-label-sm font-bold text-on-surface-variant mb-sm">Today's Progress</p>
+            <p class="text-label-sm font-bold text-on-surface-variant mb-sm">Today's Progress <span class="text-[9px] font-normal text-on-surface-variant/50">(UTC+8)</span></p>
             <div class="flex items-center gap-md mb-xs">
               <span class="text-label-sm text-on-surface-variant w-20 shrink-0">Practice</span>
               <div class="flex-1 h-2 bg-surface-variant rounded-full overflow-hidden">
@@ -38,17 +38,17 @@
           </div>
 
           <!-- Quick Stats -->
-          <div class="flex items-center gap-lg mb-md">
+          <div class="flex items-center gap-2 md:gap-lg mb-md px-2 md:px-4 py-3 bg-surface-variant/40 border border-outline-variant/30 rounded-2xl">
             <div class="text-center flex-1">
               <div class="font-headline-md text-headline-md text-on-surface">{{ xp }}</div>
               <div class="text-label-sm font-bold text-on-surface-variant">XP</div>
             </div>
-            <div class="w-px h-8 bg-outline-variant" />
+            <div class="w-px h-6 md:h-8 bg-outline-variant" />
             <div class="text-center flex-1">
               <div class="font-headline-md text-headline-md text-on-surface">{{ lessons }}</div>
               <div class="text-label-sm font-bold text-on-surface-variant">Lessons</div>
             </div>
-            <div class="w-px h-8 bg-outline-variant" />
+            <div class="w-px h-6 md:h-8 bg-outline-variant" />
             <div class="text-center flex-1">
               <div class="font-headline-md text-headline-md text-on-surface">{{ totalTimeMin }}</div>
               <div class="text-label-sm font-bold text-on-surface-variant">Minutes</div>
@@ -69,23 +69,27 @@
             <span>AI MATCHER</span>
           </div>
           <p class="text-label-md text-on-surface-variant leading-relaxed mb-md">
-            Not sure what to learn next? Answer a few questions and LingoRx will recommend a course for you.
+            Not sure where to start? Take a quick assessment to evaluate your level and get personalized course recommendations.
           </p>
+          <router-link to="/assessment"
+            class="block w-full py-xs bg-secondary hover:bg-secondary/90 text-white font-bold rounded-lg border border-secondary/20 transition-colors shadow-sm cursor-pointer text-center mb-sm">
+            📝 Take Assessment <span class="text-[10px] font-bold bg-white/20 text-white/80 px-1.5 py-0.5 rounded ml-1">Soon</span>
+          </router-link>
           <button class="w-full py-xs bg-white text-secondary font-bold rounded-lg border border-secondary/20 hover:bg-secondary/5 transition-colors shadow-sm cursor-pointer">
-            Get Recommendation
+            💬 Ask AI
           </button>
         </div>
       </div>
     </section>
 
     <!-- Grid: Main + Right Sidebar -->
-    <div class="grid grid-cols-1 xl:grid-cols-12 gap-lg">
+    <div class="grid grid-cols-1 xl:grid-cols-12 gap-lg mb-lg">
       <!-- Left: Today's Mission + Stats -->
       <div class="xl:col-span-8 flex flex-col gap-lg">
         <!-- Today's Mission -->
         <section class="glass-card p-lg rounded-2xl">
           <div class="flex justify-between items-center mb-lg">
-            <h2 class="font-headline-md text-headline-md text-on-surface">Today's Mission</h2>
+            <h2 class="font-headline-md text-headline-md text-on-surface">Today's Mission <span class="text-[10px] font-normal text-on-surface-variant/50">(UTC+8)</span></h2>
             <span class="bg-secondary/10 text-secondary px-sm py-xs rounded-full font-bold text-label-sm flex items-center gap-xs">
               <span class="material-symbols-outlined text-[14px]">monetization_on</span>
               + {{ coins }} Coins
@@ -133,31 +137,31 @@
         </section>
 
         <!-- Stats Grid -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-md">
-          <div class="glass-card p-md rounded-2xl text-center border-b-4 border-b-primary/40">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-md p-2 md:p-4 -mx-4 md:mx-0 bg-surface-container-low rounded-2xl">
+          <div class="glass-card p-2 md:p-md rounded-xl md:rounded-2xl text-center border-b-4 border-b-primary/40">
             <div class="text-primary mb-xs">
-              <span class="material-symbols-outlined text-[28px]">local_fire_department</span>
+              <span class="material-symbols-outlined text-[22px] md:text-[28px]">local_fire_department</span>
             </div>
             <div class="font-headline-md text-headline-md text-on-surface">{{ streak }} Days</div>
             <div class="text-label-sm font-bold text-on-surface-variant">Streak</div>
           </div>
-          <div class="glass-card p-md rounded-2xl text-center border-b-4 border-b-secondary/40">
+          <div class="glass-card p-2 md:p-md rounded-xl md:rounded-2xl text-center border-b-4 border-b-secondary/40">
             <div class="text-secondary mb-xs">
-              <span class="material-symbols-outlined text-[28px]">keyboard</span>
+              <span class="material-symbols-outlined text-[22px] md:text-[28px]">keyboard</span>
             </div>
             <div class="font-headline-md text-headline-md text-on-surface">{{ totalWords }}</div>
             <div class="text-label-sm font-bold text-on-surface-variant">Words Typed</div>
           </div>
-          <div class="glass-card p-md rounded-2xl text-center border-b-4 border-b-error/40">
+          <div class="glass-card p-2 md:p-md rounded-xl md:rounded-2xl text-center border-b-4 border-b-error/40">
             <div class="text-error mb-xs">
-              <span class="material-symbols-outlined text-[28px]">trending_up</span>
+              <span class="material-symbols-outlined text-[22px] md:text-[28px]">trending_up</span>
             </div>
             <div class="font-headline-md text-headline-md text-on-surface">{{ totalAccuracy }}%</div>
             <div class="text-label-sm font-bold text-on-surface-variant">Accuracy</div>
           </div>
-          <div class="glass-card p-md rounded-2xl text-center border-b-4 border-b-tertiary/40">
+          <div class="glass-card p-2 md:p-md rounded-xl md:rounded-2xl text-center border-b-4 border-b-tertiary/40">
             <div class="text-tertiary mb-xs">
-              <span class="material-symbols-outlined text-[28px]">bolt</span>
+              <span class="material-symbols-outlined text-[22px] md:text-[28px]">bolt</span>
             </div>
             <div class="font-headline-md text-headline-md text-on-surface">{{ xp }}</div>
             <div class="text-label-sm font-bold text-on-surface-variant">XP</div>
@@ -238,6 +242,7 @@
         </section>
       </div>
     </div>
+
   </div>
 </template>
 

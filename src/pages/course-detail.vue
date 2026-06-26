@@ -35,7 +35,7 @@
               <span class="px-sm py-xs rounded-full bg-primary/10 text-primary text-label-sm font-bold">{{ course.level }}</span>
               <span class="px-sm py-xs rounded-full bg-secondary/10 text-secondary text-label-sm font-bold">{{ course.languageLabel }}</span>
               <span class="px-sm py-xs rounded-full bg-surface-variant text-on-surface-variant text-label-sm font-bold">{{ course.total_lessons }} Lessons</span>
-              <span v-if="course.type" class="px-sm py-xs rounded-full bg-tertiary/10 text-tertiary text-label-sm font-bold">{{ course.type === 'vocabulary' ? 'Vocabulary' : course.type === 'grammar' ? 'Grammar' : 'Translation' }}</span>
+              <span v-if="course.type" class="px-sm py-xs rounded-full bg-tertiary/10 text-tertiary text-label-sm font-bold">{{ course.type === 'vocabulary' ? 'Vocabulary' : course.type === 'grammar' ? 'Grammar' : course.type === 'conjugation' ? 'Conjugation' : 'Translation' }}</span>
               <span class="px-sm py-xs rounded-full bg-surface-variant text-on-surface-variant text-label-sm font-bold flex items-center gap-xs">
                 <span class="material-symbols-outlined text-[12px]">person</span>
                 {{ course.author || 'Platform' }}

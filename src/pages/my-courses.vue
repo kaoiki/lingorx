@@ -146,7 +146,7 @@ function courseGradient(index: number) {
 }
 
 function typeLabel(type: string) {
-  const map: Record<string, string> = { vocabulary: 'Vocabulary', grammar: 'Grammar', translation: 'Translation' }
+  const map: Record<string, string> = { vocabulary: 'Vocabulary', grammar: 'Grammar', translation: 'Translation', conjugation: 'Conjugation' }
   return map[type] || type
 }
 
