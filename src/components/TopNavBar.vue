@@ -157,7 +157,9 @@ const navItems = [
   { to: '/', label: 'Dashboard', icon: 'dashboard' },
   { to: '/courses', label: 'Courses', icon: 'menu_book' },
   { to: '/achievements', label: 'Achievements', icon: 'workspace_premium' },
-  { to: '/community', label: 'Community', icon: 'groups' },
+  { to: '/checkins', label: 'Check-ins', icon: 'edit_calendar' },
+  { to: '/community', label: 'Community', icon: 'groups', badge: 'Soon' },
+  { to: '/groups', label: 'Groups', icon: 'diversity_3', badge: 'Soon' },
   { to: '/playground', label: 'Playground', icon: 'psychology', badge: 'Soon' },
 ]
 

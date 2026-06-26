@@ -169,7 +169,7 @@
         </div>
       </div>
 
-      <!-- Right: Achievement + Community -->
+      <!-- Right: Achievement + Feed -->
       <div class="xl:col-span-4 flex flex-col gap-lg">
         <!-- Latest Achievement -->
         <section class="glass-card p-lg rounded-2xl border-tertiary/20">
@@ -204,11 +204,11 @@
           </div>
         </section>
 
-        <!-- Community Feed -->
+        <!-- Feed -->
         <section class="glass-card p-lg rounded-2xl mb-lg">
           <div class="flex items-center justify-between mb-lg">
-            <h3 class="font-headline-md text-on-surface">Community Check-in Top 3</h3>
-            <router-link to="/community" class="text-primary text-label-sm font-bold uppercase hover:underline">View</router-link>
+            <h3 class="font-headline-md text-on-surface">Feed Check-in Top 3</h3>
+            <router-link to="/checkins" class="text-primary text-label-sm font-bold uppercase hover:underline">View</router-link>
           </div>
           <div class="flex flex-col gap-md">
             <div class="flex items-center gap-md">

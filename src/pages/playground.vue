@@ -1,8 +1,8 @@
 <template>
-  <div class="flex overflow-hidden bg-white" style="height: calc(100vh - 64px - 7rem);">
+  <div class="flex flex-col md:flex-row overflow-hidden bg-white" style="height: calc(100vh - 64px - 7rem);">
     <!-- Left: Categories -->
-    <div class="w-56 shrink-0 bg-white border-r border-outline-variant p-md flex flex-col gap-sm overflow-y-auto">
-      <h3 class="text-label-sm font-bold text-on-surface-variant uppercase tracking-widest mb-sm">Practice</h3>
+    <div class="w-full md:w-56 shrink-0 bg-white md:border-r border-outline-variant p-md flex md:flex-col gap-sm overflow-x-auto md:overflow-y-auto">
+      <h3 class="text-label-sm font-bold text-on-surface-variant uppercase tracking-widest mb-sm hidden md:block">Practice</h3>
       <div
         v-for="cat in categories"
         :key="cat.id"
