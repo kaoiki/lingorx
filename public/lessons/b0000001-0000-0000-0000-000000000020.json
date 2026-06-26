@@ -4,116 +4,16 @@
   "type": "vocabulary",
   "shuffle": true,
   "units": [
-    {
-      "type": "vocabulary",
-      "prompt": "uno",
-      "answer": "one",
-      "options": [
-        "one",
-        "hundred",
-        "three",
-        "last"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "dos",
-      "answer": "two",
-      "options": [
-        "more",
-        "three",
-        "two",
-        "four"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "tres",
-      "answer": "three",
-      "options": [
-        "first",
-        "more",
-        "last",
-        "three"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "cuatro",
-      "answer": "four",
-      "options": [
-        "four",
-        "two",
-        "hundred",
-        "five"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "cinco",
-      "answer": "five",
-      "options": [
-        "three",
-        "two",
-        "four",
-        "five"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "diez",
-      "answer": "ten",
-      "options": [
-        "ten",
-        "three",
-        "hundred",
-        "five"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "cien",
-      "answer": "hundred",
-      "options": [
-        "more",
-        "hundred",
-        "first",
-        "ten"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "primero",
-      "answer": "first",
-      "options": [
-        "ten",
-        "four",
-        "last",
-        "first"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "último",
-      "answer": "last",
-      "options": [
-        "ten",
-        "five",
-        "one",
-        "last"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "más",
-      "answer": "more",
-      "options": [
-        "more",
-        "last",
-        "ten",
-        "first"
-      ]
-    }
+    { "type": "vocabulary", "prompt": "The Spanish number for 'one'", "answer": "uno", "options": ["uno", "dos", "tres", "una"] },
+    { "type": "vocabulary", "prompt": "The Spanish number for 'two'", "answer": "dos", "options": ["dos", "uno", "tres", "cuatro"] },
+    { "type": "vocabulary", "prompt": "The Spanish number for 'three'", "answer": "tres", "options": ["tres", "uno", "dos", "cuatro"] },
+    { "type": "vocabulary", "prompt": "The Spanish number for 'four'", "answer": "cuatro", "options": ["cuatro", "tres", "cinco", "dos"] },
+    { "type": "vocabulary", "prompt": "The Spanish number for 'five'", "answer": "cinco", "options": ["cinco", "cuatro", "seis", "tres"] },
+    { "type": "vocabulary", "prompt": "The Spanish number for 'ten'", "answer": "diez", "options": ["diez", "nueve", "once", "ocho"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for 'one hundred'", "answer": "cien", "options": ["cien", "mil", "diez", "ciento"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for 'first'", "answer": "primero", "options": ["primero", "segundo", "tercero", "último"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for 'last'", "answer": "último", "options": ["último", "primero", "final", "siguiente"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for 'more'", "answer": "más", "options": ["más", "menos", "mucho", "poco"] }
   ],
   "id": "b0000001-0000-0000-0000-000000000020",
   "courseUUID": "a0000001-0000-0000-0000-000000000005"

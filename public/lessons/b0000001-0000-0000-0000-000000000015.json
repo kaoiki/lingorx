@@ -4,116 +4,16 @@
   "type": "vocabulary",
   "shuffle": true,
   "units": [
-    {
-      "type": "vocabulary",
-      "prompt": "あ",
-      "answer": "a",
-      "options": [
-        "e",
-        "ko",
-        "u",
-        "a"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "い",
-      "answer": "i",
-      "options": [
-        "u",
-        "ka",
-        "a",
-        "i"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "う",
-      "answer": "u",
-      "options": [
-        "ku",
-        "a",
-        "i",
-        "u"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "え",
-      "answer": "e",
-      "options": [
-        "e",
-        "a",
-        "ke",
-        "ku"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "お",
-      "answer": "o",
-      "options": [
-        "o",
-        "i",
-        "ki",
-        "e"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "か",
-      "answer": "ka",
-      "options": [
-        "ka",
-        "i",
-        "ko",
-        "u"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "き",
-      "answer": "ki",
-      "options": [
-        "u",
-        "i",
-        "e",
-        "ki"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "く",
-      "answer": "ku",
-      "options": [
-        "o",
-        "ke",
-        "e",
-        "ku"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "け",
-      "answer": "ke",
-      "options": [
-        "ke",
-        "a",
-        "ku",
-        "ki"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "こ",
-      "answer": "ko",
-      "options": [
-        "a",
-        "o",
-        "ki",
-        "ko"
-      ]
-    }
+    { "type": "vocabulary", "prompt": "The hiragana that sounds like 'ah'", "answer": "あ", "options": ["あ", "い", "う", "え"] },
+    { "type": "vocabulary", "prompt": "The hiragana that sounds like 'ee'", "answer": "い", "options": ["い", "あ", "う", "お"] },
+    { "type": "vocabulary", "prompt": "The hiragana that sounds like 'oo'", "answer": "う", "options": ["う", "あ", "い", "え"] },
+    { "type": "vocabulary", "prompt": "The hiragana that sounds like 'eh'", "answer": "え", "options": ["え", "あ", "い", "お"] },
+    { "type": "vocabulary", "prompt": "The hiragana that sounds like 'oh'", "answer": "お", "options": ["お", "あ", "う", "え"] },
+    { "type": "vocabulary", "prompt": "The hiragana that sounds like 'kah'", "answer": "か", "options": ["か", "き", "く", "こ"] },
+    { "type": "vocabulary", "prompt": "The hiragana that sounds like 'kee'", "answer": "き", "options": ["き", "か", "く", "け"] },
+    { "type": "vocabulary", "prompt": "The hiragana that sounds like 'koo'", "answer": "く", "options": ["く", "か", "き", "け"] },
+    { "type": "vocabulary", "prompt": "The hiragana that sounds like 'keh'", "answer": "け", "options": ["け", "か", "き", "く"] },
+    { "type": "vocabulary", "prompt": "The hiragana that sounds like 'koh'", "answer": "こ", "options": ["こ", "か", "き", "く"] }
   ],
   "id": "b0000001-0000-0000-0000-000000000015",
   "courseUUID": "a0000001-0000-0000-0000-000000000004"

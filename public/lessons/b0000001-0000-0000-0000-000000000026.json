@@ -4,116 +4,16 @@
   "type": "vocabulary",
   "shuffle": true,
   "units": [
-    {
-      "type": "vocabulary",
-      "prompt": "红色",
-      "answer": "red",
-      "options": [
-        "square",
-        "circle",
-        "red",
-        "big"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "蓝色",
-      "answer": "blue",
-      "options": [
-        "circle",
-        "small",
-        "blue",
-        "triangle"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "绿色",
-      "answer": "green",
-      "options": [
-        "red",
-        "green",
-        "big",
-        "blue"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "白色",
-      "answer": "white",
-      "options": [
-        "small",
-        "white",
-        "green",
-        "red"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "黑色",
-      "answer": "black",
-      "options": [
-        "black",
-        "white",
-        "blue",
-        "red"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "圆形",
-      "answer": "circle",
-      "options": [
-        "circle",
-        "small",
-        "black",
-        "square"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "方形",
-      "answer": "square",
-      "options": [
-        "square",
-        "small",
-        "circle",
-        "triangle"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "三角形",
-      "answer": "triangle",
-      "options": [
-        "triangle",
-        "black",
-        "square",
-        "small"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "大",
-      "answer": "big",
-      "options": [
-        "green",
-        "big",
-        "red",
-        "blue"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "小",
-      "answer": "small",
-      "options": [
-        "big",
-        "square",
-        "white",
-        "small"
-      ]
-    }
+    { "type": "vocabulary", "prompt": "The Chinese word for the color of strawberries (red)", "answer": "红色", "options": ["红色", "蓝色", "绿色", "黄色"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for the color of the sky (blue)", "answer": "蓝色", "options": ["蓝色", "红色", "绿色", "白色"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for the color of grass (green)", "answer": "绿色", "options": ["绿色", "红色", "蓝色", "黑色"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for the color of snow (white)", "answer": "白色", "options": ["白色", "黑色", "红色", "灰色"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for the color of the night (black)", "answer": "黑色", "options": ["黑色", "白色", "灰色", "棕色"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for the shape of a ball (circle)", "answer": "圆形", "options": ["圆形", "方形", "三角形", "心形"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for the shape of a box (square)", "answer": "方形", "options": ["方形", "圆形", "三角形", "长方形"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for the shape with three sides (triangle)", "answer": "三角形", "options": ["三角形", "圆形", "方形", "星形"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for something not small (big)", "answer": "大", "options": ["大", "小", "长", "高"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for something not big (small)", "answer": "小", "options": ["小", "大", "短", "矮"] }
   ],
   "id": "b0000001-0000-0000-0000-000000000026",
   "courseUUID": "a0000001-0000-0000-0000-000000000006"

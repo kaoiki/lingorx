@@ -4,116 +4,16 @@
   "type": "vocabulary",
   "shuffle": true,
   "units": [
-    {
-      "type": "vocabulary",
-      "prompt": "一",
-      "answer": "one",
-      "options": [
-        "three",
-        "tomorrow",
-        "one",
-        "hundred"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "二",
-      "answer": "two",
-      "options": [
-        "tomorrow",
-        "ten",
-        "yesterday",
-        "two"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "三",
-      "answer": "three",
-      "options": [
-        "ten",
-        "today",
-        "month",
-        "three"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "十",
-      "answer": "ten",
-      "options": [
-        "ten",
-        "two",
-        "yesterday",
-        "tomorrow"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "百",
-      "answer": "hundred",
-      "options": [
-        "one",
-        "two",
-        "three",
-        "hundred"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "今天",
-      "answer": "today",
-      "options": [
-        "three",
-        "today",
-        "two",
-        "one"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "明天",
-      "answer": "tomorrow",
-      "options": [
-        "today",
-        "one",
-        "tomorrow",
-        "ten"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "昨天",
-      "answer": "yesterday",
-      "options": [
-        "today",
-        "three",
-        "ten",
-        "yesterday"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "星期",
-      "answer": "week",
-      "options": [
-        "today",
-        "week",
-        "tomorrow",
-        "month"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "月",
-      "answer": "month",
-      "options": [
-        "one",
-        "yesterday",
-        "two",
-        "month"
-      ]
-    }
+    { "type": "vocabulary", "prompt": "The Chinese word for 'one'", "answer": "一", "options": ["一", "二", "三", "十"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for 'two'", "answer": "二", "options": ["二", "一", "三", "四"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for 'three'", "answer": "三", "options": ["三", "一", "二", "四"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for 'ten'", "answer": "十", "options": ["十", "一", "百", "千"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for 'one hundred'", "answer": "百", "options": ["百", "十", "千", "万"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for 'today'", "answer": "今天", "options": ["今天", "明天", "昨天", "后天"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for 'tomorrow'", "answer": "明天", "options": ["明天", "今天", "昨天", "后天"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for 'yesterday'", "answer": "昨天", "options": ["昨天", "今天", "明天", "前天"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for 'week'", "answer": "星期", "options": ["星期", "月", "年", "日"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for 'month'", "answer": "月", "options": ["月", "年", "星期", "日"] }
   ],
   "id": "b0000001-0000-0000-0000-000000000024",
   "courseUUID": "a0000001-0000-0000-0000-000000000006"

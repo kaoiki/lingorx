@@ -6,42 +6,90 @@
     {
       "type": "translation",
       "prompt": "我要预订位子",
-      "answer": "I would like to reserve a table"
+      "answer": "I would like to reserve a table",
+      "options": [
+        "Check please",
+        "Can I see the menu",
+        "I would like to reserve a table",
+        "A glass of water please"
+      ]
     },
     {
       "type": "translation",
       "prompt": "有菜单吗",
-      "answer": "Can I see the menu"
+      "answer": "Can I see the menu",
+      "options": [
+        "A glass of water please",
+        "What is your specialty",
+        "I would like to reserve a table",
+        "Can I see the menu"
+      ]
     },
     {
       "type": "translation",
       "prompt": "推荐一下特色菜",
-      "answer": "What is your specialty"
+      "answer": "What is your specialty",
+      "options": [
+        "To go please",
+        "Check please",
+        "A glass of water please",
+        "What is your specialty"
+      ]
     },
     {
       "type": "translation",
       "prompt": "我吃素",
-      "answer": "I am a vegetarian"
+      "answer": "I am a vegetarian",
+      "options": [
+        "I am a vegetarian",
+        "Can I see the menu",
+        "What is your specialty",
+        "I would like to reserve a table"
+      ]
     },
     {
       "type": "translation",
       "prompt": "结账",
-      "answer": "Check please"
+      "answer": "Check please",
+      "options": [
+        "I would like to reserve a table",
+        "A glass of water please",
+        "Can I see the menu",
+        "Check please"
+      ]
     },
     {
       "type": "translation",
       "prompt": "太好吃了",
-      "answer": "It is delicious"
+      "answer": "It is delicious",
+      "options": [
+        "It is delicious",
+        "I am a vegetarian",
+        "To go please",
+        "A glass of water please"
+      ]
     },
     {
       "type": "translation",
       "prompt": "打包带走",
-      "answer": "To go please"
+      "answer": "To go please",
+      "options": [
+        "To go please",
+        "A glass of water please",
+        "It is delicious",
+        "I would like to reserve a table"
+      ]
     },
     {
       "type": "translation",
       "prompt": "请给我一杯水",
-      "answer": "A glass of water please"
+      "answer": "A glass of water please",
+      "options": [
+        "It is delicious",
+        "Check please",
+        "I am a vegetarian",
+        "A glass of water please"
+      ]
     }
   ],
   "id": "b0000001-0000-0000-0000-000000000013",

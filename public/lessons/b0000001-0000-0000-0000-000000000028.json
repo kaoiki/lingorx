@@ -1,0 +1,18 @@
+{
+  "courseId": "english-conjugation",
+  "courseUUID": "a0000001-0000-0000-0000-000000000007",
+  "title": "Past Tense",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    { "type": "vocabulary", "prompt": "Yesterday, I ___ a movie. (watch)", "answer": "watched", "options": ["watch", "watched", "watching", "watches"] },
+    { "type": "vocabulary", "prompt": "She ___ to the park last Sunday. (walk)", "answer": "walked", "options": ["walk", "walked", "walking", "walks"] },
+    { "type": "vocabulary", "prompt": "He ___ dinner at 7pm. (cook)", "answer": "cooked", "options": ["cook", "cooked", "cooking", "cooks"] },
+    { "type": "vocabulary", "prompt": "They ___ a new house last year. (buy)", "answer": "bought", "options": ["buy", "bought", "buying", "buys"] },
+    { "type": "vocabulary", "prompt": "I ___ her at the party. (meet)", "answer": "met", "options": ["meet", "met", "meeting", "meets"] },
+    { "type": "vocabulary", "prompt": "We ___ a great time at the beach. (have)", "answer": "had", "options": ["have", "had", "having", "has"] },
+    { "type": "vocabulary", "prompt": "She ___ a letter to her mother. (write)", "answer": "wrote", "options": ["write", "wrote", "writing", "writes"] },
+    { "type": "vocabulary", "prompt": "He ___ his keys this morning. (lose)", "answer": "lost", "options": ["lose", "lost", "losing", "loses"] }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000028"
+}

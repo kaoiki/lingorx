@@ -4,116 +4,16 @@
   "type": "vocabulary",
   "shuffle": true,
   "units": [
-    {
-      "type": "vocabulary",
-      "prompt": "rojo",
-      "answer": "red",
-      "options": [
-        "red",
-        "green",
-        "purple",
-        "blue"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "azul",
-      "answer": "blue",
-      "options": [
-        "white",
-        "gray",
-        "yellow",
-        "blue"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "verde",
-      "answer": "green",
-      "options": [
-        "gray",
-        "orange",
-        "red",
-        "green"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "amarillo",
-      "answer": "yellow",
-      "options": [
-        "yellow",
-        "blue",
-        "brown",
-        "red"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "blanco",
-      "answer": "white",
-      "options": [
-        "white",
-        "black",
-        "yellow",
-        "red"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "negro",
-      "answer": "black",
-      "options": [
-        "gray",
-        "red",
-        "yellow",
-        "black"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "naranja",
-      "answer": "orange",
-      "options": [
-        "red",
-        "yellow",
-        "gray",
-        "orange"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "morado",
-      "answer": "purple",
-      "options": [
-        "blue",
-        "purple",
-        "black",
-        "orange"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "gris",
-      "answer": "gray",
-      "options": [
-        "green",
-        "purple",
-        "gray",
-        "red"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "marrón",
-      "answer": "brown",
-      "options": [
-        "brown",
-        "orange",
-        "yellow",
-        "purple"
-      ]
-    }
+    { "type": "vocabulary", "prompt": "The Spanish word for the color of strawberries (red)", "answer": "rojo", "options": ["rojo", "azul", "verde", "amarillo"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for the color of the sky (blue)", "answer": "azul", "options": ["azul", "rojo", "verde", "negro"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for the color of grass (green)", "answer": "verde", "options": ["verde", "rojo", "azul", "blanco"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for the color of the sun (yellow)", "answer": "amarillo", "options": ["amarillo", "naranja", "rojo", "verde"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for the color of snow (white)", "answer": "blanco", "options": ["blanco", "negro", "gris", "rojo"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for the color of the night (black)", "answer": "negro", "options": ["negro", "blanco", "marrón", "gris"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for the color of an orange fruit", "answer": "naranja", "options": ["naranja", "amarillo", "rojo", "marrón"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for the color of grapes (purple)", "answer": "morado", "options": ["morado", "naranja", "rosa", "gris"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for the color between black and white (gray)", "answer": "gris", "options": ["gris", "negro", "blanco", "plateado"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for the color of chocolate (brown)", "answer": "marrón", "options": ["marrón", "negro", "rojo", "naranja"] }
   ],
   "id": "b0000001-0000-0000-0000-000000000021",
   "courseUUID": "a0000001-0000-0000-0000-000000000005"

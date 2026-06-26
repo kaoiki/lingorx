@@ -56,6 +56,7 @@
                   <h3 class="font-headline-md text-on-surface truncate">{{ course.title }}</h3>
                   <span class="bg-primary/10 text-primary px-sm py-xs rounded-full font-bold text-label-sm shrink-0">Learning</span>
                 </div>
+                <p class="text-xs text-on-surface-variant font-bold mb-sm">{{ course.languageLabel }} · {{ course.level }}<span v-if="course.type"> · {{ typeLabel(course.type) }}</span></p>
                 <p class="text-body-md text-on-surface-variant mb-md">Lesson {{ course.current_lesson }} / {{ course.total_lessons }}</p>
                 <div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden mb-md">
                   <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" :style="{ width: `${(course.current_lesson / course.total_lessons) * 100}%` }" />
@@ -86,7 +87,7 @@
                   <h3 class="font-headline-md text-on-surface truncate">{{ course.title }}</h3>
                   <span class="bg-tertiary/10 text-tertiary px-sm py-xs rounded-full font-bold text-label-sm shrink-0">Completed</span>
                 </div>
-                <p class="text-body-md text-on-surface-variant mb-md">{{ course.languageLabel }} · {{ course.level }}</p>
+                <p class="text-body-md text-on-surface-variant mb-md">{{ course.languageLabel }} · {{ course.level }}<span v-if="course.type"> · {{ typeLabel(course.type) }}</span></p>
                 <router-link :to="`/courses/${course.id}`" class="inline-block bg-tertiary hover:bg-tertiary/90 text-white font-bold px-md py-xs rounded-xl transition-all active:scale-95 cursor-pointer">
                   Review
                 </router-link>
@@ -119,6 +120,8 @@ interface Course {
   current_lesson: number
   icon: string
   status: 'learning' | 'not_started' | 'completed'
+  type?: string
+  author?: string
 }
 
 const { isLoggedIn } = useAuth()
@@ -142,6 +145,11 @@ function courseGradient(index: number) {
   return `bg-gradient-to-br ${gradients[index % gradients.length]}`
 }
 
+function typeLabel(type: string) {
+  const map: Record<string, string> = { vocabulary: 'Vocabulary', grammar: 'Grammar', translation: 'Translation' }
+  return map[type] || type
+}
+
 onMounted(async () => {
   if (!isLoggedIn.value) {
     loading.value = false
@@ -149,10 +157,12 @@ onMounted(async () => {
   }
   try {
     const data = await api<Course[]>('/api/courses')
-    courses.value = data.map(c => ({
-      ...c,
-      languageLabel: LANGUAGE_LABELS[c.language] || c.language,
-    }))
+    courses.value = data
+      .filter(c => c.type !== 'translation')
+      .map(c => ({
+        ...c,
+        languageLabel: LANGUAGE_LABELS[c.language] || c.language,
+      }))
   } catch {
     // silently fail
   } finally {

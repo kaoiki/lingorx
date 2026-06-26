@@ -4,116 +4,16 @@
   "type": "vocabulary",
   "shuffle": true,
   "units": [
-    {
-      "type": "vocabulary",
-      "prompt": "你好",
-      "answer": "hello",
-      "options": [
-        "nice to meet you",
-        "no problem",
-        "excuse me",
-        "hello"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "再见",
-      "answer": "goodbye",
-      "options": [
-        "good morning",
-        "nice to meet you",
-        "goodbye",
-        "sorry"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "谢谢",
-      "answer": "thank you",
-      "options": [
-        "no problem",
-        "nice to meet you",
-        "sorry",
-        "thank you"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "对不起",
-      "answer": "sorry",
-      "options": [
-        "hello",
-        "goodbye",
-        "nice to meet you",
-        "sorry"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "没关系",
-      "answer": "no problem",
-      "options": [
-        "no problem",
-        "nice to meet you",
-        "thank you",
-        "good morning"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "请问",
-      "answer": "excuse me",
-      "options": [
-        "nice to meet you",
-        "good morning",
-        "excuse me",
-        "how are you"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "我叫",
-      "answer": "my name is",
-      "options": [
-        "thank you",
-        "my name is",
-        "good morning",
-        "excuse me"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "你好吗",
-      "answer": "how are you",
-      "options": [
-        "nice to meet you",
-        "how are you",
-        "no problem",
-        "excuse me"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "认识你很高兴",
-      "answer": "nice to meet you",
-      "options": [
-        "my name is",
-        "excuse me",
-        "good morning",
-        "nice to meet you"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "早上好",
-      "answer": "good morning",
-      "options": [
-        "how are you",
-        "excuse me",
-        "sorry",
-        "good morning"
-      ]
-    }
+    { "type": "vocabulary", "prompt": "The Chinese word for greeting someone (hello)", "answer": "你好", "options": ["你好", "再见", "谢谢", "对不起"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for when leaving (goodbye)", "answer": "再见", "options": ["再见", "你好", "谢谢", "明天见"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for showing gratitude (thank you)", "answer": "谢谢", "options": ["谢谢", "对不起", "不客气", "再见"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for apologizing (sorry)", "answer": "对不起", "options": ["对不起", "谢谢", "没关系", "请问"] },
+    { "type": "vocabulary", "prompt": "The Chinese phrase for 'no problem' or 'it's okay'", "answer": "没关系", "options": ["没关系", "对不起", "不客气", "没问题"] },
+    { "type": "vocabulary", "prompt": "The Chinese phrase for 'excuse me' when asking a question", "answer": "请问", "options": ["请问", "对不起", "谢谢", "你好"] },
+    { "type": "vocabulary", "prompt": "The Chinese phrase for introducing yourself (my name is)", "answer": "我叫", "options": ["我叫", "我是", "你好", "请问"] },
+    { "type": "vocabulary", "prompt": "The Chinese question meaning 'how are you'", "answer": "你好吗", "options": ["你好吗", "你好", "你叫什么", "你几岁"] },
+    { "type": "vocabulary", "prompt": "The Chinese phrase for 'nice to meet you'", "answer": "认识你很高兴", "options": ["认识你很高兴", "你好", "谢谢", "再见"] },
+    { "type": "vocabulary", "prompt": "The Chinese greeting used in the morning", "answer": "早上好", "options": ["早上好", "晚上好", "你好", "下午好"] }
   ],
   "id": "b0000001-0000-0000-0000-000000000023",
   "courseUUID": "a0000001-0000-0000-0000-000000000006"

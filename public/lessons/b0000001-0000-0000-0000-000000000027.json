@@ -1,0 +1,18 @@
+{
+  "courseId": "english-conjugation",
+  "courseUUID": "a0000001-0000-0000-0000-000000000007",
+  "title": "Present Tense",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    { "type": "vocabulary", "prompt": "He ___ to school every day. (go)", "answer": "goes", "options": ["go", "goes", "going", "gone"] },
+    { "type": "vocabulary", "prompt": "She ___ coffee every morning. (drink)", "answer": "drinks", "options": ["drink", "drinks", "drinking", "drunk"] },
+    { "type": "vocabulary", "prompt": "He ___ English very well. (speak)", "answer": "speaks", "options": ["speak", "speaks", "speaking", "spoken"] },
+    { "type": "vocabulary", "prompt": "She ___ in a big city. (live)", "answer": "lives", "options": ["live", "lives", "living", "lived"] },
+    { "type": "vocabulary", "prompt": "He ___ his teeth every morning. (brush)", "answer": "brushes", "options": ["brush", "brushes", "brushing", "brushed"] },
+    { "type": "vocabulary", "prompt": "She ___ delicious food. (cook)", "answer": "cooks", "options": ["cook", "cooks", "cooking", "cooked"] },
+    { "type": "vocabulary", "prompt": "He ___ TV after dinner. (watch)", "answer": "watches", "options": ["watch", "watches", "watching", "watched"] },
+    { "type": "vocabulary", "prompt": "She ___ to music in the car. (listen)", "answer": "listens", "options": ["listen", "listens", "listening", "listened"] }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000027"
+}

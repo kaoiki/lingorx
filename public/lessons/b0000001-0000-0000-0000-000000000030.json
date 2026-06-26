@@ -1,0 +1,18 @@
+{
+  "courseId": "english-conjugation",
+  "courseUUID": "a0000001-0000-0000-0000-000000000007",
+  "title": "Irregular Verbs",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    { "type": "vocabulary", "prompt": "Yesterday, I ___ to the store. (go → past)", "answer": "went", "options": ["go", "went", "gone", "goes"] },
+    { "type": "vocabulary", "prompt": "She has ___ that movie before. (see → past participle)", "answer": "seen", "options": ["saw", "seen", "see", "seeing"] },
+    { "type": "vocabulary", "prompt": "He ___ me a gift for my birthday. (give → past)", "answer": "gave", "options": ["give", "gave", "given", "gives"] },
+    { "type": "vocabulary", "prompt": "They have ___ to Japan twice. (be → past participle)", "answer": "been", "options": ["was", "were", "been", "being"] },
+    { "type": "vocabulary", "prompt": "She ___ a beautiful song. (sing → past)", "answer": "sang", "options": ["sing", "sang", "sung", "sings"] },
+    { "type": "vocabulary", "prompt": "I have ___ my homework already. (do → past participle)", "answer": "done", "options": ["did", "done", "do", "doing"] },
+    { "type": "vocabulary", "prompt": "He ___ a glass by accident. (break → past)", "answer": "broke", "options": ["break", "broke", "broken", "breaks"] },
+    { "type": "vocabulary", "prompt": "She has ___ me for five years. (know → past participle)", "answer": "known", "options": ["knew", "known", "know", "knowing"] }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000030"
+}

@@ -6,42 +6,90 @@
     {
       "type": "translation",
       "prompt": "这个多少钱",
-      "answer": "How much is this"
+      "answer": "How much is this",
+      "options": [
+        "Can I try it on",
+        "I am looking for a pair of shoes",
+        "How much is this",
+        "Can I pay by card"
+      ]
     },
     {
       "type": "translation",
       "prompt": "太贵了",
-      "answer": "It is too expensive"
+      "answer": "It is too expensive",
+      "options": [
+        "Can you make it cheaper",
+        "How much is this",
+        "I will take this",
+        "It is too expensive"
+      ]
     },
     {
       "type": "translation",
       "prompt": "能便宜一点吗",
-      "answer": "Can you make it cheaper"
+      "answer": "Can you make it cheaper",
+      "options": [
+        "I am looking for a pair of shoes",
+        "I will take this",
+        "Can you make it cheaper",
+        "Can I try it on"
+      ]
     },
     {
       "type": "translation",
       "prompt": "我在找一双鞋",
-      "answer": "I am looking for a pair of shoes"
+      "answer": "I am looking for a pair of shoes",
+      "options": [
+        "Can I try it on",
+        "I am looking for a pair of shoes",
+        "Can I pay by card",
+        "Do you have a receipt"
+      ]
     },
     {
       "type": "translation",
       "prompt": "可以试穿吗",
-      "answer": "Can I try it on"
+      "answer": "Can I try it on",
+      "options": [
+        "How much is this",
+        "Do you have a receipt",
+        "I am looking for a pair of shoes",
+        "Can I try it on"
+      ]
     },
     {
       "type": "translation",
       "prompt": "我要这个",
-      "answer": "I will take this"
+      "answer": "I will take this",
+      "options": [
+        "I will take this",
+        "How much is this",
+        "It is too expensive",
+        "Can I try it on"
+      ]
     },
     {
       "type": "translation",
       "prompt": "可以刷卡吗",
-      "answer": "Can I pay by card"
+      "answer": "Can I pay by card",
+      "options": [
+        "Do you have a receipt",
+        "I am looking for a pair of shoes",
+        "Can I try it on",
+        "Can I pay by card"
+      ]
     },
     {
       "type": "translation",
       "prompt": "有发票吗",
-      "answer": "Do you have a receipt"
+      "answer": "Do you have a receipt",
+      "options": [
+        "Can I pay by card",
+        "I am looking for a pair of shoes",
+        "Do you have a receipt",
+        "Can you make it cheaper"
+      ]
     }
   ],
   "id": "b0000001-0000-0000-0000-000000000012",

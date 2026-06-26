@@ -4,116 +4,16 @@
   "type": "vocabulary",
   "shuffle": true,
   "units": [
-    {
-      "type": "vocabulary",
-      "prompt": "米饭",
-      "answer": "rice",
-      "options": [
-        "tea",
-        "water",
-        "rice",
-        "fish"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "面条",
-      "answer": "noodles",
-      "options": [
-        "noodles",
-        "rice",
-        "tea",
-        "milk"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "水",
-      "answer": "water",
-      "options": [
-        "egg",
-        "water",
-        "milk",
-        "apple"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "茶",
-      "answer": "tea",
-      "options": [
-        "rice",
-        "tea",
-        "noodles",
-        "egg"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "苹果",
-      "answer": "apple",
-      "options": [
-        "milk",
-        "tea",
-        "apple",
-        "rice"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "鸡肉",
-      "answer": "chicken",
-      "options": [
-        "noodles",
-        "egg",
-        "chicken",
-        "rice"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "鱼",
-      "answer": "fish",
-      "options": [
-        "fish",
-        "water",
-        "noodles",
-        "rice"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "鸡蛋",
-      "answer": "egg",
-      "options": [
-        "apple",
-        "noodles",
-        "water",
-        "egg"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "牛奶",
-      "answer": "milk",
-      "options": [
-        "noodles",
-        "egg",
-        "tea",
-        "milk"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "面包",
-      "answer": "bread",
-      "options": [
-        "chicken",
-        "bread",
-        "tea",
-        "noodles"
-      ]
-    }
+    { "type": "vocabulary", "prompt": "The Chinese word for the grain you eat daily (rice)", "answer": "米饭", "options": ["米饭", "面条", "面包", "馒头"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for long thin flour food (noodles)", "answer": "面条", "options": ["面条", "米饭", "面包", "饺子"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for the clear liquid you drink (water)", "answer": "水", "options": ["水", "茶", "牛奶", "果汁"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for the hot drink made from leaves (tea)", "answer": "茶", "options": ["茶", "水", "咖啡", "牛奶"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for a red or green sweet fruit (apple)", "answer": "苹果", "options": ["苹果", "香蕉", "橘子", "西瓜"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for the bird meat people eat (chicken)", "answer": "鸡肉", "options": ["鸡肉", "猪肉", "牛肉", "鱼肉"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for the animal that swims (fish)", "answer": "鱼", "options": ["鱼", "鸡", "猪", "牛"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for the round food from hens (egg)", "answer": "鸡蛋", "options": ["鸡蛋", "鸭蛋", "鸡肉", "牛奶"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for the white drink from cows (milk)", "answer": "牛奶", "options": ["牛奶", "水", "茶", "果汁"] },
+    { "type": "vocabulary", "prompt": "The Chinese word for the baked flour food (bread)", "answer": "面包", "options": ["面包", "米饭", "蛋糕", "饼干"] }
   ],
   "id": "b0000001-0000-0000-0000-000000000025",
   "courseUUID": "a0000001-0000-0000-0000-000000000006"

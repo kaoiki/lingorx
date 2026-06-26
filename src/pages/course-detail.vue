@@ -52,20 +52,37 @@
       <!-- Lessons List -->
       <section>
         <div class="flex items-center justify-between mb-md">
-          <h2 class="font-headline-md font-bold text-on-surface">Lessons</h2>
+          <div class="flex items-center gap-sm text-[10px] text-on-surface-variant font-bold">
+            <span class="flex items-center gap-[3px]"><span class="w-2 h-2 rounded-full bg-primary/60" /> Great ≥80%</span>
+            <span class="flex items-center gap-[3px]"><span class="w-2 h-2 rounded-full bg-secondary/60" /> Review ≥50%</span>
+            <span class="flex items-center gap-[3px]"><span class="w-2 h-2 rounded-full bg-error/60" /> Retry &lt;50%</span>
+          </div>
           <span class="text-label-sm font-bold text-on-surface-variant flex items-center gap-xs">
             <span class="material-symbols-outlined text-[14px]">lock</span>
-            Complete a lesson to unlock the next
+            Complete to unlock next
           </span>
         </div>
         <div class="flex flex-col gap-sm">
           <div
             v-for="(lesson, index) in lessons"
             :key="lesson.id"
-            class="glass-card p-lg rounded-2xl flex items-center gap-lg transition-all"
+            class="glass-card p-lg rounded-2xl flex items-center gap-lg transition-all relative overflow-hidden"
             :class="lesson.status === 'locked' ? 'opacity-50' : 'hover:translate-y-[-1px] cursor-pointer'"
             @click="lesson.status !== 'locked' && goToBattle(lesson.id)"
           >
+            <!-- Completed Stamp -->
+            <div v-if="lesson.status === 'completed'"
+              class="absolute -top-1 -right-1 w-14 h-14 pointer-events-none select-none">
+              <div class="w-full h-full flex items-center justify-center border-[2.5px] rounded-xl rotate-12"
+                :class="lesson.accuracy != null ? (lesson.accuracy >= 80 ? 'border-primary/50 bg-primary/[0.06]' : lesson.accuracy >= 50 ? 'border-secondary/50 bg-secondary/[0.06]' : 'border-error/50 bg-error/[0.06]') : 'border-outline-variant bg-surface-variant/30'">
+                <span class="text-[9px] font-black leading-tight text-center uppercase"
+                  :class="lesson.accuracy != null ? (lesson.accuracy >= 80 ? 'text-primary/50' : lesson.accuracy >= 50 ? 'text-secondary/50' : 'text-error/50') : 'text-on-surface-variant/40'"
+                  style="writing-mode: vertical-rl; letter-spacing: 2px;">
+                  {{ lesson.accuracy != null ? (lesson.accuracy >= 80 ? 'Great' : lesson.accuracy >= 50 ? 'Review' : 'Retry') : 'Done' }}
+                </span>
+              </div>
+            </div>
+
             <!-- Number badge -->
             <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 font-bold text-sm"
               :class="lesson.status === 'completed' ? 'bg-primary text-on-primary' : lesson.status === 'available' ? 'bg-primary/10 text-primary' : 'bg-surface-variant text-on-surface-variant'">
@@ -87,8 +104,13 @@
                   Complete previous lesson first
                 </span>
               </span>
-              <span v-else-if="lesson.status === 'completed'" class="text-primary text-label-sm font-bold">Completed</span>
-              <button v-else class="bg-primary hover:bg-primary/90 text-on-primary font-bold px-md py-xs rounded-xl text-xs transition-all active:scale-95 cursor-pointer">
+              <button v-if="lesson.status === 'completed'"
+                class="font-bold px-md py-xs rounded-xl text-xs transition-all active:scale-95 cursor-pointer"
+                :class="lesson.accuracy != null && lesson.accuracy < 50 ? 'bg-error hover:bg-error/90 text-white' : 'bg-tertiary hover:bg-tertiary/90 text-white'">
+                {{ lesson.accuracy != null && lesson.accuracy < 50 ? 'Retry' : 'Review' }}
+              </button>
+              <button v-else-if="lesson.status === 'available'"
+                class="bg-primary hover:bg-primary/90 text-on-primary font-bold px-md py-xs rounded-xl text-xs transition-all active:scale-95 cursor-pointer">
                 Start
               </button>
             </div>
@@ -141,6 +163,7 @@ interface Lesson {
   title: string
   description: string
   status: 'locked' | 'available' | 'completed'
+  accuracy?: number
 }
 
 const loading = ref(true)
@@ -161,9 +184,7 @@ function courseGradient(index: number) {
 }
 
 function goToBattle(lessonId: string) {
-  const lesson = lessons.value.find((l) => l.id === lessonId)
-  const isCompleted = lesson?.status === 'completed'
-  router.push(`/play/${lessonId}${isCompleted ? '?completed=1' : ''}`)
+  router.push(`/play/${lessonId}`)
 }
 
 onMounted(async () => {
@@ -188,13 +209,14 @@ onMounted(async () => {
   try {
     // lesson 列表（独立，失败不影响课程信息展示）
     const lessonData = await api<
-      { id: string; title: string; description: string; sequence: number; status: string }[]
+      { id: string; title: string; description: string; sequence: number; status: string; accuracy?: number }[]
     >(`/api/courses/${courseId}/lessons`)
-    lessons.value = lessonData.map((l) => ({
+    lessons.value = lessonData.map((l: any) => ({
       id: l.id,
       title: l.title,
       description: l.description,
       status: l.status as 'locked' | 'available' | 'completed',
+      accuracy: l.accuracy,
     }))
   } catch (e) {
     console.warn('Failed to load lessons:', e)

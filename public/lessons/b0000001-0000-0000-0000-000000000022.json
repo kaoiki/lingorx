@@ -4,116 +4,16 @@
   "type": "vocabulary",
   "shuffle": true,
   "units": [
-    {
-      "type": "vocabulary",
-      "prompt": "pan",
-      "answer": "bread",
-      "options": [
-        "fruit",
-        "water",
-        "milk",
-        "bread"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "agua",
-      "answer": "water",
-      "options": [
-        "fruit",
-        "cheese",
-        "coffee",
-        "water"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "leche",
-      "answer": "milk",
-      "options": [
-        "milk",
-        "egg",
-        "fish",
-        "rice"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "fruta",
-      "answer": "fruit",
-      "options": [
-        "cheese",
-        "milk",
-        "fruit",
-        "bread"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "carne",
-      "answer": "meat",
-      "options": [
-        "coffee",
-        "cheese",
-        "meat",
-        "fish"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "arroz",
-      "answer": "rice",
-      "options": [
-        "fish",
-        "water",
-        "rice",
-        "bread"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "huevo",
-      "answer": "egg",
-      "options": [
-        "egg",
-        "water",
-        "cheese",
-        "bread"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "pescado",
-      "answer": "fish",
-      "options": [
-        "coffee",
-        "rice",
-        "fish",
-        "egg"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "queso",
-      "answer": "cheese",
-      "options": [
-        "cheese",
-        "fish",
-        "bread",
-        "egg"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "café",
-      "answer": "coffee",
-      "options": [
-        "fish",
-        "cheese",
-        "egg",
-        "coffee"
-      ]
-    }
+    { "type": "vocabulary", "prompt": "The Spanish word for the baked food made from flour (bread)", "answer": "pan", "options": ["pan", "arroz", "huevo", "queso"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for the clear drinking liquid (water)", "answer": "agua", "options": ["agua", "leche", "café", "vino"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for the white drink from cows (milk)", "answer": "leche", "options": ["leche", "agua", "café", "jugo"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for sweet plant food (fruit)", "answer": "fruta", "options": ["fruta", "carne", "verdura", "pan"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for animal flesh as food (meat)", "answer": "carne", "options": ["carne", "pescado", "fruta", "huevo"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for the white grain you boil and eat (rice)", "answer": "arroz", "options": ["arroz", "pan", "pasta", "trigo"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for the round food that comes from chickens (egg)", "answer": "huevo", "options": ["huevo", "leche", "carne", "pan"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for the food that swims in water (fish)", "answer": "pescado", "options": ["pescado", "carne", "pollo", "arroz"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for the yellow food made from milk (cheese)", "answer": "queso", "options": ["queso", "leche", "mantequilla", "yogur"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for the hot black drink in the morning (coffee)", "answer": "café", "options": ["café", "té", "leche", "agua"] }
   ],
   "id": "b0000001-0000-0000-0000-000000000022",
   "courseUUID": "a0000001-0000-0000-0000-000000000005"

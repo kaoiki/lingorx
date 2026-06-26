@@ -1,0 +1,18 @@
+{
+  "courseId": "english-conjugation",
+  "courseUUID": "a0000001-0000-0000-0000-000000000007",
+  "title": "Present Continuous",
+  "type": "vocabulary",
+  "shuffle": true,
+  "units": [
+    { "type": "vocabulary", "prompt": "Right now, I ___ a book. (read)", "answer": "am reading", "options": ["read", "am reading", "is reading", "are reading"] },
+    { "type": "vocabulary", "prompt": "She ___ dinner at the moment. (cook)", "answer": "is cooking", "options": ["cooks", "is cooking", "am cooking", "are cooking"] },
+    { "type": "vocabulary", "prompt": "They ___ football in the park. (play)", "answer": "are playing", "options": ["play", "is playing", "am playing", "are playing"] },
+    { "type": "vocabulary", "prompt": "He ___ to music right now. (listen)", "answer": "is listening", "options": ["listens", "is listening", "am listening", "are listening"] },
+    { "type": "vocabulary", "prompt": "We ___ for the bus. (wait)", "answer": "are waiting", "options": ["wait", "is waiting", "am waiting", "are waiting"] },
+    { "type": "vocabulary", "prompt": "The baby ___ loudly. (cry)", "answer": "is crying", "options": ["cries", "is crying", "am crying", "are crying"] },
+    { "type": "vocabulary", "prompt": "I ___ a shower right now. (take)", "answer": "am taking", "options": ["take", "am taking", "is taking", "are taking"] },
+    { "type": "vocabulary", "prompt": "The cat ___ on the sofa. (sleep)", "answer": "is sleeping", "options": ["sleeps", "is sleeping", "am sleeping", "are sleeping"] }
+  ],
+  "id": "b0000001-0000-0000-0000-000000000029"
+}

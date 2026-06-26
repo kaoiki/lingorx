@@ -78,6 +78,7 @@
                   <h3 class="font-headline-md text-on-surface">{{ course.title }}</h3>
                   <span class="bg-primary/10 text-primary px-sm py-xs rounded-full font-bold text-label-sm shrink-0">Learning</span>
                 </div>
+                <p class="text-xs text-on-surface-variant font-bold mb-sm">{{ course.languageLabel }} · {{ course.level }}<span v-if="course.type"> · {{ typeLabel(course.type) }}</span></p>
                 <p class="text-body-md text-on-surface-variant mb-md">Lesson {{ course.current_lesson }} / {{ course.total_lessons }}</p>
                 <div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden mb-md">
                   <div class="h-full bg-gradient-to-r from-primary to-secondary" :style="{ width: `${(course.current_lesson / course.total_lessons) * 100}%` }" />
@@ -309,10 +310,12 @@ onMounted(async () => {
   }
   try {
     const data = await api<Course[]>('/api/courses')
-    courses.value = data.map(c => ({
-      ...c,
-      languageLabel: LANGUAGE_LABELS[c.language] || c.language,
-    }))
+    courses.value = data
+      .filter(c => c.type !== 'translation')
+      .map(c => ({
+        ...c,
+        languageLabel: LANGUAGE_LABELS[c.language] || c.language,
+      }))
   } catch {
     // silently fail
   } finally {
@@ -324,10 +327,12 @@ async function refresh() {
   refreshing.value = true
   try {
     const data = await api<Course[]>('/api/courses')
-    courses.value = data.map(c => ({
-      ...c,
-      languageLabel: LANGUAGE_LABELS[c.language] || c.language,
-    }))
+    courses.value = data
+      .filter(c => c.type !== 'translation')
+      .map(c => ({
+        ...c,
+        languageLabel: LANGUAGE_LABELS[c.language] || c.language,
+      }))
   } catch {
     // silently fail
   } finally {

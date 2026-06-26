@@ -48,7 +48,7 @@
       <!-- Question -->
       <div v-if="currentUnit" class="w-full glass-card p-lg rounded-2xl text-center" style="max-width: 640px;">
         <p class="text-label-sm font-bold text-on-surface-variant mb-xs uppercase tracking-widest">
-          {{ currentUnit.type === 'vocabulary' ? 'Type the word' : currentUnit.type === 'translation' ? 'Translate the sentence' : 'Fill in the blank' }}
+          {{ currentUnit.type === 'translation' ? 'Translate' : currentUnit.type === 'grammar' ? 'Fill in the blank' : 'Type the word' }}
         </p>
         <p class="font-headline-md text-headline-md text-on-surface font-bold">{{ currentUnit.prompt }}</p>
         <!-- Hint: show candidate words -->
@@ -65,21 +65,13 @@
         <p v-if="currentUnit.options && !showHints" class="mt-sm text-xs text-primary flex items-center justify-center gap-xs">
           Tap the <span class="material-symbols-outlined text-[12px] align-middle">lightbulb</span> in the top-right to show word hints
         </p>
-        <p v-if="currentUnit.type === 'grammar' && currentUnit.options" class="flex flex-wrap justify-center gap-sm mt-md">
-          <button v-for="opt in currentUnit.options" :key="opt"
-            class="px-md py-xs rounded-xl border border-outline-variant text-on-surface font-bold text-sm hover:bg-surface-variant transition-colors cursor-pointer"
-            :class="selectedOption === opt ? 'border-primary bg-primary/10' : ''"
-            @click="selectedOption = opt">
-            {{ opt }}
-          </button>
-        </p>
         <div v-if="showResult" class="mt-md" :class="lastCorrect ? 'text-primary' : 'text-error'">
           <p class="font-bold text-sm">{{ lastCorrect ? '✅ Correct!' : '❌ ' + currentUnit.answer }}</p>
         </div>
       </div>
 
-      <!-- Input -->
-      <div v-if="currentUnit && currentUnit.type !== 'grammar'" class="w-full" style="max-width: 640px;">
+      <!-- Input (统一输入模式，所有类型都用输入框) -->
+      <div v-if="currentUnit" class="w-full" style="max-width: 640px;">
         <input
           ref="inputRef"
           v-model="userInput"
@@ -89,14 +81,6 @@
           :disabled="waiting"
           @keydown.enter.prevent="submitAnswer"
         />
-      </div>
-      <div v-else class="w-full max-w-xl">
-        <button
-          class="w-full bg-primary hover:bg-primary/90 disabled:bg-primary/50 text-on-primary font-bold py-sm rounded-xl transition-all active:scale-95 cursor-pointer disabled:cursor-not-allowed"
-          :disabled="!selectedOption || waiting"
-          @click="submitAnswer">
-          {{ waiting ? '…' : 'Confirm' }}
-        </button>
       </div>
 
       <!-- Stats -->
@@ -131,8 +115,8 @@
           </div>
           <h3 class="font-headline-md font-bold text-on-surface mb-xs">Battle Complete!</h3>
           <div v-if="submitting" class="text-sm text-on-surface-variant mb-lg">Submitting result…</div>
-          <p v-else-if="isCompleted" class="text-sm text-on-surface-variant mb-lg">📝 Review completed — no XP earned</p>
-          <p v-else-if="xpEarned > 0" class="text-sm text-primary font-bold mb-lg">✓ Results submitted!</p>
+          <p v-if="xpEarned > 0" class="text-sm text-primary font-bold mb-lg">✓ Results submitted!</p>
+          <p v-else-if="!submitting && xpEarned === 0" class="text-sm text-on-surface-variant mb-lg">📝 Review completed</p>
           <div v-if="xpEarned > 0" class="flex justify-center gap-lg mb-lg text-sm">
             <div><p class="font-headline-md text-headline-md text-primary">+{{ xpEarned }}</p><p class="text-label-sm font-bold text-on-surface-variant flex items-center justify-center gap-xs"><span class="material-symbols-outlined text-[14px]">bolt</span> XP</p></div>
             <div><p class="font-headline-md text-headline-md text-secondary">+{{ coinsEarned }}</p><p class="text-label-sm font-bold text-on-surface-variant flex items-center justify-center gap-xs"><span class="material-symbols-outlined text-[14px]">monetization_on</span> Coins</p></div>
@@ -143,7 +127,9 @@
             <div><p class="font-headline-md text-headline-md text-secondary">{{ accuracy }}%</p><p class="text-label-sm font-bold text-on-surface-variant flex items-center justify-center gap-xs"><span class="material-symbols-outlined text-[14px]">stars</span> Accuracy</p></div>
           </div>
           <p class="text-label-sm font-bold text-on-surface-variant mb-lg flex items-center justify-center gap-xs"><span class="material-symbols-outlined text-[14px]">schedule</span> Time: {{ totalTime }}s</p>
-          <router-link :to="courseUUID ? `/courses/${courseUUID}` : '/courses'" class="block w-full bg-primary hover:bg-primary/90 text-on-primary font-bold py-sm rounded-xl transition-all text-center">Back to Course</router-link>
+          <router-link :to="courseUUID ? `/courses/${courseUUID}` : '/courses'"
+            class="block w-full bg-primary hover:bg-primary/90 text-on-primary font-bold py-sm rounded-xl transition-all text-center"
+            :class="submitting ? 'opacity-40 pointer-events-none cursor-not-allowed' : ''">Back to Course</router-link>
         </div>
       </div>
     </Teleport>
@@ -174,7 +160,6 @@ import { api } from '../lib/api'
 
 const route = useRoute()
 const lessonId = route.params.lessonId as string
-const isCompleted = route.query.completed === '1'
 const lessonTitle = ref('')
 const courseUUID = ref('')
 const units = ref<Unit[]>([])
@@ -194,7 +179,6 @@ const score = ref(0)
 const hp = ref(100)
 const shaking = ref(false)
 const userInput = ref('')
-const selectedOption = ref('')
 const showResult = ref(false)
 const lastCorrect = ref(false)
 const waiting = ref(false)
@@ -261,7 +245,7 @@ function stopTimer() {
 
 function submitAnswer() {
   if (waiting.value) return
-  const answer = currentUnit.value.type === 'grammar' ? selectedOption.value : userInput.value.trim()
+  const answer = userInput.value.trim()
   if (!answer) return
 
   const correct = answer.toLowerCase() === currentUnit.value.answer.toLowerCase()
@@ -288,7 +272,6 @@ function submitAnswer() {
     showResult.value = false
     waiting.value = false
     userInput.value = ''
-    selectedOption.value = ''
 
     if (hp.value <= 0 || currentIndex.value >= units.value.length - 1) {
       finishBattle()
@@ -326,16 +309,12 @@ function finishBattle() {
     m.default({ particleCount: 100, spread: 80, origin: { y: 0.6 } })
   })
 
-  if (isCompleted) {
-    totalTime.value = Math.round((Date.now() - startTime.value) / 1000)
-    return // 已完成的 lesson 不提交
-  }
-
-  submitting.value = true
   const rawElapsed = Math.round((Date.now() - startTime.value) / 1000)
-  const maxTime = units.value.length * 30 // 每题上限 30 秒
+  const maxTime = units.value.length * 30
   const elapsed = Math.min(rawElapsed, maxTime)
   totalTime.value = elapsed
+
+  submitting.value = true
 
   api<{
     xp_earned: number

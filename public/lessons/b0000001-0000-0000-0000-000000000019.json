@@ -4,116 +4,16 @@
   "type": "vocabulary",
   "shuffle": true,
   "units": [
-    {
-      "type": "vocabulary",
-      "prompt": "hola",
-      "answer": "hello",
-      "options": [
-        "nice to meet you",
-        "goodbye",
-        "hello",
-        "friend"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "adiós",
-      "answer": "goodbye",
-      "options": [
-        "goodbye",
-        "mister",
-        "hello",
-        "good morning"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "buenos días",
-      "answer": "good morning",
-      "options": [
-        "good morning",
-        "madam",
-        "hello",
-        "goodbye"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "buenas noches",
-      "answer": "good night",
-      "options": [
-        "hello",
-        "thank you",
-        "goodbye",
-        "good night"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "gracias",
-      "answer": "thank you",
-      "options": [
-        "nice to meet you",
-        "thank you",
-        "good night",
-        "friend"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "por favor",
-      "answer": "please",
-      "options": [
-        "goodbye",
-        "hello",
-        "please",
-        "madam"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "amigo",
-      "answer": "friend",
-      "options": [
-        "good night",
-        "mister",
-        "please",
-        "friend"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "señor",
-      "answer": "mister",
-      "options": [
-        "good night",
-        "mister",
-        "hello",
-        "madam"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "señora",
-      "answer": "madam",
-      "options": [
-        "madam",
-        "good night",
-        "goodbye",
-        "thank you"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "mucho gusto",
-      "answer": "nice to meet you",
-      "options": [
-        "please",
-        "hello",
-        "madam",
-        "nice to meet you"
-      ]
-    }
+    { "type": "vocabulary", "prompt": "The Spanish word for greeting someone (hello)", "answer": "hola", "options": ["hola", "adiós", "gracias", "bueno"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for when you leave (goodbye)", "answer": "adiós", "options": ["adiós", "hola", "luego", "noche"] },
+    { "type": "vocabulary", "prompt": "The Spanish greeting used in the morning", "answer": "buenos días", "options": ["buenos días", "buenas tardes", "buenas noches", "hola"] },
+    { "type": "vocabulary", "prompt": "The Spanish greeting used at night", "answer": "buenas noches", "options": ["buenas noches", "buenos días", "buenas tardes", "adiós"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for showing gratitude (thank you)", "answer": "gracias", "options": ["gracias", "por favor", "de nada", "perdón"] },
+    { "type": "vocabulary", "prompt": "The Spanish phrase for making a polite request (please)", "answer": "por favor", "options": ["por favor", "gracias", "perdón", "lo siento"] },
+    { "type": "vocabulary", "prompt": "The Spanish word for a close companion (friend)", "answer": "amigo", "options": ["amigo", "hermano", "primo", "vecino"] },
+    { "type": "vocabulary", "prompt": "The Spanish title for a man (mister)", "answer": "señor", "options": ["señor", "señora", "joven", "doctor"] },
+    { "type": "vocabulary", "prompt": "The Spanish title for a married woman (madam)", "answer": "señora", "options": ["señora", "señor", "señorita", "madre"] },
+    { "type": "vocabulary", "prompt": "The Spanish phrase for 'pleased to meet you'", "answer": "mucho gusto", "options": ["mucho gusto", "buenos días", "hola", "gracias"] }
   ],
   "id": "b0000001-0000-0000-0000-000000000019",
   "courseUUID": "a0000001-0000-0000-0000-000000000005"

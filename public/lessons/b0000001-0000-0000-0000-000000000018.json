@@ -4,116 +4,16 @@
   "type": "vocabulary",
   "shuffle": true,
   "units": [
-    {
-      "type": "vocabulary",
-      "prompt": "私",
-      "answer": "I",
-      "options": [
-        "student",
-        "I",
-        "hometown",
-        "name"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "名前",
-      "answer": "name",
-      "options": [
-        "company",
-        "hometown",
-        "name",
-        "hobby"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "出身",
-      "answer": "hometown",
-      "options": [
-        "job",
-        "school",
-        "hometown",
-        "company"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "学生",
-      "answer": "student",
-      "options": [
-        "name",
-        "job",
-        "student",
-        "family"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "仕事",
-      "answer": "job",
-      "options": [
-        "I",
-        "company",
-        "student",
-        "job"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "趣味",
-      "answer": "hobby",
-      "options": [
-        "I",
-        "name",
-        "hobby",
-        "hometown"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "友達",
-      "answer": "friend",
-      "options": [
-        "student",
-        "friend",
-        "hometown",
-        "company"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "家族",
-      "answer": "family",
-      "options": [
-        "family",
-        "company",
-        "job",
-        "school"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "学校",
-      "answer": "school",
-      "options": [
-        "student",
-        "hometown",
-        "school",
-        "hobby"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "会社",
-      "answer": "company",
-      "options": [
-        "school",
-        "hometown",
-        "company",
-        "family"
-      ]
-    }
+    { "type": "vocabulary", "prompt": "The Japanese word for 'I' or 'myself'", "answer": "私", "options": ["私", "僕", "俺", "君"] },
+    { "type": "vocabulary", "prompt": "The Japanese word for 'name'", "answer": "名前", "options": ["名前", "名字", "呼び", "名称"] },
+    { "type": "vocabulary", "prompt": "The Japanese word for 'hometown' or 'origin'", "answer": "出身", "options": ["出身", "出身地", "故郷", "国籍"] },
+    { "type": "vocabulary", "prompt": "The Japanese word for 'student'", "answer": "学生", "options": ["学生", "先生", "学校", "勉強"] },
+    { "type": "vocabulary", "prompt": "The Japanese word for 'job' or 'work'", "answer": "仕事", "options": ["仕事", "職業", "働く", "業務"] },
+    { "type": "vocabulary", "prompt": "The Japanese word for 'hobby'", "answer": "趣味", "options": ["趣味", "好み", "興味", "楽しみ"] },
+    { "type": "vocabulary", "prompt": "The Japanese word for 'friend'", "answer": "友達", "options": ["友達", "友人", "仲間", "知人"] },
+    { "type": "vocabulary", "prompt": "The Japanese word for 'family'", "answer": "家族", "options": ["家族", "家庭", "親戚", "両親"] },
+    { "type": "vocabulary", "prompt": "The Japanese word for 'school'", "answer": "学校", "options": ["学校", "大学", "教室", "図書館"] },
+    { "type": "vocabulary", "prompt": "The Japanese word for 'company' or 'office'", "answer": "会社", "options": ["会社", "企業", "事務所", "工場"] }
   ],
   "id": "b0000001-0000-0000-0000-000000000018",
   "courseUUID": "a0000001-0000-0000-0000-000000000004"

@@ -4,116 +4,16 @@
   "type": "vocabulary",
   "shuffle": true,
   "units": [
-    {
-      "type": "vocabulary",
-      "prompt": "日",
-      "answer": "sun",
-      "options": [
-        "sun",
-        "tree",
-        "moon",
-        "soil"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "月",
-      "answer": "moon",
-      "options": [
-        "mountain",
-        "moon",
-        "sun",
-        "money"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "山",
-      "answer": "mountain",
-      "options": [
-        "tree",
-        "river",
-        "moon",
-        "mountain"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "川",
-      "answer": "river",
-      "options": [
-        "money",
-        "fire",
-        "river",
-        "water"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "木",
-      "answer": "tree",
-      "options": [
-        "tree",
-        "person",
-        "moon",
-        "sun"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "火",
-      "answer": "fire",
-      "options": [
-        "river",
-        "tree",
-        "money",
-        "fire"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "水",
-      "answer": "water",
-      "options": [
-        "fire",
-        "river",
-        "water",
-        "sun"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "金",
-      "answer": "money",
-      "options": [
-        "mountain",
-        "river",
-        "tree",
-        "money"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "土",
-      "answer": "soil",
-      "options": [
-        "tree",
-        "river",
-        "mountain",
-        "soil"
-      ]
-    },
-    {
-      "type": "vocabulary",
-      "prompt": "人",
-      "answer": "person",
-      "options": [
-        "tree",
-        "person",
-        "water",
-        "money"
-      ]
-    }
+    { "type": "vocabulary", "prompt": "The kanji for the bright star in the sky during the day", "answer": "日", "options": ["日", "月", "山", "川"] },
+    { "type": "vocabulary", "prompt": "The kanji for the bright object in the night sky", "answer": "月", "options": ["月", "日", "星", "空"] },
+    { "type": "vocabulary", "prompt": "The kanji for a tall natural landform you climb", "answer": "山", "options": ["山", "川", "谷", "石"] },
+    { "type": "vocabulary", "prompt": "The kanji for a long flow of water through land", "answer": "川", "options": ["川", "山", "海", "湖"] },
+    { "type": "vocabulary", "prompt": "The kanji for a tall plant with leaves and branches", "answer": "木", "options": ["木", "林", "森", "花"] },
+    { "type": "vocabulary", "prompt": "The kanji for the hot, glowing element that burns", "answer": "火", "options": ["火", "水", "金", "土"] },
+    { "type": "vocabulary", "prompt": "The kanji for the clear liquid you drink every day", "answer": "水", "options": ["水", "火", "金", "土"] },
+    { "type": "vocabulary", "prompt": "The kanji for the shiny metal used to make coins", "answer": "金", "options": ["金", "銀", "鉄", "銅"] },
+    { "type": "vocabulary", "prompt": "The kanji for the ground beneath your feet", "answer": "土", "options": ["土", "石", "山", "砂"] },
+    { "type": "vocabulary", "prompt": "The kanji for a human being or person", "answer": "人", "options": ["人", "大", "小", "男"] }
   ],
   "id": "b0000001-0000-0000-0000-000000000017",
   "courseUUID": "a0000001-0000-0000-0000-000000000004"
