@@ -70,6 +70,13 @@
                 <span class="text-[9px] font-bold bg-secondary/10 text-secondary px-1.5 py-0.5 rounded ml-auto shrink-0">Soon</span>
               </router-link>
               <router-link
+                to="/feed"
+                class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm"
+              >
+                <span class="material-symbols-outlined text-[20px] text-on-surface-variant">timeline</span>
+                <span>Feed</span>
+              </router-link>
+              <router-link
                 to="/settings"
                 class="flex items-center gap-3 px-4 py-2.5 hover:bg-surface-variant transition-colors text-on-surface text-sm"
               >
@@ -153,14 +160,12 @@ const { isLoggedIn, user, logout } = useAuth()
 const { show: showToast } = useToast()
 const mobileMenuOpen = ref(false)
 
-const navItems = [
+const navItems: { to: string; label: string; icon: string; badge?: string }[] = [
   { to: '/', label: 'Dashboard', icon: 'dashboard' },
   { to: '/courses', label: 'Courses', icon: 'menu_book' },
   { to: '/achievements', label: 'Achievements', icon: 'workspace_premium' },
   { to: '/checkins', label: 'Check-ins', icon: 'edit_calendar' },
-  { to: '/community', label: 'Community', icon: 'groups', badge: 'Soon' },
-  { to: '/groups', label: 'Groups', icon: 'diversity_3', badge: 'Soon' },
-  { to: '/playground', label: 'Playground', icon: 'psychology', badge: 'Soon' },
+  { to: '/coming-soon', label: 'Coming Soon', icon: 'rocket_launch' },
 ]
 
 

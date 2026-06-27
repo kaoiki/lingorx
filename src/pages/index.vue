@@ -205,39 +205,41 @@
         </section>
 
         <!-- Feed -->
-        <section class="glass-card p-lg rounded-2xl mb-lg">
+        <section class="glass-card p-lg rounded-2xl">
           <div class="flex items-center justify-between mb-lg">
-            <h3 class="font-headline-md text-on-surface">Feed Check-in Top 3</h3>
+            <h3 class="font-headline-md text-on-surface">Today's Top Check-ins</h3>
             <router-link to="/checkins" class="text-primary text-label-sm font-bold uppercase hover:underline">View</router-link>
           </div>
-          <div class="flex flex-col gap-md">
-            <div class="flex items-center gap-md">
-              <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background: rgba(16,185,129,0.1); color: #10b981">
-                <span class="material-symbols-outlined text-[22px]">menu_book</span>
+          <div v-if="todayLeaders.length === 0" class="text-center py-md text-sm text-on-surface-variant">
+            No check-ins today yet.
+          </div>
+          <div v-else class="flex flex-col gap-md">
+            <div v-for="(l, i) in todayLeaders" :key="l.nickname" class="flex items-center gap-md">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold text-sm"
+                :class="i === 0 ? 'bg-primary text-white' : i === 1 ? 'bg-secondary text-white' : 'bg-surface-variant text-on-surface-variant'">
+                {{ i + 1 }}
               </div>
               <div class="flex-1">
-                <p class="font-headline-md text-headline-md text-on-surface">English</p>
-                <p class="text-label-sm font-bold text-on-surface-variant">256 learners · 34 checked in</p>
+                <p class="font-bold text-sm text-on-surface">{{ l.nickname }}</p>
+                <p class="text-label-sm font-bold text-on-surface-variant">{{ l.count }} check-in{{ l.count > 1 ? 's' : '' }}</p>
               </div>
+              <span v-if="i === 0" class="text-lg">👑</span>
+              <span v-else-if="i === 1" class="text-lg">🥈</span>
+              <span v-else class="text-lg">🥉</span>
             </div>
-            <div class="flex items-center gap-md">
-              <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background: rgba(244,63,94,0.1); color: #f43f5e">
-                <span class="material-symbols-outlined text-[22px]">translate</span>
-              </div>
-              <div class="flex-1">
-                <p class="font-headline-md text-headline-md text-on-surface">Japanese</p>
-                <p class="text-label-sm font-bold text-on-surface-variant">128 learners · 18 checked in</p>
-              </div>
-            </div>
-            <div class="flex items-center gap-md">
-              <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background: rgba(139,92,246,0.1); color: #8b5cf6">
-                <span class="material-symbols-outlined text-[22px]">flag</span>
-              </div>
-              <div class="flex-1">
-                <p class="font-headline-md text-headline-md text-on-surface">Spanish</p>
-                <p class="text-label-sm font-bold text-on-surface-variant">64 learners · 8 checked in</p>
-              </div>
-            </div>
+          </div>
+        </section>
+
+        <!-- My Feed -->
+        <section class="glass-card p-lg rounded-2xl">
+          <div class="flex items-center justify-between mb-sm">
+            <h3 class="font-headline-md text-on-surface">My Feed</h3>
+            <router-link to="/feed" class="text-primary text-label-sm font-bold uppercase hover:underline">View</router-link>
+          </div>
+          <p class="text-xs text-on-surface-variant/60 mb-sm">Your learning activity for the last 30 days</p>
+          <div class="flex flex-wrap gap-[2px]">
+            <div v-for="(day, i) in activityDays" :key="i" class="w-[10px] h-[10px] rounded-sm"
+              :class="day === 0 ? 'bg-surface-variant/60' : day <= 2 ? 'bg-primary/50' : day <= 5 ? 'bg-primary/70' : 'bg-primary/90'" />
           </div>
         </section>
       </div>
@@ -279,6 +281,9 @@ const missions = ref([
 const coins = ref(0)
 const unlockedCount = ref(0)
 const totalCount = ref(0)
+
+const activityDays = ref<number[]>([])
+const todayLeaders = ref<{ nickname: string; count: number }[]>([])
 
 onMounted(async () => {
   document.querySelectorAll('.glass-card').forEach((card) => {
@@ -328,7 +333,20 @@ onMounted(async () => {
     totalCount.value = data.achievements.total
   } catch {
     // 未登录或接口失败，保持 0 值
-  } finally {
+  }
+
+  try {
+    const act = await api<{ days: number[] }>('/api/checkins/activity')
+    activityDays.value = act.days
+  } catch {
+    activityDays.value = Array(30).fill(0)
+  }
+
+  try {
+    const data = await api<{ nickname: string; count: number }[]>('/api/checkins/leaders?mode=today')
+    todayLeaders.value = data
+  } catch {}  // silently fail
+  finally {
     loading.value = false
   }
 })
