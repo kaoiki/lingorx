@@ -138,7 +138,7 @@ const categoryGradient: Record<string, string> = {
   'Check-in': 'bg-gradient-to-br from-primary to-tertiary',
 }
 
-useAuth()
+const { isLoggedIn } = useAuth()
 const activeCategory = ref('All')
 const categories = ['All', 'Learning', 'Streak', 'Accuracy', 'XP', 'Words', 'Check-in']
 const streak = ref(0)
@@ -149,10 +149,11 @@ const loading = ref(true)
 
 onMounted(async () => {
   try {
-    const data = await api<Achievement[]>('/api/achievements')
+    const endpoint = isLoggedIn.value ? '/api/achievements' : '/api/achievements/public'
+    const data = await api<Achievement[]>(endpoint)
     achievements.value = data
   } catch {}
-  try {
+  if (isLoggedIn.value) try {
     const stats = await api<{ total_xp: number; streak_days: number }>('/api/stats')
     totalXp.value = stats.total_xp
     streak.value = stats.streak_days
