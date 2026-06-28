@@ -1,5 +1,9 @@
 <template>
-  <div class="p-gutter max-w-7xl mx-auto px-4 md:px-gutter pb-lg">
+  <div v-if="loading" class="flex items-center justify-center py-32">
+    <div class="w-10 h-10 border-[3px] border-primary/30 border-t-primary rounded-full animate-spin" />
+  </div>
+
+  <div v-else class="p-gutter max-w-7xl mx-auto px-4 md:px-gutter pb-lg">
     <!-- Header -->
     <section class="mb-lg">
       <div>
@@ -47,7 +51,7 @@
     <!-- Latest Unlock -->
     <section v-if="latestUnlock" class="glass-card p-lg rounded-2xl mb-lg border border-tertiary/20">
       <div class="flex items-center gap-lg">
-        <div class="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0" :class="latestUnlock.iconClass">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0" :class="categoryGradient[latestUnlock.category]">
           <span class="material-symbols-outlined text-white text-[30px] filled">{{ latestUnlock.icon }}</span>
         </div>
         <div class="flex-1">
@@ -55,7 +59,7 @@
           <h2 class="font-headline-md font-bold text-on-surface mb-xs">{{ latestUnlock.title }}</h2>
           <p class="text-sm text-on-surface-variant">{{ latestUnlock.description }}</p>
         </div>
-        <span class="bg-tertiary/10 text-tertiary px-sm py-xs rounded-full font-bold text-label-sm shrink-0">+{{ latestUnlock.reward }}</span>
+        <span class="bg-tertiary/10 text-tertiary px-sm py-xs rounded-full font-bold text-label-sm shrink-0">+{{ latestUnlock.reward_description }}</span>
       </div>
     </section>
 
@@ -80,7 +84,7 @@
           class="glass-card p-lg rounded-2xl transition-all"
           :class="a.unlocked ? '' : 'opacity-60 grayscale'">
           <div class="flex items-start gap-md mb-md">
-            <div class="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-md" :class="a.iconClass">
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-md" :class="categoryGradient[a.category]">
               <span class="material-symbols-outlined text-white text-[26px] filled" :class="a.unlocked ? '' : 'not-filled'">{{ a.icon }}</span>
             </div>
             <div class="flex-1 min-w-0">
@@ -99,8 +103,8 @@
             </div>
             <span class="text-xs font-bold text-on-surface-variant shrink-0">{{ a.current }}/{{ a.target }}</span>
           </div>
-          <p v-if="!a.unlocked" class="text-xs text-on-surface-variant mt-sm">Reward: {{ a.reward }}</p>
-          <p v-else class="text-xs text-tertiary font-bold mt-sm">+{{ a.reward }}</p>
+          <p v-if="!a.unlocked" class="text-xs text-on-surface-variant mt-sm">Reward: {{ a.reward_description }}</p>
+          <p v-else class="text-xs text-tertiary font-bold mt-sm">+{{ a.reward_description }}</p>
         </article>
       </div>
     </section>
@@ -108,168 +112,65 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
+import { api } from '../lib/api'
+import { useAuth } from '../composables/useAuth'
 
 interface Achievement {
   id: number
   title: string
   description: string
   category: string
-  reward: string
   icon: string
-  iconClass: string
   unlocked: boolean
   current: number
   target: number
+  reward_description: string
 }
 
+const categoryGradient: Record<string, string> = {
+  Learning: 'bg-gradient-to-br from-tertiary to-tertiary/70',
+  Streak: 'bg-gradient-to-br from-secondary to-secondary/70',
+  Accuracy: 'bg-gradient-to-br from-primary to-primary/70',
+  XP: 'bg-gradient-to-br from-secondary to-secondary/70',
+  Words: 'bg-gradient-to-br from-tertiary to-primary',
+  Speed: 'bg-gradient-to-br from-secondary to-primary',
+  'Check-in': 'bg-gradient-to-br from-primary to-tertiary',
+}
+
+useAuth()
 const activeCategory = ref('All')
-
 const categories = ['All', 'Learning', 'Streak', 'Accuracy', 'XP', 'Words', 'Check-in']
+const streak = ref(0)
+const totalXp = ref(0)
 
-// Mock data — 后续从 API 获取
-const streak = ref(7)
-const totalXp = ref(660)
+const achievements = ref<Achievement[]>([])
+const loading = ref(true)
 
-const achievements: Achievement[] = [
-  // ── Learning ──
-  {
-    id: 1, title: 'First Steps',
-    description: 'Complete your first lesson.',
-    category: 'Learning', reward: '20 Coins',
-    icon: 'stadia_controller', iconClass: 'bg-gradient-to-br from-tertiary to-tertiary/70',
-    unlocked: true, current: 1, target: 1,
-  },
-  {
-    id: 2, title: 'Dedicated Learner',
-    description: 'Complete 10 lessons.',
-    category: 'Learning', reward: '50 Coins',
-    icon: 'school', iconClass: 'bg-gradient-to-br from-primary to-secondary',
-    unlocked: false, current: 8, target: 10,
-  },
-  {
-    id: 3, title: 'Scholar',
-    description: 'Complete 25 lessons.',
-    category: 'Learning', reward: '100 Coins',
-    icon: 'menu_book', iconClass: 'bg-gradient-to-br from-primary to-tertiary',
-    unlocked: false, current: 8, target: 25,
-  },
-  {
-    id: 4, title: 'Course Complete',
-    description: 'Finish all lessons in any course.',
-    category: 'Learning', reward: '150 Coins',
-    icon: 'flag', iconClass: 'bg-gradient-to-br from-secondary to-primary',
-    unlocked: false, current: 0, target: 1,
-  },
-  {
-    id: 5, title: 'Comeback Kid',
-    description: 'Improve a lesson from Retry (<50%) to Great (≥80%).',
-    category: 'Learning', reward: '60 Coins',
-    icon: 'trending_up', iconClass: 'bg-gradient-to-br from-error to-primary',
-    unlocked: false, current: 0, target: 1,
-  },
-
-  // ── Streak ──
-  {
-    id: 6, title: 'On Fire',
-    description: 'Maintain a 7-day learning streak.',
-    category: 'Streak', reward: '50 Coins',
-    icon: 'local_fire_department', iconClass: 'bg-gradient-to-br from-secondary to-secondary/70',
-    unlocked: true, current: 7, target: 7,
-  },
-  {
-    id: 7, title: 'Unstoppable',
-    description: 'Maintain a 30-day learning streak.',
-    category: 'Streak', reward: '200 Coins',
-    icon: 'whatshot', iconClass: 'bg-gradient-to-br from-error to-error/70',
-    unlocked: false, current: 7, target: 30,
-  },
-
-  // ── Accuracy ──
-  {
-    id: 8, title: 'Perfect Score',
-    description: 'Complete a lesson with 100% accuracy.',
-    category: 'Accuracy', reward: '30 Coins',
-    icon: 'target', iconClass: 'bg-gradient-to-br from-primary to-primary/70',
-    unlocked: true, current: 1, target: 1,
-  },
-  {
-    id: 9, title: 'Sharp Mind',
-    description: 'Score 80%+ accuracy on 10 lessons.',
-    category: 'Accuracy', reward: '80 Coins',
-    icon: 'psychology', iconClass: 'bg-gradient-to-br from-secondary to-tertiary',
-    unlocked: false, current: 3, target: 10,
-  },
-
-  // ── XP ──
-  {
-    id: 10, title: 'XP Starter',
-    description: 'Earn 500 total XP.',
-    category: 'XP', reward: '40 Coins',
-    icon: 'bolt', iconClass: 'bg-gradient-to-br from-secondary to-secondary/70',
-    unlocked: true, current: 660, target: 500,
-  },
-  {
-    id: 11, title: 'XP Hunter',
-    description: 'Earn 2,000 total XP.',
-    category: 'XP', reward: '100 Coins',
-    icon: 'electric_bolt', iconClass: 'bg-gradient-to-br from-error to-primary',
-    unlocked: false, current: 660, target: 2000,
-  },
-
-  // ── Words ──
-  {
-    id: 12, title: 'Word Novice',
-    description: 'Type 100 words across all lessons.',
-    category: 'Words', reward: '30 Coins',
-    icon: 'keyboard', iconClass: 'bg-gradient-to-br from-tertiary to-primary',
-    unlocked: true, current: 120, target: 100,
-  },
-  {
-    id: 13, title: 'Word Master',
-    description: 'Type 1,000 words across all lessons.',
-    category: 'Words', reward: '150 Coins',
-    icon: 'keyboard_double_arrow', iconClass: 'bg-gradient-to-br from-error to-tertiary',
-    unlocked: false, current: 120, target: 1000,
-  },
-
-  // ── Speed ──
-  {
-    id: 14, title: 'Quick Learner',
-    description: 'Complete a lesson in under 30 seconds.',
-    category: 'Speed', reward: '50 Coins',
-    icon: 'timer', iconClass: 'bg-gradient-to-br from-secondary to-primary',
-    unlocked: false, current: 0, target: 1,
-  },
-
-  // ── Check-in（功能尚未发布）──
-  {
-    id: 15, title: 'First Check-in',
-    description: 'Complete your first daily check-in.',
-    category: 'Check-in', reward: '20 Coins',
-    icon: 'edit_calendar', iconClass: 'bg-gradient-to-br from-primary to-tertiary',
-    unlocked: false, current: 0, target: 1,
-  },
-  {
-    id: 16, title: 'Dedicated Checker',
-    description: 'Check in 30 times.',
-    category: 'Check-in', reward: '100 Coins',
-    icon: 'calendar_month', iconClass: 'bg-gradient-to-br from-secondary to-primary',
-    unlocked: false, current: 0, target: 30,
-  },
-]
+onMounted(async () => {
+  try {
+    const data = await api<Achievement[]>('/api/achievements')
+    achievements.value = data
+  } catch {}
+  try {
+    const stats = await api<{ total_xp: number; streak_days: number }>('/api/stats')
+    totalXp.value = stats.total_xp
+    streak.value = stats.streak_days
+  } catch {}
+  loading.value = false
+})
 
 const latestUnlock = computed(() => {
-  return achievements.filter(a => a.unlocked).slice(-1)[0] || null
+  return achievements.value.filter(a => a.unlocked).slice(-1)[0] || null
 })
 
 const filteredAchievements = computed(() => {
-  if (activeCategory.value === 'All') return achievements
-  return achievements.filter(a => a.category === activeCategory.value)
+  if (activeCategory.value === 'All') return achievements.value
+  return achievements.value.filter(a => a.category === activeCategory.value)
 })
 
-const unlockedCount = computed(() => achievements.filter(a => a.unlocked).length)
-const completionRate = computed(() => Math.round((unlockedCount.value / achievements.length) * 100))
+const unlockedCount = computed(() => achievements.value.filter(a => a.unlocked).length)
+const completionRate = computed(() => Math.round((unlockedCount.value / achievements.value.length) * 100))
 </script>
 
 <style scoped>

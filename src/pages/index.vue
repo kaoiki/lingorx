@@ -179,11 +179,11 @@
               <span
                 class="material-symbols-outlined text-white text-[40px]"
                 style="font-variation-settings: 'FILL' 1;"
-              >workspace_premium</span>
+              >{{ latestAchievement?.icon || 'workspace_premium' }}</span>
             </div>
-            <h4 class="font-headline-md text-on-surface mb-xs">First Victory</h4>
+            <h4 class="font-headline-md text-on-surface mb-xs">{{ latestAchievement?.title || 'No achievements yet' }}</h4>
             <p class="text-on-surface-variant font-body-md text-body-md mb-lg">
-              Completed your first Typing Battle with 100% accuracy.
+              {{ latestAchievement?.description || 'Complete a lesson to earn your first achievement.' }}
             </p>
             <div class="w-full mb-md">
               <div class="flex justify-between text-label-sm font-bold text-on-surface-variant mb-xs">
@@ -233,13 +233,19 @@
         <!-- My Feed -->
         <section class="glass-card p-lg rounded-2xl">
           <div class="flex items-center justify-between mb-sm">
-            <h3 class="font-headline-md text-on-surface">My Feed</h3>
-            <router-link to="/feed" class="text-primary text-label-sm font-bold uppercase hover:underline">View</router-link>
+            <h3 class="font-headline-md text-on-surface">Learning Activity in Feed</h3>
+            <router-link to="/feed" class="text-primary text-label-sm font-bold uppercase hover:underline">Detail</router-link>
           </div>
-          <p class="text-xs text-on-surface-variant/60 mb-sm">Your learning activity for the last 30 days</p>
+          <div class="flex items-center justify-between mb-sm">
+            <p class="text-xs text-on-surface-variant/60">Your {{ dateRange }} learning overview</p>
+            <div class="flex items-center gap-xs text-[9px] text-on-surface-variant">
+              <span class="w-2 h-2 rounded-sm bg-surface-variant" /> No activity
+              <span class="w-2 h-2 rounded-sm bg-primary/80 ml-1" /> Activity
+            </div>
+          </div>
           <div class="flex flex-wrap gap-[2px]">
             <div v-for="(day, i) in activityDays" :key="i" class="w-[10px] h-[10px] rounded-sm"
-              :class="day === 0 ? 'bg-surface-variant/60' : day <= 2 ? 'bg-primary/50' : day <= 5 ? 'bg-primary/70' : 'bg-primary/90'" />
+              :class="day === 0 ? 'bg-gray-300' : 'bg-primary/80'" />
           </div>
         </section>
       </div>
@@ -281,6 +287,12 @@ const missions = ref([
 const coins = ref(0)
 const unlockedCount = ref(0)
 const totalCount = ref(0)
+const latestAchievement = ref<{ title: string; description: string; icon: string } | null>(null)
+
+const today = new Date()
+const thirtyDaysAgo = new Date(today)
+thirtyDaysAgo.setDate(today.getDate() - 29)
+const dateRange = `${thirtyDaysAgo.getMonth() + 1}/${thirtyDaysAgo.getDate()} - ${today.getMonth() + 1}/${today.getDate()}`
 
 const activityDays = ref<number[]>([])
 const todayLeaders = ref<{ nickname: string; count: number }[]>([])
@@ -346,6 +358,16 @@ onMounted(async () => {
     const data = await api<{ nickname: string; count: number }[]>('/api/checkins/leaders?mode=today')
     todayLeaders.value = data
   } catch {}  // silently fail
+
+  try {
+    const achievements = await api<{ title: string; description: string; icon: string; unlocked: boolean }[]>('/api/achievements')
+    const unlocked = achievements.filter(a => a.unlocked)
+    unlockedCount.value = unlocked.length
+    totalCount.value = achievements.length
+    if (unlocked.length) {
+      latestAchievement.value = unlocked[unlocked.length - 1]
+    }
+  } catch {}
   finally {
     loading.value = false
   }

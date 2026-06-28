@@ -106,6 +106,24 @@
       </div>
     </Teleport>
 
+    <!-- Achievement Popup -->
+    <Teleport to="body">
+      <div v-if="showAchievementPopup" class="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm flex items-center justify-center px-4" @click.self="showAchievementPopup = false">
+        <div class="w-full bg-white rounded-2xl shadow-xl p-xl text-center achievement-popup" style="max-width: 380px;">
+          <div class="w-20 h-20 mx-auto mb-md rounded-2xl bg-gradient-to-br from-tertiary to-primary flex items-center justify-center shadow-lg animate-pulse">
+            <span class="material-symbols-outlined text-white text-[44px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+          </div>
+          <p class="text-label-sm font-bold text-tertiary uppercase tracking-widest mb-xs">Achievement Unlocked!</p>
+          <div v-for="ach in newAchievements" :key="ach.id" class="mb-md">
+            <h3 class="font-headline-md font-bold text-on-surface mb-xs">{{ ach.title }}</h3>
+            <p class="text-sm text-on-surface-variant mb-sm">{{ ach.description }}</p>
+            <span class="inline-block bg-tertiary/10 text-tertiary font-bold text-sm px-md py-xs rounded-lg">+{{ ach.reward_description }}</span>
+          </div>
+          <button class="w-full bg-primary hover:bg-primary/90 text-on-primary font-bold py-sm rounded-xl transition-all cursor-pointer" @click="showAchievementPopup = false">Awesome!</button>
+        </div>
+      </div>
+    </Teleport>
+
     <!-- Result Modal -->
     <Teleport to="body">
       <div v-if="finished" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center px-4">
@@ -117,6 +135,7 @@
           <div v-if="submitting" class="text-sm text-on-surface-variant mb-lg">Submitting result…</div>
           <p v-if="xpEarned > 0" class="text-sm text-primary font-bold mb-lg">✓ Results submitted!</p>
           <p v-else-if="!submitting && xpEarned === 0" class="text-sm text-on-surface-variant mb-lg">📝 Review completed</p>
+
           <div v-if="xpEarned > 0" class="flex justify-center gap-lg mb-lg text-sm">
             <div><p class="font-headline-md text-headline-md text-primary">+{{ xpEarned }}</p><p class="text-label-sm font-bold text-on-surface-variant flex items-center justify-center gap-xs"><span class="material-symbols-outlined text-[14px]">bolt</span> XP</p></div>
             <div><p class="font-headline-md text-headline-md text-secondary">+{{ coinsEarned }}</p><p class="text-label-sm font-bold text-on-surface-variant flex items-center justify-center gap-xs"><span class="material-symbols-outlined text-[14px]">monetization_on</span> Coins</p></div>
@@ -189,6 +208,8 @@ const xpEarned = ref(0)
 const coinsEarned = ref(0)
 const submitting = ref(false)
 const totalTime = ref(0)
+const newAchievements = ref<{ id: number; title: string; description: string; reward_description: string }[]>([])
+const showAchievementPopup = ref(false)
 const showStartPrompt = ref(true)
 const started = ref(false)
 const showHints = ref(localStorage.getItem('lingorx_show_hints') === 'true')
@@ -322,6 +343,7 @@ function finishBattle() {
     total_xp: number
     lesson_status: string
     next_lesson_status: string | null
+    new_achievements?: { id: number; title: string; description: string; reward_description: string }[]
   }>(`/api/lessons/${lessonId}/submit`, {
     method: 'POST',
     body: {
@@ -334,6 +356,14 @@ function finishBattle() {
     .then((res) => {
       xpEarned.value = res.xp_earned
       coinsEarned.value = res.coins_earned
+      if (res.new_achievements?.length) {
+        newAchievements.value = res.new_achievements
+        showAchievementPopup.value = true
+        import('canvas-confetti').then(m => {
+          m.default({ particleCount: 60, spread: 80, origin: { y: 0.5 } })
+          setTimeout(() => m.default({ particleCount: 40, spread: 60, origin: { y: 0.4 } }), 300)
+        })
+      }
     })
     .catch((e) => {
       console.warn('Failed to submit result:', e)
@@ -377,6 +407,16 @@ onMounted(async () => {
 <style scoped>
 .animate-shake {
   animation: shake 0.4s ease-in-out;
+}
+
+.achievement-popup {
+  animation: bounce-in 0.5s ease-out;
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 @keyframes shake {
