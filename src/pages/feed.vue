@@ -1,5 +1,19 @@
 <template>
-  <div v-if="loading" class="flex items-center justify-center py-32">
+  <div v-if="!isLoggedIn" class="p-gutter max-w-5xl mx-auto px-4 md:px-gutter flex items-center justify-center" style="min-height: calc(100vh - 200px);">
+    <section class="glass-card p-xl rounded-2xl text-center w-full">
+      <div class="w-16 h-16 mx-auto mb-md rounded-2xl bg-primary/10 flex items-center justify-center">
+        <span class="material-symbols-outlined text-[36px] text-primary">timeline</span>
+      </div>
+      <h2 class="font-headline-md font-bold text-on-surface mb-xs">Sign in to view your feed</h2>
+      <p class="text-sm text-on-surface-variant mb-lg">Create an account or sign in to track your learning activity.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-sm">
+        <router-link to="/login" class="w-full sm:w-auto bg-primary hover:bg-primary/90 text-on-primary font-bold px-lg py-sm rounded-xl transition-all text-center">Sign In</router-link>
+        <router-link to="/register" class="w-full sm:w-auto text-primary font-bold px-lg py-sm rounded-xl transition-all text-center hover:bg-primary/5">Create Account</router-link>
+      </div>
+    </section>
+  </div>
+
+  <div v-else-if="loading" class="flex items-center justify-center py-32">
     <div class="w-10 h-10 border-[3px] border-primary/30 border-t-primary rounded-full animate-spin" />
   </div>
 
@@ -37,8 +51,14 @@
           class="flex flex-col items-center gap-[2px] p-1 rounded-md cursor-pointer shadow-sm transition-shadow hover:ring-1 hover:ring-primary"
           :class="[day.count > 0 ? 'bg-primary/10' : '', selectedDate === day.label ? 'ring-2 ring-primary' : '']"
           @click="selectDay(day)">
-          <div class="w-full aspect-square rounded-sm"
-            :class="day.count === 0 ? 'bg-surface-variant/40' : day.count <= 1 ? 'bg-primary/30' : day.count <= 3 ? 'bg-primary/60' : 'bg-primary/90'" />
+          <div class="w-full aspect-square rounded-sm flex items-center justify-center text-[8px] md:text-[13px] font-bold"
+            :class="day.count === 0 ? 'bg-surface-variant/40 text-on-surface-variant' : 'text-white'"
+            :style="day.count === 1 ? 'background:#86efac' : day.count === 2 ? 'background:#22c55e' : day.count >= 3 ? 'background:#15803d' : ''">
+            <span class="relative leading-none">
+              {{ day.count > 9 ? '9' : day.count }}
+              <span v-if="day.count > 9" class="absolute -top-[2px] -right-[3px] text-[6px] md:text-[8px] md:-top-[3px] md:-right-[4px]">+</span>
+            </span>
+          </div>
           <span class="text-[8px] text-on-surface-variant">{{ day.label }}</span>
         </div>
       </div>
@@ -93,6 +113,9 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { api } from '../lib/api'
+import { useAuth } from '../composables/useAuth'
+
+const { isLoggedIn } = useAuth()
 
 const today = new Date()
 const thirtyDaysAgo = new Date(today)
@@ -139,6 +162,7 @@ function formatTime(iso: string): string {
 }
 
 onMounted(async () => {
+  if (!isLoggedIn.value) { loading.value = false; return }
   await loadFeed(1)
   // 从 feedData 计算每天的活动数
   const counts: Record<string, number> = {}

@@ -6,12 +6,16 @@
     </main>
     <AppFooter @open-feedback="feedbackOpen = true" />
     <FeedbackModal :show="feedbackOpen" @close="feedbackOpen = false" />
+    <CookieConsent />
+    <DailyEncouragement />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import FeedbackModal from '../components/FeedbackModal.vue'
+import CookieConsent from '../components/CookieConsent.vue'
+import DailyEncouragement from '../components/DailyEncouragement.vue'
 
 const feedbackOpen = ref(false)
 </script>

@@ -38,6 +38,14 @@ const router = createRouter({
       ]
     },
     {
+      path: '/privacy',
+      component: () => import('./pages/privacy.vue'),
+    },
+    {
+      path: '/terms',
+      component: () => import('./pages/terms.vue'),
+    },
+    {
       path: '/forgot-password',
       component: () => import('./layouts/blank.vue'),
       children: [

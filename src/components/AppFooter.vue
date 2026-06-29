@@ -9,16 +9,16 @@
           <span class="material-symbols-outlined text-[14px]">edit_note</span>
           Feedback
         </button>
-        <p class="text-on-surface-variant text-xs">© 2026 LingoRx. All rights reserved.</p>
+        <p class="text-on-surface-variant text-xs">© 2026 LingoRx, a <strong class="text-primary font-bold">HeartBeat</strong> product. All rights reserved.</p>
       </div>
       <div class="flex items-center gap-lg">
         <a
           class="text-on-surface-variant text-xs hover:text-primary transition-colors"
-          href="#"
+          href="/privacy"
         >Privacy Policy</a>
         <a
           class="text-on-surface-variant text-xs hover:text-primary transition-colors"
-          href="#"
+          href="/terms"
         >Terms of Service</a>
         <a
           class="text-on-surface-variant text-xs hover:text-primary transition-colors"

@@ -63,6 +63,7 @@ export function useAuth() {
     localStorage.removeItem(PROFILE_KEY)
     isLoggedIn.value = false
     user.value = null
+    window.location.reload()
   }
 
   return { isLoggedIn, user, login, updateProfile, logout }
