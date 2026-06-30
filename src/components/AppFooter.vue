@@ -22,7 +22,7 @@
         >Terms of Service</a>
         <a
           class="text-on-surface-variant text-xs hover:text-primary transition-colors"
-          href="#"
+          href="/contact"
         >Contact</a>
         <span class="text-on-surface-variant text-xs font-mono">v{{ version }}</span>
       </div>

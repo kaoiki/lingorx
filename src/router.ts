@@ -38,6 +38,10 @@ const router = createRouter({
       ]
     },
     {
+      path: '/contact',
+      component: () => import('./pages/contact.vue'),
+    },
+    {
       path: '/privacy',
       component: () => import('./pages/privacy.vue'),
     },
