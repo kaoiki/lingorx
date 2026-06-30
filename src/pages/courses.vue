@@ -56,7 +56,7 @@
           </div>
           <button class="bg-secondary hover:bg-secondary/90 text-white font-bold px-lg py-sm rounded-xl transition-all active:scale-95 shadow-md shadow-secondary/20 cursor-pointer flex items-center gap-xs shrink-0" @click="showAiModal = true">
             <span class="material-symbols-outlined text-[20px]">chat</span>
-            Ask AI
+            Ask AI <span class="text-[9px] font-bold bg-white/20 text-white/80 px-1 py-0.5 rounded ml-1">Soon</span>
           </button>
         </div>
       </section>

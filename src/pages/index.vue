@@ -73,10 +73,10 @@
           </p>
           <router-link to="/assessment"
             class="block w-full py-xs bg-secondary hover:bg-secondary/90 text-white font-bold rounded-lg border border-secondary/20 transition-colors shadow-sm cursor-pointer text-center mb-sm">
-            📝 Take Assessment <span class="text-[10px] font-bold bg-white/20 text-white/80 px-1.5 py-0.5 rounded ml-1">Soon</span>
+            <span class="material-symbols-outlined text-xs align-middle">assignment</span> Take Assessment <span class="text-[10px] font-bold bg-white/20 text-white/80 px-1.5 py-0.5 rounded ml-1">Soon</span>
           </router-link>
           <button class="w-full py-xs bg-white text-secondary font-bold rounded-lg border border-secondary/20 hover:bg-secondary/5 transition-colors shadow-sm cursor-pointer">
-            💬 Ask AI
+            <span class="material-symbols-outlined text-xs align-middle">chat</span> Ask AI <span class="text-[9px] font-bold bg-secondary/10 text-secondary px-1 py-0.5 rounded ml-1">Soon</span>
           </button>
         </div>
       </div>
