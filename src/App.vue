@@ -14,24 +14,18 @@
 
     <!-- Auth Expired Modal -->
     <Teleport to="body">
-      <div
-        v-if="showAuthExpired"
-        class="fixed inset-0 z-[300] flex items-center justify-center bg-black/30"
-        @click.self="showAuthExpired = false"
-      >
-        <div class="bg-white rounded-2xl shadow-xl p-xl mx-4 text-center" style="max-width: 400px;">
+      <div v-if="showAuthExpired" class="fixed inset-0 z-[300] flex items-center justify-center bg-black/30 px-4">
+        <div class="w-full bg-white rounded-2xl shadow-xl p-xl text-center" style="max-width: 400px;">
           <div class="w-16 h-16 mx-auto mb-md rounded-2xl bg-error/10 flex items-center justify-center">
             <span class="material-symbols-outlined text-[36px] text-error">logout</span>
           </div>
           <h3 class="font-headline-md font-bold text-on-surface mb-xs">Session expired</h3>
           <p class="text-on-surface-variant text-sm mb-lg">Your session has expired. Please sign in again to continue.</p>
-          <router-link
-            to="/login"
-            class="block w-full bg-primary hover:bg-primary/90 text-on-primary font-bold py-sm rounded-xl transition-all active:scale-95 shadow-sm text-center"
-            @click="showAuthExpired = false"
-          >
-            Sign In
-          </router-link>
+          <div class="flex flex-col gap-sm">
+            <router-link to="/login" class="block w-full bg-primary hover:bg-primary/90 text-on-primary font-bold py-sm rounded-xl transition-all text-center" @click="showAuthExpired = false">Sign In</router-link>
+            <router-link to="/register" class="block w-full text-primary font-bold py-sm rounded-xl transition-all text-center hover:bg-primary/5" @click="showAuthExpired = false">Create Account</router-link>
+            <button class="text-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" @click="dismissAuthExpired">Cancel</button>
+          </div>
         </div>
       </div>
     </Teleport>
@@ -46,7 +40,16 @@ const { toast } = useToast()
 const showAuthExpired = ref(false)
 
 function onAuthExpired() {
+  if (sessionStorage.getItem('auth_expired_dismissed')) return
   showAuthExpired.value = true
+  // 强制登出
+  localStorage.removeItem('lingorx_token')
+  localStorage.removeItem('lingorx_profile')
+}
+
+function dismissAuthExpired() {
+  showAuthExpired.value = false
+  sessionStorage.setItem('auth_expired_dismissed', '1')
 }
 
 onMounted(() => {

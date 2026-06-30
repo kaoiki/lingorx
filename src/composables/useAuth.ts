@@ -49,6 +49,7 @@ export function useAuth() {
     localStorage.setItem(PROFILE_KEY, JSON.stringify(profile))
     isLoggedIn.value = true
     user.value = profile
+    sessionStorage.removeItem('auth_expired_dismissed')
   }
 
   function updateProfile(partial: Partial<UserProfile>) {
